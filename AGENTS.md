@@ -1,18 +1,3 @@
-**Aprovo a troca de&#x20;**`metodo/`**&#x20;por&#x20;**`IA/`**&#x20;e recomendo manter a estrutura proposta**, com alguns ajustes de governança antes de começarmos a desenvolver.
-
-A estrutura está adequada ao que queremos construir no TeamKitCollection: um sistema em que diferentes IAs possam assumir responsabilidades, interromper atividades, transferir tarefas e continuar o trabalho sem depender de conversas anteriores.
-
-Entretanto, precisamos estabelecer uma distinção fundamental:
-
-- `AGENTS.md` será o ponto de entrada, responsável pelo direcionamento dos agentes.
-- `IA/regras/` estabelecerá as normas e limites.
-- `IA/papeis/` definirá responsabilidades profissionais.
-- `IA/projeto/` preservará o conhecimento do produto.
-- `IA/tarefas/` guardará a continuidade do trabalho.
-- `IA/operacao/` registrará procedimentos de operação e suporte.
-
-Uma ressalva: a regra de manter somente `README.md` e `AGENTS.md` na raiz precisa valer para a **documentação Markdown de governança**, não para todos os arquivos. Um projeto real pode exigir `package.json`, `Dockerfile`, `.gitignore`, arquivos de configuração e outros elementos na raiz. Forçar a remoção deles prejudicaria a compatibilidade das ferramentas.
-
 ## **Contrato inicial — AGENTS.md**
 
 Este documento foi projetado para ser genérico, independente de fornecedor de IA e pequeno o suficiente para não exigir a leitura integral de todos os documentos do projeto.
