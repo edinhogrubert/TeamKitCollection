@@ -124,7 +124,7 @@ Nenhuma regra deste arquivo substitui restrições legais, políticas de seguran
 
 ## 4. Estrutura oficial da documentação
 
-A documentação dos agentes será organizada em `IA/`.
+A documentação dos agentes será organizada em `IA/` e `DOCS`.
 
 ```
 TeamKitCollection/
