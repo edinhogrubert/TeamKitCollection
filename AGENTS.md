@@ -106,7 +106,7 @@ A organização normativa será:
 | 1     | `AGENTS.md`                      | Entrada, roteamento e governança geral          |
 | 2     | `IA/regras/`                     | Normas obrigatórias e contratos operacionais    |
 | 3     | `IA/papeis/`                     | Responsabilidades e limites funcionais          |
-| 4     | `IA/projeto/`                    | Conhecimento e contratos específicos do produto |
+| 4     | `docs/`                          | Conhecimento e contratos específicos do produto |
 | 5     | `IA/tarefas/`                    | Estado persistido das atividades                |
 | 6     | Código, testes, Git e evidências | Estado técnico observável                       |
 
@@ -134,6 +134,7 @@ TeamKitCollection/
 │
 ├── IA/                              # MÉTODO DE TRABALHO COM IA
 │   ├── PLANO_EVOLUCAO.md
+│   ├── PROJETO.md                      # ANDAMENTO E PRÓXIMA ETAPA
 │   │
 │   ├── regras/
 │   │   ├── constituicao.md
@@ -238,6 +239,11 @@ Essa separação constitui uma regra estrutural obrigatória do TeamKitCollectio
 ---
 
 ## 5. Protocolo obrigatório de entrada
+
+**Primeira consulta de andamento:** após este arquivo, ler `IA/PROJETO.md` para identificar o estado confirmado e a próxima etapa; consultar `IA/PLANO_EVOLUCAO.md` somente quando a missão exigir visão dos marcos do método. Em seguida, localizar a tarefa específica quando existir. A ausência de um documento listado como planejado não é prova de sua implementação.
+
+**Separação de documentação:** regras e continuidade das IAs ficam em `IA/`; requisitos, arquitetura e operação do aplicativo ficam em `docs/`. O roteiro do aplicativo será `docs/ROADMAP.md` quando criado.
+
 
 Todo agente que assumir uma atividade deverá executar o seguinte procedimento lógico.
 
