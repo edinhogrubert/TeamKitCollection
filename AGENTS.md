@@ -189,6 +189,31 @@ Somente `README.md` e `AGENTS.md` deverão permanecer como documentos Markdown d
 Arquivos técnicos necessários às ferramentas poderão permanecer na raiz quando exigido.
 
 ---
+### 4.1 — Separação obrigatória entre método e produto
+
+O repositório possui duas áreas documentais com responsabilidades distintas:
+
+- `IA/`: contém exclusivamente a metodologia de trabalho com agentes de inteligência artificial, incluindo regras, papéis, comunicação, continuidade, tarefas e auditoria.
+- `docs/`: contém a documentação tradicional de engenharia do TeamKitCollection, incluindo requisitos, arquitetura, regras de negócio, modelos de dados, testes, infraestrutura e operação.
+
+**Regras obrigatórias:**
+
+1. Documentos que descrevem **como os agentes devem trabalhar** pertencem à estrutura `IA/`.
+2. Documentos que descrevem **como o produto deve funcionar, ser construído, testado e operado** pertencem à estrutura `docs/`.
+3. O agente não deverá registrar regras de negócio do TeamKitCollection como regras universais da metodologia.
+4. O agente não deverá inserir instruções específicas para modelos de IA na documentação técnica tradicional do produto.
+5. A documentação de `docs/` deverá ser compreensível e utilizável por uma equipe humana sem acesso aos documentos de `IA/`.
+6. Os contratos de `IA/` poderão referenciar documentos de `docs/`, mas não deverão duplicar seu conteúdo.
+7. Quando um documento possuir conteúdo de ambas as naturezas, o agente deverá separar as responsabilidades e estabelecer referências entre os arquivos.
+8. A continuidade do trabalho dos agentes permanecerá em `IA/tarefas/`, enquanto os resultados técnicos consolidados deverão ser incorporados à documentação apropriada em `docs/`.
+
+**Critérios de validação:**
+
+- **Portabilidade humana:** uma equipe de profissionais deverá conseguir compreender, reconstruir e operar o sistema utilizando a documentação técnica, o código e os artefatos do projeto, sem depender do histórico das IAs.
+- **Portabilidade entre IAs:** um novo agente deverá conseguir assumir uma tarefa utilizando os contratos, estados persistidos e evidências do repositório, sem depender das conversas anteriores.
+
+Essa separação constitui uma regra estrutural obrigatória do TeamKitCollection.
+---
 
 ## 5. Protocolo obrigatório de entrada
 
