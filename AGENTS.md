@@ -142,36 +142,73 @@ Nenhuma regra deste arquivo substitui restrições legais, políticas de seguran
 A documentação dos agentes será organizada em `IA/`.
 
 ```
-IA/
-├── regras/
-│   ├── constituicao.md
-│   ├── confiabilidade.md
-│   ├── seguranca.md
-│   └── comunicacao.md
-├── papeis/
-│   ├── arquiteto.md
-│   ├── analista-requisitos.md
-│   ├── desenvolvedor.md
-│   ├── dba.md
-│   ├── engenheiro-dados.md
-│   ├── qa.md
-│   ├── auditor.md
-│   └── suporte.md
-├── projeto/
+TeamKitCollection/
+│
+├── README.md
+├── AGENTS.md
+│
+├── IA/                              # MÉTODO DE TRABALHO COM IA
+│   ├── PLANO_EVOLUCAO.md
+│   │
+│   ├── regras/
+│   │   ├── constituicao.md
+│   │   ├── confiabilidade.md
+│   │   ├── seguranca.md
+│   │   └── comunicacao.md
+│   │
+│   ├── papeis/
+│   │   ├── arquiteto.md
+│   │   ├── analista-requisitos.md
+│   │   ├── desenvolvedor.md
+│   │   ├── dba.md
+│   │   ├── engenheiro-dados.md
+│   │   ├── qa.md
+│   │   ├── auditor.md
+│   │   └── suporte.md
+│   │
+│   ├── tarefas/
+│   │   ├── indice.md
+│   │   └── TASK-001/
+│   │       ├── contrato.md
+│   │       ├── estado.md
+│   │       ├── evidencias.md
+│   │       └── handoff.md
+│   │
+│   ├── operacao/
+│   │   ├── incidentes.md
+│   │   └── recuperacao.md
+│   │
+│   └── validacao/
+│       └── experimentos.md
+│
+├── docs/                            # ENGENHARIA TRADICIONAL
+│   ├── ROADMAP.md
 │   ├── visao.md
-│   ├── arquitetura.md
 │   ├── requisitos.md
+│   ├── casos-de-uso.md
+│   ├── regras-negocio.md
+│   ├── arquitetura.md
+│   ├── modelo-dados.md
+│   ├── contratos-api.md
+│   ├── infraestrutura.md
+│   ├── seguranca.md
+│   ├── testes.md
+│   ├── implantacao.md
+│   ├── operacao.md
+│   ├── recuperacao.md
 │   └── decisoes.md
-├── tarefas/
-│   ├── indice.md
-│   └── TASK-001/
-│       ├── contrato.md
-│       ├── estado.md
-│       ├── evidencias.md
-│       └── handoff.md
-└── operacao/
-    ├── incidentes.md
-    └── recuperacao.md
+│
+├── src/                             # CÓDIGO DA APLICAÇÃO
+│
+├── tests/                           # TESTES AUTOMATIZADOS
+│
+├── scripts/                         # AUTOMAÇÕES
+│
+└── infra/                           # INFRAESTRUTURA
+    ├── docker/
+    ├── redes/
+    ├── onprem/
+    └── cloud/
 ```
 
 A estrutura é extensível.
