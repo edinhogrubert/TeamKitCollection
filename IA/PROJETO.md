@@ -1,9 +1,9 @@
 # PROJETO — Controle de Evolução
 
 **Projeto:** TeamKitCollection  
-**Identificação:** M1-01  
-**Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-01 — Revisar e completar a constituição (GOV-001 já redigido e verificado no Git)
+**Identificação:** M1-02  
+**Estado:** PENDENTE  
+**Próxima etapa:** M1-02 — Criar e revisar `IA/regras/seguranca.md` (GOV-T01 a GOV-T07 aguardam execução posterior)
 
 ---
 
@@ -18,7 +18,8 @@
 | M0-05 | Elaborar `IA/PLANO_EVOLUCAO.md` | CONCLUÍDO |
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
-| M1-01 | Redigir e validar a constituição completa (`GOV-001` inicial publicado) | EM_ANDAMENTO |
+| M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
+| M1-TEST | Executar GOV-T01 a GOV-T07, incluindo teste independente | PENDENTE |
 | M1-02 | Criar `IA/regras/seguranca.md` | PENDENTE |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -50,10 +51,18 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ---
 
-**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contrato inicial `GOV-001` em `IA/regras/constituicao.md` publicado; constituição completa ainda pendente. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
+**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contratos GOV-001 a GOV-005 em `IA/regras/constituicao.md` publicados e relidos na `main` (commit `c39a37a36aee9944f610ac0b13478dfead3458a7`); GOV-T01 a GOV-T07 definidos, ainda não executados. O marco M1 continua aberto até segurança e validação prática. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
 
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
-**Evidências:** verificar o histórico de commits da `main` e os caminhos acima; documentação concluída significa arquivo presente, não validação de funcionalidade.
+## Registro da decisão M1-01
+
+- **Proposta:** completar os contratos GOV-002 a GOV-005, preservando GOV-001, e registrar os testes necessários.
+- **Decisão humana:** `TRUE` — autorização expressa para criar, atualizar o controle e informar testes.
+- **Execução:** documento publicado e relido na `main`; nenhum teste comportamental multiagente executado.
+- **Evidência documental:** commit `c39a37a36aee9944f610ac0b13478dfead3458a7` e conteúdo `IA/regras/constituicao.md`.
+- **Pendente:** GOV-T01 a GOV-T07; revisão independente e `IA/regras/seguranca.md`.
+
+**Evidências gerais:** histórico de commits da `main` e arquivos citados; documentação concluída significa arquivo existente e verificado no Git, não validação do comportamento de IAs ou do aplicativo.
