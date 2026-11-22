@@ -1,0 +1,53 @@
+# PROJETO — Controle de Evolução
+
+**Projeto:** TeamKitCollection  
+**Identificação:** M0  
+**Estado:** EM_ANDAMENTO  
+**Próxima etapa:** M0-07 — Validar o `AGENTS.md` e iniciar M1 (`IA/regras/constituicao.md`)
+
+---
+
+## Controle das etapas
+
+| Identificação | Etapa | Estado |
+|---|---|---|
+| M0-01 | Definir a visão geral do projeto | CONCLUÍDO |
+| M0-02 | Elaborar `README.md` | CONCLUÍDO |
+| M0-03 | Elaborar `AGENTS.md` | CONCLUÍDO |
+| M0-04 | Definir a separação entre `IA/` e `docs/` | CONCLUÍDO |
+| M0-05 | Elaborar `IA/PLANO_EVOLUCAO.md` | EM_ANDAMENTO |
+| M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
+| M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | PENDENTE |
+| M1-01 | Criar `IA/regras/constituicao.md` | PENDENTE |
+| M1-02 | Criar `IA/regras/seguranca.md` | PENDENTE |
+| M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
+| M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
+| M4-01 | Criar os contratos em `IA/papeis/` | PENDENTE |
+| M5-01 | Implementar o protocolo de tarefas e handoff | PENDENTE |
+| M6-01 | Criar verificações automatizadas | PENDENTE |
+| M7-01 | Validar o método durante desenvolvimento e operação | PENDENTE |
+| M8-01 | Testar a portabilidade entre projetos | PENDENTE |
+| M9-01 | Avaliar os resultados e aperfeiçoar o método | PENDENTE |
+
+## Estados permitidos
+
+- `PENDENTE` — Ainda não iniciado.
+- `EM_ANDAMENTO` — Em execução.
+- `CONCLUÍDO` — Finalizado com evidências.
+- `BLOQUEADO` — Impedimento identificado.
+- `CANCELADO` — Não será executado.
+
+## Regra de atualização
+
+Ao finalizar uma atividade, o agente deverá:
+
+1. Atualizar seu estado.
+2. Registrar a evidência de conclusão ou a referência correspondente.
+3. Atualizar a identificação e a próxima etapa no início deste arquivo.
+4. Manter o histórico das etapas anteriores.
+
+Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiver verificada no repositório.
+
+---
+
+**Última verificação do estado no Git:** 2026-11-22 — README e AGENTS existentes em `main`; pasta `IA/regras/` contém somente `constituicao.md` vazio (1 byte); método e aplicativo ainda não implementados. O estado das tarefas será revalidado após as alterações deste registro.
