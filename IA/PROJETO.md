@@ -2,8 +2,8 @@
 
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-01  
-**Estado:** PENDENTE  
-**Próxima etapa:** M1-01 — Redigir e validar `IA/regras/constituicao.md`
+**Estado:** EM_ANDAMENTO  
+**Próxima etapa:** M1-01 — Revisar e completar a constituição (GOV-001 já redigido e verificado no Git)
 
 ---
 
@@ -18,7 +18,7 @@
 | M0-05 | Elaborar `IA/PLANO_EVOLUCAO.md` | CONCLUÍDO |
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
-| M1-01 | Redigir e validar `IA/regras/constituicao.md` (arquivo vazio existente) | PENDENTE |
+| M1-01 | Redigir e validar a constituição completa (`GOV-001` inicial publicado) | EM_ANDAMENTO |
 | M1-02 | Criar `IA/regras/seguranca.md` | PENDENTE |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -50,8 +50,10 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ---
 
-**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Arquivo `IA/regras/constituicao.md` tem apenas 1 byte (sem contrato implementado). `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
+**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contrato inicial `GOV-001` em `IA/regras/constituicao.md` publicado; constituição completa ainda pendente. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
 
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
+
+**Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
 **Evidências:** verificar o histórico de commits da `main` e os caminhos acima; documentação concluída significa arquivo presente, não validação de funcionalidade.
