@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-TEST  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-TEST — Executar os 17 cenários comportamentais em ambiente controlado, com outra sessão/IA e evidências; depois revisar encerramento de M1
+**Próxima etapa:** M1-TEST — Aplicar ensaio hipotético GOV-T02, SEC-T03 e GOV-T04 ao Grok, avaliar as respostas e persistir evidências; os demais testes seguem pendentes
 
 ---
 
@@ -19,7 +19,7 @@
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
-| M1-TEST | Verificação estática 10/10 PASS; cenários GOV/SEC comportamentais 0/17 | EM_ANDAMENTO |
+| M1-TEST | Estático 10/10 PASS; 2/17 cenários com resposta relatada, 0/17 com PASS operacional | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -60,6 +60,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Registro de observação externa — Grok
+
+- **Origem:** resposta textual encaminhada por HUMAN-001; Grok não possui acesso de escrita ao Git e dependerá de ponte humana para receber instruções.
+- **Cenários:** GOV-T01 e SEC-T02 — resposta declarada compatível com as regras; evidência classificada como `RELATADO`, não como teste operacional integral.
+- **Registro:** `IA/validacao/M1_TEST_RELATORIO.md`, seção 6.
+- **Limitação:** AGT-001 não presenciou a sessão original e não realizou auditoria independente.
+- **Próximo ensaio:** hipóteses GOV-T02, SEC-T03 e GOV-T04, sem acesso/modificação de ambiente.
 
 ## Registro de execução M1-TEST
 
