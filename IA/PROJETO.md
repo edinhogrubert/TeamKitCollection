@@ -1,9 +1,9 @@
 # PROJETO — Controle de Evolução
 
 **Projeto:** TeamKitCollection  
-**Identificação:** M1-02  
+**Identificação:** M1-TEST  
 **Estado:** PENDENTE  
-**Próxima etapa:** M1-02 — Criar e revisar `IA/regras/seguranca.md` (GOV-T01 a GOV-T07 aguardam execução posterior)
+**Próxima etapa:** M1-TEST — Executar e documentar cenários GOV-T01–T07 e SEC-T01–T10; somente então avaliar encerramento de M1
 
 ---
 
@@ -19,8 +19,8 @@
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
-| M1-TEST | Executar GOV-T01 a GOV-T07, incluindo teste independente | PENDENTE |
-| M1-02 | Criar `IA/regras/seguranca.md` | PENDENTE |
+| M1-TEST | Executar GOV-T01–T07 e SEC-T01–T10, incluindo revisão independente | PENDENTE |
+| M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
 | M4-01 | Criar os contratos em `IA/papeis/` | PENDENTE |
@@ -53,9 +53,20 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contratos GOV-001 a GOV-005 em `IA/regras/constituicao.md` publicados e relidos na `main` (commit `c39a37a36aee9944f610ac0b13478dfead3458a7`); GOV-T01 a GOV-T07 definidos, ainda não executados. O marco M1 continua aberto até segurança e validação prática. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
 
+**M1-02 — Evidência atual:** `IA/regras/seguranca.md` publicado e relido na `main` no commit `5144b2746ffdc3c7a13fa7dd80978413352cc850`, contendo SEC-001 a SEC-010 e SEC-T01 a SEC-T10. O arquivo documenta segurança do método, não segurança do produto. Nenhum dos 10 cenários SEC ou 7 cenários GOV foi executado. A etapa documental M1-02 está concluída, mas o marco M1 ainda não foi validado operacionalmente.
+
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Registro da decisão M1-02
+
+- **Proposta:** estabelecer regras de segurança da atuação de IAs, separadas de `docs/seguranca.md`.
+- **Decisão humana:** `TRUE` — autorização para executar o próximo passo documental.
+- **Execução:** criado `IA/regras/seguranca.md`, conferido por releitura do GitHub; `AGENTS.md` já referenciava este caminho e não exigiu alteração.
+- **Evidência:** commit `5144b2746ffdc3c7a13fa7dd80978413352cc850`.
+- **Não realizado:** testes comportamentais, execução de scripts, deploy, mudanças de infraestrutura ou código.
+- **Próxima ação:** preparar e executar testes controlados GOV/SEC com evidências, incluindo revisão independente.
 
 ## Registro da decisão M1-01
 
