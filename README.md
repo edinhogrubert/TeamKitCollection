@@ -1,29 +1,4 @@
-### Independência entre o método de IA e a engenharia do produto
 
-O TeamKitCollection possui duas estruturas documentais independentes e complementares:
-
-**`IA/` — Metodologia de Engenharia Assistida por IA**
-
-Contém regras, responsabilidades, protocolos de comunicação, continuidade, auditoria e governança dos agentes de inteligência artificial.
-
-Seu conteúdo deve ser reutilizável em outros projetos, independentemente do produto, da linguagem de programação ou do fornecedor de IA.
-
-**`docs/` — Engenharia Tradicional do Produto**
-
-Contém a documentação necessária para que uma equipe humana consiga compreender, reconstruir, implantar, operar, manter e evoluir o TeamKitCollection sem depender das IAs ou de seus históricos de conversas.
-
-Inclui requisitos, regras de negócio, arquitetura, modelos de dados, contratos de integração, testes, infraestrutura e operação.
-
-**Princípio de independência:**
-
-A documentação do produto não poderá depender da metodologia de IA para ser compreendida.
-
-A metodologia de IA não poderá incorporar regras de negócio específicas do produto como normas universais.
-
-Essa separação será validada por testes de portabilidade humana e continuidade entre agentes de IA.
-
-# TeamKitCollection
-Ainda vou definir a descrição
 
 
 # TeamKitCollection
@@ -107,6 +82,33 @@ A metodologia deverá permitir:
 10. Produzir um método aplicável a outros projetos de software.
 
 ## 4. Princípios fundamentais
+
+### Independência entre o método de IA e a engenharia do produto
+
+O TeamKitCollection possui duas estruturas documentais independentes e complementares:
+
+**`IA/` — Metodologia de Engenharia Assistida por IA**
+
+Contém regras, responsabilidades, protocolos de comunicação, continuidade, auditoria e governança dos agentes de inteligência artificial.
+
+Seu conteúdo deve ser reutilizável em outros projetos, independentemente do produto, da linguagem de programação ou do fornecedor de IA.
+
+**`docs/` — Engenharia Tradicional do Produto**
+
+Contém a documentação necessária para que uma equipe humana consiga compreender, reconstruir, implantar, operar, manter e evoluir o TeamKitCollection sem depender das IAs ou de seus históricos de conversas.
+
+Inclui requisitos, regras de negócio, arquitetura, modelos de dados, contratos de integração, testes, infraestrutura e operação.
+
+**Princípio de independência:**
+
+A documentação do produto não poderá depender da metodologia de IA para ser compreendida.
+
+A metodologia de IA não poderá incorporar regras de negócio específicas do produto como normas universais.
+
+Essa separação será validada por testes de portabilidade humana e continuidade entre agentes de IA.
+
+# TeamKitCollection
+Ainda vou definir a descrição
 
 ### 4.1 Custo financeiro zero
 
