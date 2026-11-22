@@ -1,9 +1,9 @@
 # PROJETO — Controle de Evolução
 
 **Projeto:** TeamKitCollection  
-**Identificação:** M0  
-**Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M0-07 — Validar o `AGENTS.md` e iniciar M1 (`IA/regras/constituicao.md`)
+**Identificação:** M1-01  
+**Estado:** PENDENTE  
+**Próxima etapa:** M1-01 — Redigir e validar `IA/regras/constituicao.md`
 
 ---
 
@@ -15,10 +15,10 @@
 | M0-02 | Elaborar `README.md` | CONCLUÍDO |
 | M0-03 | Elaborar `AGENTS.md` | CONCLUÍDO |
 | M0-04 | Definir a separação entre `IA/` e `docs/` | CONCLUÍDO |
-| M0-05 | Elaborar `IA/PLANO_EVOLUCAO.md` | EM_ANDAMENTO |
+| M0-05 | Elaborar `IA/PLANO_EVOLUCAO.md` | CONCLUÍDO |
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
-| M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | PENDENTE |
-| M1-01 | Criar `IA/regras/constituicao.md` | PENDENTE |
+| M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
+| M1-01 | Redigir e validar `IA/regras/constituicao.md` (arquivo vazio existente) | PENDENTE |
 | M1-02 | Criar `IA/regras/seguranca.md` | PENDENTE |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -50,4 +50,8 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ---
 
-**Última verificação do estado no Git:** 2026-11-22 — README e AGENTS existentes em `main`; pasta `IA/regras/` contém somente `constituicao.md` vazio (1 byte); método e aplicativo ainda não implementados. O estado das tarefas será revalidado após as alterações deste registro.
+**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Arquivo `IA/regras/constituicao.md` tem apenas 1 byte (sem contrato implementado). `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
+
+**Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
+
+**Evidências:** verificar o histórico de commits da `main` e os caminhos acima; documentação concluída significa arquivo presente, não validação de funcionalidade.
