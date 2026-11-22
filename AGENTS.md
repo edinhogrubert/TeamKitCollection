@@ -13,6 +13,16 @@ Este documento foi projetado para ser genérico, independente de fornecedor de I
 
 ---
 
+## Atribuição vigente — fase experimental
+
+- **Autoridade humana:** `HUMAN-001` — operador humano ativo, responsável pelas decisões `TRUE` (aprova) e `FALSE` (rejeita); ausência de decisão é `PENDENTE`.
+- **Coordenador técnico:** `AGT-001` — papel atualmente exercido pelo ChatGPT (GPT-6), substituível por outro agente mediante atribuição explícita.
+- **Contrato normativo:** [`IA/regras/constituicao.md`](IA/regras/constituicao.md), seção GOV-001.
+- **Limite:** a IA elabora e fundamenta propostas; aprovação humana não converte afirmações em fatos verificados, nem concede acesso técnico inexistente.
+- **Retomada:** consultar [`IA/PROJETO.md`](IA/PROJETO.md) antes de assumir atividades pendentes.
+
+---
+
 ## 1. Finalidade
 
 Este arquivo constitui o ponto de entrada oficial para agentes de inteligência artificial que participem do desenvolvimento, manutenção, operação ou auditoria do TeamKitCollection.
