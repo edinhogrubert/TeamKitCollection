@@ -106,6 +106,18 @@ Após análise crítica do parecer, o coordenador pode propor `TKC-AUT-XXXX` em 
 
 Com decisão válida, executor atribuído e registro de posse publicado, registrar checkpoints em `TKC-EXE-XXXX` e resultado em `TKC-RET-XXXX`; auditoria e aceite são distintos. Ver [COM-002](../despachos/README.md) como fonte única dos padrões de identificadores. Não há bot, agendamento, consulta contínua nem envio entre sessões implementados.
 
+## 7.3 Sincronização incremental e economia de contexto
+
+**Objetivo:** evitar que agentes consumam tokens relendo governança inteira. A referência de revisão **não é uma memória permanente certificada**; ela prova no máximo o que a sessão declara ter conferido, com origem e escopo.
+
+- Em tarefa/parecer/handoff, registrar de forma **compacta**, quando conhecido: `rules_checked_commit` (último commit cuja revisão normativa foi efetivamente conferida), `rules_scope` (caminhos ou IDs realmente consultados), `rules_check_status` (`ATUALIZADO`, `MUDANCA_RELEVANTE`, `DESCONHECIDO` ou `SEM_ACESSO`) e `rules_diff_ref` quando relevante. **São campos opcionais de evidência; ausência não indica sincronização.** Não adicionar histórico completo de versões a cada tarefa.
+- Ao receber a referência humana ou retomar uma tarefa, consultar o `HEAD` da `main` e verificar se houve modificação **nos arquivos normativos aplicáveis** desde `rules_checked_commit` por comparação Git entre commits. Se não houve, manter contexto. Se houve, ler diffs e seções alteradas, verificando dependências; **hash de HEAD diferente não significa regra alterada**.
+- Se a revisão anterior é desconhecida, o Git não oferece comparação confiável ou o resumo não resolve uma dúvida, consultar **diretamente as regras essenciais à atividade**, não o acervo inteiro. Se não for possível confirmar autoridade e segurança para L2/L3, restringir-se a L0/L1 e registrar bloqueio.
+- Alterações em autorização, identidade, segurança, responsabilidades, proibições ou hierarquia invalidam confiança no contexto anterior até que a regra atual seja revalidada. Não aceitar resumos de terceiros como substitutos de fonte vigente. Mesmo diff aparentemente pequeno pode mudar efeito normativo.
+- AGT-001 pode informar, em uma ordem transportada pelo humano, quais arquivos/IDs mudaram desde a última revisão *declarada* pelo destinatário, **sem afirmar que ele os leu** e sem acionar sessões automaticamente.
+
+**Teste documental proposto (não executado):** agente com revisão antiga e regra alterada; revisão antiga com commit novo apenas no produto; revisão desconhecida; mudança de segurança; diffs indisponíveis; contradição entre resumo e regra. Avaliar leituras efetivas e decisão segura, não somente a presença de um campo de versão.
+
 ## 8. Testes de aceitação da especificação
 
 | ID | Ensaio esperado | Critério de conformidade |
