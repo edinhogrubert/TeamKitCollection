@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Submeter à decisão humana correção documental dirigida de N01–N05 da segunda auditoria Codex; após correção, conferência direcionada D2, D5–D8 e eventual aceite específico M1-DOC
+**Próxima etapa:** M1-REVISAO — Solicitar a revisor distinto (ex.: Codex) conferência direcionada de D2 e D5–D8 após o Bloco 3 (N01–N05 e D5/A06 corrigidos); após conferência, submeter decisão humana específica de aceite M1-DOC (D9)
 
 ---
 
@@ -19,8 +19,8 @@
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
-| M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Segunda auditoria Codex: M1-DOC/TXT REPROVAR, OPS NÃO VALIDADO; N01–N05 e aceite humano pendentes | EM_ANDAMENTO |
+| M1-TEST | Bateria histórica percorrida e registrada apenas em síntese (`RELATADO`, ver `IA/validacao/M1_INVENTARIO_EVIDENCIAS.md`): estático 10/10 PASS (verificador não versionado); 17/17 cenários com síntese textual (16/17 conformes na 1ª tentativa; 1/17 `GOV-T03` `PARCIAL / NÃO APROVADO` na 1ª tentativa e `PASS` em reteste orientado); 0/17 evidências primárias integrais no Git (`M1-TXT` não aprovado); 0/17 operacional (`M1-OPS` não validado) | CONCLUÍDO |
+| M1-REVISAO | Bloco 3 documental (N01–N05 e D5/A06) aplicado sobre a segunda auditoria Codex; conferência direcionada (D2, D5–D8) e aceite humano específico M1-DOC (D9) pendentes | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -67,28 +67,45 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## M1-REVISAO — Bloco 3 de correção documental dirigida (N01–N05 e D5/A06)
+
+- **Registro da decisão (`GOV-005` §5.2):**
+  - **ID:** `DEC-M1-B3`
+  - **Proposta:** atribuir `AGT-002` (Implementador Documental, sessão Gemini) e aplicar exclusivamente as correções documentais `N01`–`N05` e `D5/A06` nos arquivos `IA/regras/seguranca.md`, `IA/validacao/PACOTE_CONTEXTO_M1.md` e `IA/PROJETO.md`, diretamente na `main`, a partir do commit-base `d75ffcdc6c09dbe6bcc092995f6a245d3f54bfa5`.
+  - **Motivo/risco:** sanar as inconsistências documentais apontadas na segunda auditoria do Codex (`IA/validacao/M1_SEGUNDA_AUDITORIA_CODEX.md`) para permitir reavaliação direcionada de `D2` e `D5–D8`, sem alterar escopo técnico, scripts ou infraestrutura.
+  - **Decisão:** `TRUE` para a Fase A (preparação `L0`/`L1`) e `TRUE` explícito (`"true, pode seguir"`) para a Fase B (modificação documental `L2`).
+  - **Origem:** `MEDIADO` — ordem de entrada encaminhada por `HUMAN-001` e aprovação `TRUE` subsequente na sessão de `AGT-002`; a conversa da sessão externa não constitui artefato primário criptograficamente autenticado dentro do Git.
+  - **Consequência:** autorizada apenas a edição dos três arquivos listados; continuam bloqueadas quaisquer ações de infraestrutura, execução de scripts, alteração de permissões do GitHub ou homologação de `M1-DOC`, `M1-TXT` e `M1-OPS`.
+  - **Execução:** concluída por `AGT-002` na branch `main`. Correções de `IA/regras/seguranca.md` (`N01`, `N04`) e `IA/validacao/PACOTE_CONTEXTO_M1.md` (`N02`, `N05`) registradas no commit `fb0ad7fb7c9eb527ecd62673443cec9088e4bc26`, seguidas da reconciliação deste `IA/PROJETO.md` (`N03`, `N05`, `D5/A06`).
+  - **Próxima ação:** submeter os commits do Bloco 3 à conferência direcionada por agente/sessão distinta (`D2`, `D5–D8`) e posterior decisão humana específica sobre `M1-DOC` (`D9`).
+- **Síntese das correções aplicadas:**
+  - `N01` e `N04` (`IA/regras/seguranca.md`): cabeçalho reconciliado (sínteses históricas registradas; `M1-TXT` e `M1-OPS` pendentes) e §3 alinhado com `IA/validacao/M1_CRITERIOS_ACEITE.md`, eliminando a dependência ambígua de `M1-TXT` para o aceite de `M1-DOC`.
+  - `N02` e `N05` (`IA/validacao/PACOTE_CONTEXTO_M1.md`): explicitada a cronologia Git verificada (`8975095` captura-base em `2026-11-22 21:14:05 -0300`; `a9b3ea1` emissão inicial em `21:14:08 -0300`; `625ec9f` registro posterior do segundo retorno da Meta AI em `21:14:27 -0300`, blob `5a0a69e91413d1004d31ca3af2e10265d6a0b35a`; `9c8fdd8` e `1ef433d` conferência complementar posterior em `21:38:41 -0300` e `21:39:02 -0300`).
+  - `N03`, `N05` e `D5/A06` (`IA/PROJETO.md`): linha `M1-TEST` do quadro vigente qualificada como síntese histórica relatada (`0/17` evidências primárias integrais no Git, preservando `GOV-T03` parcial inicial e reteste orientado); retificada a afirmação sobre datas do Bloco 2 (`N05`); qualificados explicitamente como `MEDIADO` todos os registros de decisões humanas cuja instrução original não está preservada em artefato primário independente no Git (`D5/A06`).
+- **Limitações:** esta entrega é uma implementação documental (`AGT-002`) e **não** constitui auditoria independente (`SEC-010`). `M1-DOC`, `M1-TXT` e `M1-OPS` permanecem não homologados até revisão distinta e decisão específica de `HUMAN-001`.
+
 ## Segunda auditoria Codex — resultado e encaminhamento
 
-- **Fonte e escopo:** segunda resposta atribuída ao Codex e repassada por HUMAN-001, sobre `main` no commit `70939c5bd837103ed76964ee7572a972ee43a6f4`. Texto integral preservado em `IA/validacao/M1_SEGUNDA_AUDITORIA_CODEX.md` (commit `03cf8dc8ff63d7626d7e0084f129a05c603c741d`).
+- **Fonte e escopo:** segunda resposta atribuída ao Codex e repassada por HUMAN-001 (`MEDIADO`), sobre `main` no commit `70939c5bd837103ed76964ee7572a972ee43a6f4`. Texto integral preservado em `IA/validacao/M1_SEGUNDA_AUDITORIA_CODEX.md` (commit `03cf8dc8ff63d7626d7e0084f129a05c603c741d`).
 - **Veredito do auditor:** `M1-DOC: REPROVAR`; `M1-TXT: REPROVAR`; `M1-OPS: NÃO VALIDADO`; aceite humano para fechamento `PENDENTE`. O auditor reconheceu D1, D3 e D4 atendidos, D2, D5, D6 e D7 parciais; D8 realizado na sessão mas não preservado no commit examinado, D9 pendente.
 - **Achados novos:** N01 condição ambígua entre DOC e TXT em Segurança §3; N02 proveniência temporal incompleta de relato Meta AI no CTX; N03 resultados históricos não qualificados no quadro vigente; N04 cabeçalho de Segurança ambíguo; N05 referência a datas de conferência posterior sem data no pacote.
 - **Pendências originais:** A01/A02 dependem de evidências primárias ou reensaios; A04 controle técnico de escrita; A05 risco do script VM; A06 decisões mediadas com origem não preservada; A07 fonte temporal incompleta no CTX.
-- **Decisão atual:** apenas registrar a auditoria como evidência. **NÃO** homologar M1-DOC, M1-TXT ou M1-OPS e não promover resultados históricos a provas operacionais. A correção documental dirigida de N01–N05 deve ser registrada com escopo de autorização próprio.
+- **Decisão atual (`MEDIADO` — instrução de HUMAN-001 transmitida na sessão de AGT-001, sem artefato primário independente no Git):** apenas registrar a auditoria como evidência. **NÃO** homologar M1-DOC, M1-TXT ou M1-OPS e não promover resultados históricos a provas operacionais. A correção documental dirigida de N01–N05 deve ser registrada com escopo de autorização próprio.
 - **Próximo passo proposto:** corrigir N01–N05 sem apagar os registros antigos e obter conferência dirigida de outro agente; a avaliação de aceite M1-DOC exige decisão específica. Nenhuma alteração de scripts, proteção de branch ou infraestrutura foi autorizada por este parecer.
 
 ## M1-REVISAO — Bloco 2 de reconciliação documental
 
-- **Decisão humana:** executar o Bloco 2 estritamente documental na branch oficial `main`. Nenhuma autorização de infraestrutura ou mudança de proteção de branch.
+- **Decisão humana (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** executar o Bloco 2 estritamente documental na branch oficial `main`. Nenhuma autorização de infraestrutura ou mudança de proteção de branch.
 - **Estado vigente:** cabeçalho e tabela do início deste `IA/PROJETO.md`; seção histórica abaixo é trilha temporal, não ordens executáveis.
 - **M3/M5:** `IA/PLANO_EVOLUCAO.md` agora atribui comunicação, tarefas e handoff ao M3; coordenação simultânea e conflitos ao M5. A tabela acima registra `M3-02` e reinterpreta `M5-01`, ambos `PENDENTE`; não há entrega implementada nesses marcos.
 - **GOV/SEC:** contratos `IA/regras/constituicao.md` e `IA/regras/seguranca.md` passaram a apontar para o relatório histórico e o inventário, diferenciando respostas textuais mediadas de testes operacionais; não se declarou nenhuma aprovação operacional.
-- **CTX-001:** `IA/validacao/PACOTE_CONTEXTO_M1.md` ganhou identificação `owner/repo`, branch `main`, commit histórico `89750958366e366977ef6cc31bc64e0bcbcaed23`, referências ao `README.md` e relatório M1, com datas de verificação posterior explicitadas. O pacote permanece uma fotografia, não um espelho da `main`.
+- **CTX-001:** `IA/validacao/PACOTE_CONTEXTO_M1.md` ganhou identificação `owner/repo`, branch `main`, commit histórico `89750958366e366977ef6cc31bc64e0bcbcaed23`, referências ao `README.md` e relatório M1, com datas de verificação posterior explicitadas. O pacote permanece uma fotografia, não um espelho da `main`. *(Retificação `N05` no Bloco 3: no commit `70939c5` do Bloco 2 havia sido documentada apenas a natureza posterior da conferência, sem exibir os timestamps no pacote; a cronologia Git verificada — captura-base `8975095` em `2026-11-22 21:14:05 -0300`, emissão `a9b3ea1` em `21:14:08 -0300`, segundo retorno Meta AI `625ec9f` em `21:14:27 -0300` e conferência posterior `9c8fdd8`/`1ef433d` em `21:38:41 -0300` e `21:39:02 -0300` — foi explicitada no pacote no Bloco 3, commit `fb0ad7fb7c9eb527ecd62673443cec9088e4bc26`).*
 - **Riscos/pendências:** evidências integrais dos 17 cenários ainda não estão no Git; A01 e A02 não foram resolvidos, assim como A04/A05 (controles técnicos/script VM). A06 tem rastreabilidade parcial, com instruções humanas de origem não preservadas em artefato independente. O Bloco 2 não constitui aprovação M1-DOC.
 - **Verificação independente ainda necessária:** solicitar ao Codex ou outro revisor com acesso primário conferência das alterações, incluindo D1–D9 do `M1_CRITERIOS_ACEITE.md`. Não atribuir a esta autoverificação independência.
 
 ## M1-REVISAO — Bloco 1 de correção documental
 
-- **Autorização:** HUMAN-001 aprovou prosseguir com o primeiro bloco de correções documentais após o parecer `REPROVAR` do Codex.
+- **Autorização (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** HUMAN-001 aprovou prosseguir com o primeiro bloco de correções documentais após o parecer `REPROVAR` do Codex.
 - **Entrega 1:** `IA/validacao/M1_CRITERIOS_ACEITE.md` — separa `M1-DOC` (documental), `M1-TXT` (respostas textuais auditáveis) e `M1-OPS` (validação operacional), com critérios verificáveis e aprovação humana específica. Commit `0337b63dc0141faf53827d8e059bdca362679f66`.
 - **Entrega 2:** `IA/validacao/M1_INVENTARIO_EVIDENCIAS.md` — inventário dos 17 cenários, resultados históricos e ausência de conjuntos integrais de evidência primária versionados no Git. Commit `261cb9587f0c92465b50aec076eb5bf27fae085e`.
 - **Verificação:** ambos os arquivos foram publicados e relidos diretamente da `main`, sem alterações no produto ou infraestrutura.
@@ -117,7 +134,7 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ## Decisão e execução CTX-001 — transferência sem Git
 
-- **Decisão de HUMAN-001:** `TRUE` — aprovação explícita de resolver o problema de portabilidade identificado na Meta AI.
+- **Decisão de HUMAN-001 (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** `TRUE` — aprovação explícita de resolver o problema de portabilidade identificado na Meta AI.
 - **Problema:** Meta AI informou impossibilidade de ler os arquivos `AGENTS.md`, `IA/PROJETO.md` e relatório de M1. Isso bloqueou reconstrução do estado por falta de fonte; não é evidência de alucinação.
 - **Implementado:** protocolo `IA/regras/contexto-portatil.md` (CTX-001); pacote de contexto `IA/validacao/PACOTE_CONTEXTO_M1.md`, leitura mediada; referência adicionada ao `AGENTS.md`.
 - **Verificações:** arquivos publicados na `main` e relidos; coerência com GOV/SEC conferida preliminarmente pelo autor. Não existe sincronizador automático nem auditoria independente.
@@ -136,7 +153,7 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ## Preparação da revisão M1 — Ensaio não direcionado
 
-- **Autorização:** HUMAN-001 solicitou seguir para a próxima etapa após a consolidação do M1-TEST.
+- **Autorização (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** HUMAN-001 solicitou seguir para a próxima etapa após a consolidação do M1-TEST.
 - **Objetivo:** avaliar se uma nova sessão de IA detecta espontaneamente problemas de governança em relato fictício, sem apresentar nomes de contratos nem expectativas.
 - **Procedimento:** HUMAN-001 atua como ponte para o Grok; a IA não recebe acesso de escrita. Instrução de teste será fornecida ao operador e a resposta será incorporada como evidência após o retorno.
 - **Situação:** teste ainda não executado; independência entre sessões depende de HUMAN-001 iniciar conversa nova. Como o cenário foi preparado pelo AGT-001, o teste não constitui auditoria independente plena do projeto.
@@ -217,7 +234,7 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ## Registro de execução M1-TEST
 
-- **Autorização humana:** continuar para a próxima etapa do plano M1-TEST.
+- **Autorização humana (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** continuar para a próxima etapa do plano M1-TEST.
 - **Escopo realizado:** leitura de documentos oficiais e inspeção estática; nenhum teste com segunda IA foi executado.
 - **Resultado:** 10/10 checagens estáticas PASS, registradas em `IA/validacao/M1_TEST_RELATORIO.md`.
 - **Evidência:** commit `a6b76a239cbcfe78bbed297aa95dd1af24ee10db`.
@@ -227,7 +244,7 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 ## Registro da decisão M1-02
 
 - **Proposta:** estabelecer regras de segurança da atuação de IAs, separadas de `docs/seguranca.md`.
-- **Decisão humana:** `TRUE` — autorização para executar o próximo passo documental.
+- **Decisão humana (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** `TRUE` — autorização para executar o próximo passo documental.
 - **Execução:** criado `IA/regras/seguranca.md`, conferido por releitura do GitHub; `AGENTS.md` já referenciava este caminho e não exigiu alteração.
 - **Evidência:** commit `5144b2746ffdc3c7a13fa7dd80978413352cc850`.
 - **Não realizado:** testes comportamentais, execução de scripts, deploy, mudanças de infraestrutura ou código.
@@ -236,7 +253,7 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 ## Registro da decisão M1-01
 
 - **Proposta:** completar os contratos GOV-002 a GOV-005, preservando GOV-001, e registrar os testes necessários.
-- **Decisão humana:** `TRUE` — autorização expressa para criar, atualizar o controle e informar testes.
+- **Decisão humana (`MEDIADO` — instrução original de HUMAN-001 transmitida na sessão de AGT-001 e não preservada em artefato primário independente no Git):** `TRUE` — autorização expressa para criar, atualizar o controle e informar testes.
 - **Execução:** documento publicado e relido na `main`; nenhum teste comportamental multiagente executado.
 - **Evidência documental:** commit `c39a37a36aee9944f610ac0b13478dfead3458a7` e conteúdo `IA/regras/constituicao.md`.
 - **Pendente:** GOV-T01 a GOV-T07; revisão independente e `IA/regras/seguranca.md`.
