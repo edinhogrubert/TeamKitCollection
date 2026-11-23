@@ -4,7 +4,7 @@
 **Data de referência:** 2026-11-22  
 **Executor:** AGT-001 — ChatGPT (GPT-6)  
 **Escopo:** Inspeção estática dos contratos GOV e SEC, do roteador AGENTS, do controle de progresso e de um script existente  
-**Estado:** 10/10 verificações estáticas PASS; 17/17 cenários comportamentais PENDENTES  
+**Estado atual consolidado:** 10/10 verificações estáticas PASS; 17/17 cenários com resposta textual (16 conformes na primeira tentativa, 1 parcial com reteste orientado conforme); 0/17 com validação operacional comprovada. As seções históricas registram a evolução ao longo do teste  
 **Independência:** NÃO — o mesmo agente participou da redação dos documentos
 
 ## 1. Evidências e base
