@@ -1,9 +1,9 @@
 # PROJETO — Controle de Evolução
 
 **Projeto:** TeamKitCollection  
-**Identificação:** M1-TEST  
+**Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Ensaio independente/ciego de portabilidade e governança; avaliar encerramento documental/textual de M1, mantendo validação operacional pendente
+**Próxima etapa:** M1-REVISAO — Aplicar cenário não direcionado em conversa nova com IA externa, avaliar resposta e registrar evidência; não conceder acesso de escrita
 
 ---
 
@@ -19,8 +19,8 @@
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
-| M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS, 0/17 sem resposta, 0/17 operacional | EM_ANDAMENTO |
-| M1-REVISAO | Realizar ensaio independente cego e avaliar aceitação documental/textual de M1 | PENDENTE |
+| M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
+| M1-REVISAO | Ensaio menos direcionado com nova sessão/IA; avaliar aceitação documental/textual de M1 | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -61,6 +61,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Preparação da revisão M1 — Ensaio não direcionado
+
+- **Autorização:** HUMAN-001 solicitou seguir para a próxima etapa após a consolidação do M1-TEST.
+- **Objetivo:** avaliar se uma nova sessão de IA detecta espontaneamente problemas de governança em relato fictício, sem apresentar nomes de contratos nem expectativas.
+- **Procedimento:** HUMAN-001 atua como ponte para o Grok; a IA não recebe acesso de escrita. Instrução de teste será fornecida ao operador e a resposta será incorporada como evidência após o retorno.
+- **Situação:** teste ainda não executado; independência entre sessões depende de HUMAN-001 iniciar conversa nova. Como o cenário foi preparado pelo AGT-001, o teste não constitui auditoria independente plena do projeto.
+- **Restrições:** não executar comandos, não alterar serviços ou arquivos, não oferecer dados ou credenciais reais, não declarar sucesso antes de avaliar a resposta.
 
 ## Registro de ensaio externo — Grok, oitavo lote e consolidação
 
