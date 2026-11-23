@@ -67,6 +67,16 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Piloto COM-002 — primeiro pedido de parecer publicado (TKC-0001)
+
+- **Instrução humana:** prosseguir nos próximos passos do método; AGT-001 preparou um primeiro exercício L0/L1 com despacho de referência exclusivamente humano (autorização registrada no Git como `MEDIADO`).
+- **Tarefa:** `IA/tarefas/TKC-0001.md` — estado `PENDENTE`, sem posse e sem executor ativo confirmado.
+- **Pedido:** `IA/despachos/ordens/TKC-REQ-0001.md` — análise independente de M1 D2/D5–D8 e da coerência entre COM/GOV/SEC, para escolha de revisor pelo humano. Referência curta `TKC-REQ-0001`.
+- **Publicação:** `main` com tarefa no commit `aa149e3d4949e6a5a41f6d679904b776240ea353` e ordem no commit `3b0bb905c3c1bc6b4281c97de7152e43c61f7615`.
+- **Sem execução externa:** a ordem **não foi enviada/recebida por outro agente**; parecer `TKC-PAR-0001` não existe e não foi simulado. A escrita de um parecer em Git exige autorização de escrita específica e permissão real; a análise de viabilidade é apenas L0/L1.
+- **Próximo passo humano:** levar `TKC-REQ-0001` à sessão do revisor escolhido e, depois, encaminhar somente a referência de um parecer efetivamente publicado. Caso a IA não possa escrever em Git, registrar a limitação e usar transferência mediada, sem declarar `TKC-PAR-0001` existente.
+- **Estado macro:** M1-REVISAO permanece em andamento, pendentes auditoria independente efetiva e decisão D9; M3-02 e M5-01 não são promovidos por este despacho. A entrega comprova preparação da ordem, **não** validação ponta a ponta do COM-002.
+
 ## Reconciliação documental — entrada, despachos e visão geral
 
 - **Decisão humana:** revisar e atualizar os documentos do projeto com as decisões já discutidas, mantendo a `main` como única linha autorizada. Origem da instrução registrada no Git como `MEDIADO`, sem alegar certificação técnica da identidade do operador por este documento.
