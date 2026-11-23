@@ -385,80 +385,21 @@ Quando uma informação essencial não puder ser confirmada, o agente deverá de
 
 ## 7. Contrato das tarefas
 
-Cada atividade formal deverá possuir um identificador estável no formato:
+**Fonte vigente:** [COM-001](IA/regras/comunicacao.md) para estado/posse e [COM-002](IA/despachos/README.md) para pedidos, pareceres, autorizações propostas, logs e retornos.
 
-`TASK-NNN`
+Cada trabalho formal deve possuir **ID estável**, como `TKC-0054`, e registro em `IA/tarefas/<TASK-ID>.md` com atribuição, escopo, dependências, autorização, commits, estado, tentativas, entregas, verificações e próximo passo. O índice está em `IA/tarefas/indice.md`. A estrutura antiga `TASK-NNN/contrato.md`, `estado.md`, `evidencias.md` e `handoff.md` era proposta inicial, **não é a estrutura vigente obrigatória**; não criar subpastas somente por causa daquele exemplo.
 
-Exemplo:
-
-`IA/tarefas/TASK-001/`
-
-Documentos previstos:
-
-### `contrato.md`
-
-Define:
-
-- Objetivo.
-- Justificativa.
-- Papel responsável.
-- Escopo autorizado.
-- Restrições.
-- Dependências.
-- Critérios de aceitação.
-
-### `estado.md`
-
-Registra:
-
-- Estado operacional atual.
-- Etapa em andamento.
-- Commit e ambiente de referência.
-- Trabalho concluído.
-- Pendências.
-- Bloqueios.
-- Próxima ação.
-
-### `evidencias.md`
-
-Registra:
-
-- Comandos relevantes executados.
-- Resultados observados.
-- Testes e verificações.
-- Referências de commits.
-- Artefatos produzidos.
-- Limitações das evidências.
-
-### `handoff.md`
-
-Registra a transferência para outro agente ou outra sessão.
-
-O handoff deverá ser suficiente para orientar a retomada, sem reproduzir desnecessariamente todo o conteúdo da tarefa.
-
-Os formatos completos serão definidos em `IA/regras/comunicacao.md`.
+As referências `TKC-REQ-XXXX`, `TKC-PAR-XXXX`, `TKC-AUT-XXXX`, `TKC-EXE-XXXX` e `TKC-RET-XXXX` são mensagens vinculadas ao mesmo trabalho, não cinco tarefas independentes. Números nos exemplos não estão reservados. O envio da referência entre chats é **ação humana** e não um disparo automático.
 
 ---
 
 ## 8. Estados operacionais das tarefas
 
-As tarefas utilizarão inicialmente os estados:
+Os estados de uma tarefa concreta seguem **exclusivamente** a tabela do COM-001: `PENDENTE`, `ATRIBUIDA`, `AUTORIZADA`, `EM_EXECUCAO`, `PAUSADA`, `BLOQUEADA`, `EM_REVISAO`, `CONCLUIDA`, `FALHOU`, `CANCELADA`.
 
-| Estado               | Descrição                                    |
-| -------------------- | -------------------------------------------- |
-| `PLANEJADA`          | Definida, ainda não iniciada                 |
-| `EM_ANDAMENTO`       | Trabalho em execução                         |
-| `BLOQUEADA`          | Impedimento identificado                     |
-| `AGUARDANDO_REVISAO` | Entrega submetida à verificação              |
-| `REPROVADA`          | Não atende aos critérios definidos           |
-| `CONCLUIDA`          | Critérios satisfeitos e aceitação registrada |
-| `CANCELADA`          | Encerrada sem implementação                  |
+Estados históricos como `PLANEJADA`, `EM_ANDAMENTO`, `AGUARDANDO_REVISAO` e `REPROVADA` não devem ser usados como sinônimos livres nas tarefas novas: correspondências só podem ser feitas em migração explícita, com preservação do significado original. **`IA/PROJETO.md` usa estados macro próprios**, que não indicam posse de uma tarefa.
 
-Um estado não poderá ser alterado apenas para produzir uma aparência de progresso.
-
-A transição para `CONCLUIDA` deverá atender aos critérios definidos no contrato da tarefa.
-
-O agente implementador não poderá considerar sua autodeclaração como aprovação independente quando a tarefa exigir auditoria.
+Uma transição não poderá ser usada para simular progresso. Um executor não pode conceder a si mesmo revisão independente nem aceite humano. `TRUE` não comprova início, entrega ou conclusão, e marcadores provenientes de arquivos/saídas não autorizam execução.
 
 ---
 
