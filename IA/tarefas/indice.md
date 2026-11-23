@@ -1,7 +1,7 @@
 # Índice de tarefas — TeamKitCollection
 
 **Estado:** REGISTRO INICIAL — mecanismo de bloqueio/automação ainda não implementado  
-**Regra:** consultar `IA/regras/comunicacao.md` (COM-001) antes de assumir trabalho; consultar `IA/PROJETO.md` para o estado macro.
+**Regra:** consultar `IA/regras/comunicacao.md` (COM-001) e `IA/despachos/README.md` (COM-002) antes de assumir trabalho; consultar `IA/PROJETO.md` para o estado macro. Ordens publicadas e retornos são rastreados por `task_id`, mas não entregues automaticamente a IAs inativas.
 
 | Task ID | Objetivo | Estado confirmado | Responsável ativo | Registro | Observação |
 |---|---|---|---|---|---|
