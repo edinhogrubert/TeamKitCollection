@@ -277,18 +277,18 @@ Identificar, conforme disponibilidade:
 
 Informações indisponíveis não poderão ser inventadas.
 
-### Etapa 2 — Leitura das regras
+### Etapa 2 — Sincronização mínima das regras
 
-Consultar:
+**Não fazer leitura integral obrigatória da governança a cada entrada.** Usar primeiro este ponto de entrada, a ordem/tarefa recebida e a verificação de revisão definida em [COM-001](IA/regras/comunicacao.md). O propósito é **preservar tokens para a tarefa** sem dispensar segurança.
 
-1. `IA/regras/constituicao.md`
-2. `IA/regras/confiabilidade.md`
-3. `IA/regras/seguranca.md`
-4. `IA/regras/comunicacao.md`
+1. Identificar o **commit Git conhecido e efetivamente consultado** nesta sessão (ou `DESCONHECIDO`) e conferir o `HEAD` atual da `main`. Um número amigável como `12b` pode ser relatado, mas não substitui o commit/hash de conteúdo.
+2. Havendo revisão conhecida e acesso ao histórico, comparar **somente caminhos normativos aplicáveis** entre a revisão conhecida e o HEAD. Ler o diff relevante e, se insuficiente, as seções completas alteradas e suas dependências. Um HEAD novo por edição não normativa **não exige reler toda a governança**.
+3. Sem revisão anterior confiável, sem acesso ao diff ou diante de contradição: ler o **mínimo de regras essenciais à missão**, incluindo autoridade/segurança e COM-001/COM-002 quando envolver tarefa ou despacho. Não adivinhar versões nem inventar leitura; interromper ações L2/L3 enquanto a regra indispensável estiver incerta.
+4. Mudanças em autorização, segurança, hierarquia, escopo ou restrições exigem revalidação antes de ações modificadoras, independentemente de parecerem irrelevantes. O resumo de mudanças nunca substitui a regra quando houver conflito.
 
-Se os arquivos ainda não existirem, utilizar provisoriamente os princípios deste `AGENTS.md`, declarar a ausência e não presumir regras que não foram definidas.
+`IA/regras/confiabilidade.md` ainda está planejado; não exigir leitura de arquivo inexistente. Regras existentes: `IA/regras/constituicao.md`, `IA/regras/seguranca.md` e `IA/regras/comunicacao.md`; despacho: `IA/despachos/README.md`. **Ler sob demanda, não em bloco por padrão.**
 
-Operações de alto risco deverão ser bloqueadas quando dependerem de uma política obrigatória ainda ausente.
+A verificação corresponde ao que a **sessão atual de fato conseguiu ler**; o coordenador pode comunicar que houve atualização ao publicar uma ordem, mas não pode declarar outra sessão sincronizada sem confirmação.
 
 ### Etapa 3 — Identificação do papel
 
@@ -445,6 +445,8 @@ Os agentes deverão minimizar a quantidade de informações carregadas desnecess
 A leitura deverá seguir o princípio:
 
 **Contexto mínimo suficiente para executar a responsabilidade com segurança.**
+
+**Orçamento de contexto:** prefira verificar referências Git e diffs de regras antes de carregar documentos inteiros. Não reler o mesmo contrato na mesma revisão sem necessidade concreta; não gerar resumos ou manifests extensos em cada tarefa. Se a verificação incremental custar mais que ler a pequena regra necessária, ler diretamente a regra. Segurança prevalece sobre economia de tokens.
 
 Sinais de possível degradação incluem:
 
