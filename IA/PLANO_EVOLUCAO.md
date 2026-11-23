@@ -46,6 +46,6 @@ O método deve poder ser reutilizado sem carregar regras de negócio do TeamKitC
 
 Este documento descreve **ordem e escopo de marcos**, não o andamento atual. A **única fonte de estado e próxima etapa vigente** é [`IA/PROJETO.md`](PROJETO.md). O texto anterior de próximo marco (concluir M0 e iniciar M1) foi substituído por esta referência, sem alterar a existência de etapas já executadas.
 
-**Alocação harmonizada:** M3 abrange contratos de comunicação, protocolo de tarefas e handoff; M5 fica reservado à coordenação multiagente concorrente, resolução de dependências e conflitos de alterações. Transferir uma tarefa isolada entre sessões não equivale a coordenar múltiplas execuções simultâneas.
+**Alocação harmonizada:** M3 abrange COM-001/COM-002, contratos de comunicação, protocolo de tarefas e handoff humano-mediado; M5 fica reservado à coordenação multiagente concorrente, resolução de dependências e conflitos de alterações. Transferir uma tarefa isolada entre sessões não equivale a coordenar múltiplas execuções simultâneas.
 
 > Este arquivo é planejamento metodológico. Não é o roadmap técnico da aplicação, que ficará em `docs/ROADMAP.md`.
