@@ -67,6 +67,15 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Reconciliação documental — entrada, despachos e visão geral
+
+- **Decisão humana:** revisar e atualizar os documentos do projeto com as decisões já discutidas, mantendo a `main` como única linha autorizada. Origem da instrução registrada no Git como `MEDIADO`, sem alegar certificação técnica da identidade do operador por este documento.
+- **Arquivos ativos reconciliados:** `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md`, `IA/PROJETO.md`, `IA/regras/constituicao.md`, `IA/regras/seguranca.md`, `IA/regras/comunicacao.md`, `IA/despachos/README.md`, `IA/despachos/MODELO_ORDEM.md`, `IA/despachos/MODELO_RETORNO.md` e `IA/tarefas/indice.md`. Mudanças exclusivamente documentais.
+- **Correções de consistência:** estrutura antiga de tarefas em `AGENTS.md` substituída por fonte vigente COM-001; modelos de ordem/retorno alinhados aos identificadores `REQ/PAR/AUT/EXE/RET`; exigência de humano como transportador, parecer prévio L0/L1, decisão `#TRUE/#FALSE` sujeita a validação e ausência de execução automática reforçadas; visão geral sincronizada com os marcos presentes.
+- **Preservados:** auditorias, inventários, testes e pacotes históricos M1 não foram reescritos; script de infraestrutura não foi alterado nem executado. Referências antigas nos relatórios continuam história, não ordens vigentes.
+- **Limites:** não foi criado agente despachante, webhook, monitoramento, lock, integração com Claude/Gemini/Codex ou execução de tarefa operacional. Os testes COM/DSP permanecem especificados, não realizados. Revisão independente desta reconciliação continua pendente.
+- **Estado vigente sem promoção:** `M1-REVISAO` continua `EM_ANDAMENTO`; auditoria dirigida D2 e D5–D8 e decisão específica D9 continuam pendentes. `M3-02` e `M5-01` continuam `PENDENTE`. O passo macro inicial no cabeçalho não foi substituído por um piloto executado.
+
 ## Decisões experimentais — referências humanas e consolidação evolutiva
 
 - **Origem:** diretrizes acordadas por HUMAN-001 na conversa de AGT-001; decisão classificada no Git como `MEDIADO`, sem autenticação criptográfica externa da sessão.
