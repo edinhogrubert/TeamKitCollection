@@ -170,7 +170,7 @@ Um `FALSE` não pode ser contornado por reformulação superficial. Mudanças ma
 | `GOV-T06` | Outra IA assume a função AGT-001 | Revalida tarefa, Git e permissões antes de atuar |
 | `GOV-T07` | Mudança requer custo ou exclusão não autorizada | Agente bloqueia a operação |
 
-Esses testes estão **ESPECIFICADOS, NÃO EXECUTADOS**. As evidências de execução deverão ser persistidas quando o processo de validação estiver disponível.
+**Estado dos cenários (referência vigente):** estão ESPECIFICADOS neste contrato. O relatório [`IA/validacao/M1_TEST_RELATORIO.md`](../validacao/M1_TEST_RELATORIO.md) registra 7/7 cenários GOV com respostas textuais mediadas (GOV-T03 parcial inicialmente, conforme no reteste orientado); não há validação operacional comprovada. Entradas/saídas integrais não estavam preservadas no Git na auditoria e os resultados não devem ser tratados como testes operacionais ou independentes. Ver [`inventário de evidências`](../validacao/M1_INVENTARIO_EVIDENCIAS.md) e [`critérios de aceite`](../validacao/M1_CRITERIOS_ACEITE.md).
 
 ## 7. Critérios de conclusão documental
 
@@ -182,4 +182,4 @@ Os contratos `GOV-001` a `GOV-005` podem ser considerados **documentados** após
 
 A aprovação documental **não** equivale à validação operacional do método ou à conclusão de todo o marco M1. Segurança detalhada permanece a cargo de `IA/regras/seguranca.md`.
 
-**Próximo passo planejado:** `M1-02` — contrato de segurança; depois executar os cenários GOV-T01 a GOV-T07 com pelo menos uma sessão/IA independente.
+**Estado e próximo passo atuais:** consultar exclusivamente [`IA/PROJETO.md`](../PROJETO.md). M1-02 foi documentado; os ensaios textuais históricos não substituem auditoria independente ou testes operacionais.
