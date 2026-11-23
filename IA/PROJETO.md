@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Bloco 2: reconciliar instruções vigentes e históricas, marcos M3/M5 e completar manifesto CTX-001; recuperar provas primárias disponíveis ou planejar reensaios, sem presumir evidências inexistentes
+**Próxima etapa:** M1-REVISAO — Solicitar nova revisão independente do Bloco 2 e verificar critérios D1–D9 de M1-DOC; recuperar provas primárias dos ensaios, ou planejar reensaios sem retroatividade
 
 ---
 
@@ -20,12 +20,13 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Bloco 1 documental publicado: critérios M1-DOC/TXT/OPS e inventário de 17 cenários; A01 e A02 ainda dependem de provas/reensaios | EM_ANDAMENTO |
+| M1-REVISAO | Blocos 1 e 2 documentais publicados; aceitação M1-DOC/TXT ainda pendente de revisão independente e evidências | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
+| M3-02 | Implementar protocolo de tarefas persistidas e handoff | PENDENTE |
 | M4-01 | Criar os contratos em `IA/papeis/` | PENDENTE |
-| M5-01 | Implementar o protocolo de tarefas e handoff | PENDENTE |
+| M5-01 | Projetar coordenação multiagente: concorrência, dependências e resolução de conflitos | PENDENTE |
 | M6-01 | Criar verificações automatizadas | PENDENTE |
 | M7-01 | Validar o método durante desenvolvimento e operação | PENDENTE |
 | M8-01 | Testar a portabilidade entre projetos | PENDENTE |
@@ -52,15 +53,29 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 ---
 
-**Última verificação do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contratos GOV-001 a GOV-005 em `IA/regras/constituicao.md` publicados e relidos na `main` (commit `c39a37a36aee9944f610ac0b13478dfead3458a7`); GOV-T01 a GOV-T07 definidos, ainda não executados. O marco M1 continua aberto até segurança e validação prática. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
+## Histórico de registros — não constitui estado vigente
 
-**M1-TEST — Verificação em andamento:** relatório `IA/validacao/M1_TEST_RELATORIO.md` criado e relido na `main`, commit `a6b76a239cbcfe78bbed297aa95dd1af24ee10db`. Dez verificações estáticas de documentos: 10/10 PASS; cenários comportamentais: 0/17 executados. A inspeção estática não equivale à prova de obediência de agentes; falta avaliação por outra sessão/IA. Não declarar M1 concluído operacionalmente.
+**Atenção à leitura:** todos os parágrafos e relatórios abaixo são registros temporais preservados para auditoria, inclusive quando citam "próxima etapa", "evidência atual", "ainda não realizado" ou "em andamento". **Nenhuma dessas instruções históricas substitui o cabeçalho e o quadro de estado vigente acima.** O registro mais recente da decisão deve ser lido em conjunto com as referências Git, sem apagar resultados anteriores.
 
-**M1-02 — Evidência atual:** `IA/regras/seguranca.md` publicado e relido na `main` no commit `5144b2746ffdc3c7a13fa7dd80978413352cc850`, contendo SEC-001 a SEC-010 e SEC-T01 a SEC-T10. O arquivo documenta segurança do método, não segurança do produto. Nenhum dos 10 cenários SEC ou 7 cenários GOV foi executado. A etapa documental M1-02 está concluída, mas o marco M1 ainda não foi validado operacionalmente.
+**Verificação histórica do estado no Git:** 2026-11-22 — `README.md`, `AGENTS.md`, `IA/PLANO_EVOLUCAO.md` e `IA/PROJETO.md` existem em `main`. Contratos GOV-001 a GOV-005 em `IA/regras/constituicao.md` publicados e relidos na `main` (commit `c39a37a36aee9944f610ac0b13478dfead3458a7`); GOV-T01 a GOV-T07 definidos, ainda não executados. O marco M1 continua aberto até segurança e validação prática. `docs/` e código da aplicação ainda não existem. O script de VM foi preservado em `scripts/infra/create-vm-virtualbox.sh`, sem execução nem testes.
+
+**Registro histórico de M1-TEST — verificação inicialmente em andamento:** relatório `IA/validacao/M1_TEST_RELATORIO.md` criado e relido na `main`, commit `a6b76a239cbcfe78bbed297aa95dd1af24ee10db`. Dez verificações estáticas de documentos: 10/10 PASS; cenários comportamentais: 0/17 executados. A inspeção estática não equivale à prova de obediência de agentes; falta avaliação por outra sessão/IA. Não declarar M1 concluído operacionalmente.
+
+**Registro histórico de M1-02 — evidência na época:** `IA/regras/seguranca.md` publicado e relido na `main` no commit `5144b2746ffdc3c7a13fa7dd80978413352cc850`, contendo SEC-001 a SEC-010 e SEC-T01 a SEC-T10. O arquivo documenta segurança do método, não segurança do produto. Nenhum dos 10 cenários SEC ou 7 cenários GOV foi executado. A etapa documental M1-02 está concluída, mas o marco M1 ainda não foi validado operacionalmente.
 
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## M1-REVISAO — Bloco 2 de reconciliação documental
+
+- **Decisão humana:** executar o Bloco 2 estritamente documental na branch oficial `main`. Nenhuma autorização de infraestrutura ou mudança de proteção de branch.
+- **Estado vigente:** cabeçalho e tabela do início deste `IA/PROJETO.md`; seção histórica abaixo é trilha temporal, não ordens executáveis.
+- **M3/M5:** `IA/PLANO_EVOLUCAO.md` agora atribui comunicação, tarefas e handoff ao M3; coordenação simultânea e conflitos ao M5. A tabela acima registra `M3-02` e reinterpreta `M5-01`, ambos `PENDENTE`; não há entrega implementada nesses marcos.
+- **GOV/SEC:** contratos `IA/regras/constituicao.md` e `IA/regras/seguranca.md` passaram a apontar para o relatório histórico e o inventário, diferenciando respostas textuais mediadas de testes operacionais; não se declarou nenhuma aprovação operacional.
+- **CTX-001:** `IA/validacao/PACOTE_CONTEXTO_M1.md` ganhou identificação `owner/repo`, branch `main`, commit histórico `89750958366e366977ef6cc31bc64e0bcbcaed23`, referências ao `README.md` e relatório M1, com datas de verificação posterior explicitadas. O pacote permanece uma fotografia, não um espelho da `main`.
+- **Riscos/pendências:** evidências integrais dos 17 cenários ainda não estão no Git; A01 e A02 não foram resolvidos, assim como A04/A05 (controles técnicos/script VM). A06 tem rastreabilidade parcial, com instruções humanas de origem não preservadas em artefato independente. O Bloco 2 não constitui aprovação M1-DOC.
+- **Verificação independente ainda necessária:** solicitar ao Codex ou outro revisor com acesso primário conferência das alterações, incluindo D1–D9 do `M1_CRITERIOS_ACEITE.md`. Não atribuir a esta autoverificação independência.
 
 ## M1-REVISAO — Bloco 1 de correção documental
 
