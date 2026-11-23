@@ -1,15 +1,23 @@
-# MODELO — Log e retorno de execução (não é resultado real)
+# MODELO — Parecer, log e retorno (não é resultado real)
 
-**Não preencher retrospectivamente como evidência verificada.** Criar log de execução em `IA/despachos/logs/<TASK-ID>-<CLAIM-ID>.md`, anexando eventos; publicar retorno em `IA/despachos/retornos/<TASK-ID>-<CLAIM-ID>.md`.
+**Não preencher retrospectivamente como evidência verificada.** Na fase de viabilidade, publicar `IA/despachos/retornos/TKC-PAR-XXXX.md` com capacidade declarada, riscos, plano, dependências, alternativas e verificação `L0/L1`, **sem alterações operacionais**. Na fase autorizada, criar log de execução em `IA/despachos/logs/<TASK-ID>-<CLAIM-ID>.md`, anexando eventos; publicar retorno em `IA/despachos/retornos/<TASK-ID>-<CLAIM-ID>.md`.
 
 ## Identificação
 - task_id: PENDENTE
-- order_id: PENDENTE
+- order_id / ref curta: PENDENTE
+- tipo: PARECER L0/L1 ou EXECUCAO (PENDENTE)
 - claim_id: PENDENTE
 - agent_id / papel / ferramenta / session_ref: PENDENTE
 - origem da ordem / evidência da autorização: PENDENTE
 - repositório / branch / base_commit / head_final: PENDENTE
 - estado de saída: NÃO EXECUTADO
+
+## Parecer prévio de viabilidade (somente L0/L1)
+- Contexto e versão consultados: PENDENTE
+- Capacidade de executar e lacunas de conhecimento: NÃO AVALIADO
+- Riscos, impactos, janela, backup e rollback necessários: NÃO AVALIADO
+- Condições para autorizar ou contraindicações: NÃO AVALIADO
+- Recomendação independente de autorização: PENDENTE
 
 ## Eventos de execução (log)
 | Evento | Momento e origem | Commit/ref | Descrição | Evidência/limite |
