@@ -658,6 +658,16 @@ Os controles deverão ser proporcionais ao risco e à complexidade da mudança.
 
 ---
 
+### 9.8 Estado atual da metodologia e comunicação humano-mediada
+
+A fase experimental já documentou os protocolos de tarefas [COM-001](IA/regras/comunicacao.md) e de despacho por referência [COM-002](IA/despachos/README.md), além do [índice de tarefas](IA/tarefas/indice.md). A documentação vigente deve ser consultada diretamente no Git; a existência do protocolo não comprova a implementação operacional completa.
+
+**Fluxo previsto:** o coordenador, mediante solicitação humana, publica um pedido `TKC-REQ-XXXX`; o humano transporta a referência à IA responsável, que avalia viabilidade em L0/L1 e registra `TKC-PAR-XXXX`. Após análise crítica, uma proposta `TKC-AUT-XXXX` permanece pendente de decisão humana verificável. A referência isolada não autoriza. `#TRUE` e `#FALSE` são marcadores de decisão a validar, não senhas ou autenticação. Se a execução for autorizada e a posse estiver regular, registrar andamento em `TKC-EXE-XXXX` e resultado em `TKC-RET-XXXX`, seguido de revisão independente quando exigida.
+
+**Limite essencial:** AGT-001 não aciona outras IAs, sessões, bots ou automações por iniciativa própria; o humano encaminha somente os identificadores. O GitHub é repositório compartilhado, não entrega automática ou lock de concorrência. Serviços que prometam envio automático, exclusão mútua ou monitoramento exigem implementação/teste e autorização específicos.
+
+**Consolidação evolutiva:** o método pode experimentar dezenas de documentos e depois substituí-los por poucos arquivos menores, mais claros e com única fonte de verdade, desde que preservem critérios de segurança, autoridade, continuidade, evidências e histórico recuperável. A redução de linhas, sozinha, não prova melhoria.
+
 ## 10. Ciclo de vida do desenvolvimento
 
 O projeto deverá exercitar as seguintes etapas:
@@ -909,9 +919,9 @@ Esses critérios serão posteriormente detalhados em requisitos e testes de acei
 
 ## 15. Estado atual do projeto
 
-**Estado documental inicial: PLANEJAMENTO.**
+**Visão do produto:** PLANEJAMENTO. **Metodologia:** contratos documentais em evolução; protocolos COM-001/COM-002 especificados, ainda sem validação operacional ponta a ponta. **Estado vigente dos marcos:** consultar [IA/PROJETO.md](IA/PROJETO.md).
 
-No momento da criação deste README:
+Como registro histórico da concepção inicial deste README:
 
 - O nome e a proposta do projeto estão definidos.
 - O aplicativo de coleções esportivas foi selecionado.
@@ -920,7 +930,7 @@ No momento da criação deste README:
 - A metodologia multiagente está em fase de definição.
 - O roadmap inicial foi elaborado.
 
-Este documento não afirma que a aplicação, os containers, os bancos, as VMs em nuvem ou os procedimentos operacionais já foram implementados.
+A revisão atual tampouco afirma que o aplicativo, containers, bancos ou VMs de produção do projeto estejam implantados. Contratos de IA publicados não provam automação, testes ponta a ponta nem operação.
 
 O estado técnico efetivo deverá ser registrado em documentação própria e confirmado por código, Git, testes e evidências do ambiente correspondente.
 
