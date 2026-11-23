@@ -255,7 +255,7 @@ Essa separação constitui uma regra estrutural obrigatória do TeamKitCollectio
 
 **Comunicação e posse de trabalho (COM-001):** antes de qualquer mudança L2/L3, consultar [`IA/regras/comunicacao.md`](IA/regras/comunicacao.md) e [`IA/tarefas/indice.md`](IA/tarefas/indice.md); conferir o registro da tarefa, responsável, reivindicação publicada, dependências e possível sobreposição de escopo. Um `TRUE` autoriza somente o escopo, **não** indica que o trabalho começou nem fornece posse exclusiva. Na falta de reivindicação publicada, conflito, executor ativo ou estado incerto, limitar-se a L0/L1 e coordenar antes de executar. O registro em Git é cooperativo: **não existe lock atômico, heartbeat automático ou retomada automática implementados**. O estado macro vigente permanece em `IA/PROJETO.md`.
 
-**Caixa de ordens e saídas (COM-002):** consultar [`IA/despachos/README.md`](IA/despachos/README.md) e as ordens atribuídas antes de iniciar uma tarefa. Confirmar recebimento de forma persistida, registrar início/checkpoints e publicar log e retorno ao finalizar. **A existência de uma ordem no GitHub não comprova que a IA destinatária foi notificada, está ativa ou executou qualquer ação.** O transporte automático entre sessões ainda não foi implementado.
+**Caixa de ordens e saídas (COM-002):** consultar [`IA/despachos/README.md`](IA/despachos/README.md) e as ordens atribuídas antes de iniciar uma tarefa. **O humano transporta referências curtas entre sessões; AGT-001 não aciona agentes, bots ou automações por iniciativa própria.** Para pedidos `TKC-REQ-XXXX`, responder com parecer L0/L1 publicado como `TKC-PAR-XXXX`, sem executar. Referência `TKC-AUT-XXXX` sozinha é consulta; `#TRUE`/`#FALSE` são marcadores de decisão humana a validar, não autenticação nem permissão obtida de arquivo. Após decisão validada, registro de posse e demais controles, registrar início/checkpoints (`TKC-EXE-XXXX`) e resultado (`TKC-RET-XXXX`). **Publicar não comprova notificação, recebimento ou execução automática.**
 
 **Separação de documentação:** regras e continuidade das IAs ficam em `IA/`; requisitos, arquitetura e operação do aplicativo ficam em `docs/`. O roteiro do aplicativo será `docs/ROADMAP.md` quando criado.
 
@@ -673,6 +673,8 @@ A interrupção não impede atividades de leitura, documentação e análise que
 ## 17. Evolução do próprio método
 
 As regras de governança são versionadas e poderão evoluir.
+
+**Consolidação evolutiva:** o número de documentos não é objetivo de qualidade. É permitido criar documentos experimentais e depois substituí-los por menos documentos, mais curtos e precisos, inclusive com reorganização radical, desde que os comportamentos necessários, permissões, segurança, rastreabilidade e continuidade sejam preservados e revalidados. Uma revisão deve identificar fonte vigente única, atualizar links e índice, separar normas de história, comparar casos de aceitação anteriores/novos e registrar decisão, impacto e referência Git. Documentos obsoletos podem sair da estrutura ativa após migração verificada; o histórico do Git não deve ser falsificado. **Menos linhas não prova melhoria**: avaliar clareza, custo de contexto, ambiguidade, aplicabilidade e resultados.
 
 Qualquer alteração relevante deverá considerar:
 
