@@ -39,6 +39,8 @@ O método deve poder ser reutilizado sem carregar regras de negócio do TeamKitC
 6. O método cresce conforme os experimentos demonstram necessidade, evitando burocracia ornamental.
 7. Regras do produto pertencem a `docs/`, não aos contratos universais da metodologia.
 8. Toda mudança do método deve considerar compatibilidade, risco, custo de contexto e possibilidade de reversão.
+9. **Consolidação evolutiva:** documentos exploratórios podem ser fundidos, substituídos, reescritos ou retirados da estrutura ativa conforme o método amadurece. Reduzir duplicação, ambiguidade e custo de leitura sem perder autoridade, rastreabilidade, testes e segurança. Preservar histórico Git, referências ou mapa de migração e testar cenários da versão anterior contra a consolidada; quantidade de arquivos ou linhas não mede qualidade.
+10. **Transporte humano no experimento:** publicar ordem no Git e apresentar referência curta ao humano; AGT-001 não automatiza encaminhamento, execução ou consumo de logs por iniciativa própria. Autorização de operação depende de decisão humana validada e específica; ver COM-002.
 
 ## Estado vigente e próxima etapa
 
