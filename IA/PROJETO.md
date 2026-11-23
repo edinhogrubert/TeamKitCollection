@@ -67,6 +67,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Encerramento documental do TKC-0002 — revisão distinta AGT-001
+
+- **Decisão humana:** HUMAN-001 autorizou AGT-001 nesta conversa a conferir a entrega, encerrar `TKC-0002` e atualizar somente `IA/tarefas/TKC-0002.md`, `IA/tarefas/indice.md` e `IA/PROJETO.md`; proveniência no Git `MEDIADO`.
+- **Evidências primárias conferidas:** `IA/despachos/retornos/TKC-PAR-0002.md`, `IA/despachos/logs/TKC-EXE-0002.md` e `IA/tarefas/TKC-0002.md`. A posse `TKC-0002-C01` foi publicada em `7fdd127d0c5c63cb41a617934de2a0fbae13faf3` antes da entrega `7954695326fa53ed1480d323042f60f790c18278`; os commits foram consultados e não houve alteração de arquivo fora dos três caminhos autorizados ao Gemini.
+- **Veredito de AGT-001 (revisor distinto do executor):** respostas documentadas de S1–S6 coerentes com a comparação Git dos arquivos normativos, reconhecem revisão antiga simulada, falta de contexto e necessidade de controles. `TKC-0002` **CONCLUIDA exclusivamente como ensaio documental**, sem aprovação retroativa de autorizações incompletas.
+- **Limitações preservadas:** autorização de publicação do Gemini tem origem `MEDIADO`, sem autenticação independente da manifestação; ausência de medição de tokens, teste de agente totalmente sem contexto, exclusão mútua técnica ou execução operacional do mecanismo de sincronização. A conclusão não promove `M3-02`, `M1-DOC`, `M1-TXT` ou `M1-OPS`.
+- **Registros históricos:** menções anteriores a parecer inexistente, proposta `PENDENTE` ou próxima ação já superada descrevem estados passados e não devem substituir o índice e o registro vigentes da tarefa. `TKC-0001` permanece aberto e independente.
+
 ## Correção do fluxo de autorização TKC-0002 (proposta pendente)
 
 - **Causa:** AGT-001 sugeriu `TKC-AUT-0002 #TRUE` antes de publicar o documento `TKC-AUT-0002`. A recusa do Gemini por ausência de proposta e conflito com `forbidden_actions` foi adequada. O parecer recebido por canal humano permanece `MEDIADO / A INTEGRAR`.
