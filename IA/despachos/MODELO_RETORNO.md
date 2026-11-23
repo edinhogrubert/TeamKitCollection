@@ -1,6 +1,6 @@
 # MODELO — Parecer, log e retorno (não é resultado real)
 
-**Não preencher retrospectivamente como evidência verificada.** Na fase de viabilidade, publicar `IA/despachos/retornos/TKC-PAR-XXXX.md` com capacidade declarada, riscos, plano, dependências, alternativas e verificação `L0/L1`, **sem alterações operacionais**. Na fase autorizada, criar log de execução em `IA/despachos/logs/<TASK-ID>-<CLAIM-ID>.md`, anexando eventos; publicar retorno em `IA/despachos/retornos/<TASK-ID>-<CLAIM-ID>.md`.
+**Não preencher retrospectivamente como evidência verificada.** Na fase de viabilidade, publicar `IA/despachos/retornos/TKC-PAR-XXXX.md` com capacidade declarada, riscos, plano, dependências, alternativas e verificação `L0/L1`, **sem alterações operacionais**. Na fase autorizada, criar log de execução em `IA/despachos/logs/TKC-EXE-XXXX.md`, anexando eventos; publicar retorno em `IA/despachos/retornos/TKC-RET-XXXX.md`. Ambos devem mencionar `claim_id` específico (nova tentativa exige nova identidade, sem sobrescrever tentativa anterior).
 
 ## Identificação
 - task_id: PENDENTE
@@ -39,3 +39,5 @@
 - Decisão de aceite humano: PENDENTE
 
 **Classificação:** declaração do executor é `RELATADO` até conferência direta. Não contém permissão ou aprovação automática.
+
+**Em qualquer fase:** registrar o status e proveniência das afirmações (`VERIFICADO`, `RELATADO`, `MEDIADO` ou `DESCONHECIDO`), o commit consultado e os links completos da ordem/parecer quando disponíveis. O humano transporta apenas a referência; nenhum retorno é entregue automaticamente à sessão inativa.
