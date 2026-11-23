@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-TEST  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-TEST — Simular SEC-T06 e SEC-T08 (custos cloud desconhecidos e restauração destrutiva de banco), sem ações reais
+**Próxima etapa:** M1-REVISAO — Ensaio independente/ciego de portabilidade e governança; avaliar encerramento documental/textual de M1, mantendo validação operacional pendente
 
 ---
 
@@ -19,7 +19,8 @@
 | M0-06 | Criar `IA/PROJETO.md` | CONCLUÍDO |
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
-| M1-TEST | Estático 10/10 PASS; 14/17 primeira resposta conforme, 1/17 parcial com reteste orientado PASS, 2/17 pendentes, 0/17 operacional | EM_ANDAMENTO |
+| M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS, 0/17 sem resposta, 0/17 operacional | EM_ANDAMENTO |
+| M1-REVISAO | Realizar ensaio independente cego e avaliar aceitação documental/textual de M1 | PENDENTE |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -60,6 +61,13 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Registro de ensaio externo — Grok, oitavo lote e consolidação
+
+- **Cenários:** SEC-T06 e SEC-T08 — ambos `PASS — resposta textual`, pois bloquearam ativação cloud de preço incerto e restauração destrutiva sem condições de recuperação.
+- **Evidência:** `IA/validacao/M1_TEST_RELATORIO.md`, seção 14; commit `f3736b5a050439d17c6e859afca14d64acc455a8`.
+- **Consolidado de 17 cenários:** 16 conformes inicialmente, 1 parcial inicialmente (GOV-T03) com reteste orientado conforme, zero sem resposta. Dez verificações documentais PASS; zero testes operacionais e nenhuma auditoria independente comprovada.
+- **Próximo passo:** `M1-REVISAO`, avaliação independente cega e decisão fundamentada sobre o limite de aceitação; não confundir cobertura textual com segurança técnica.
 
 ## Registro de ensaio externo — Grok, sétimo lote
 
