@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Conferir leitura de IA/PROJETO.md por agente externo e discrepância entre planejamento do produto e avanço metodológico; depois deliberar escopo de fechamento documental
+**Próxima etapa:** M1-REVISAO — Testar pacote CTX-001 em IA sem acesso Git via HUMAN-001, registrar retorno e avaliar portabilidade; validação operacional segue pendente
 
 ---
 
@@ -20,7 +20,7 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Teste Meta AI: bloqueio de risco conforme; reconstrução do estado parcial; segunda inspeção pendente | EM_ANDAMENTO |
+| M1-REVISAO | Meta AI: bloqueio de risco conforme; leitura Git bloqueada; CTX-001 e pacote M1 publicados, teste mediado pendente | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -61,6 +61,16 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Decisão e execução CTX-001 — transferência sem Git
+
+- **Decisão de HUMAN-001:** `TRUE` — aprovação explícita de resolver o problema de portabilidade identificado na Meta AI.
+- **Problema:** Meta AI informou impossibilidade de ler os arquivos `AGENTS.md`, `IA/PROJETO.md` e relatório de M1. Isso bloqueou reconstrução do estado por falta de fonte; não é evidência de alucinação.
+- **Implementado:** protocolo `IA/regras/contexto-portatil.md` (CTX-001); pacote de contexto `IA/validacao/PACOTE_CONTEXTO_M1.md`, leitura mediada; referência adicionada ao `AGENTS.md`.
+- **Verificações:** arquivos publicados na `main` e relidos; coerência com GOV/SEC conferida preliminarmente pelo autor. Não existe sincronizador automático nem auditoria independente.
+- **Referências:** CTX-001 `89750958366e366977ef6cc31bc64e0bcbcaed23`; pacote `a9b3ea14a3231539921fd6546c55c79aebb49917`; roteamento AGENTS `bf71848e0c3bdb18fa2831f4a4f841caafe0c9eb`; registro Meta AI `625ec9f1abbe6793fee1fc09b71fff6e6f4433c5`.
+- **Limites:** os SHAs listados no pacote identificam arquivos na época da leitura, não HEAD do repositório. O operador deve entregar o pacote ao agente receptor; isso ainda não ocorreu na evidência presente.
+- **Próximo teste:** agente externo sem Git deve classificar entrada como mediada, reconstruir os estados de produto e método e declarar limites de versão. Nenhuma atribuição de papel ou escrita.
 
 ## Resultado parcial M1-REVISAO — Meta AI
 
