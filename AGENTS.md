@@ -253,6 +253,8 @@ Essa separação constitui uma regra estrutural obrigatória do TeamKitCollectio
 
 **Primeira consulta de andamento:** após este arquivo, ler `IA/PROJETO.md` para identificar o estado confirmado e a próxima etapa; consultar `IA/PLANO_EVOLUCAO.md` somente quando a missão exigir visão dos marcos do método. Em seguida, localizar a tarefa específica quando existir. A ausência de um documento listado como planejado não é prova de sua implementação.
 
+**Comunicação e posse de trabalho (COM-001):** antes de qualquer mudança L2/L3, consultar [`IA/regras/comunicacao.md`](IA/regras/comunicacao.md) e [`IA/tarefas/indice.md`](IA/tarefas/indice.md); conferir o registro da tarefa, responsável, reivindicação publicada, dependências e possível sobreposição de escopo. Um `TRUE` autoriza somente o escopo, **não** indica que o trabalho começou nem fornece posse exclusiva. Na falta de reivindicação publicada, conflito, executor ativo ou estado incerto, limitar-se a L0/L1 e coordenar antes de executar. O registro em Git é cooperativo: **não existe lock atômico, heartbeat automático ou retomada automática implementados**. O estado macro vigente permanece em `IA/PROJETO.md`.
+
 **Separação de documentação:** regras e continuidade das IAs ficam em `IA/`; requisitos, arquitetura e operação do aplicativo ficam em `docs/`. O roteiro do aplicativo será `docs/ROADMAP.md` quando criado.
 
 
