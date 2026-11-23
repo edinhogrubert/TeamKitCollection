@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Tratar achados A01–A07 da auditoria Codex: primeiro fixar critérios documentais, preservar evidência primária e reconciliar documentos; mudanças técnicas exigem aprovação específica
+**Próxima etapa:** M1-REVISAO — Bloco 2: reconciliar instruções vigentes e históricas, marcos M3/M5 e completar manifesto CTX-001; recuperar provas primárias disponíveis ou planejar reensaios, sem presumir evidências inexistentes
 
 ---
 
@@ -20,7 +20,7 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Parecer externo Codex: REPROVAR fechamento documental; A01–A07 registrados; correções e revalidação pendentes | EM_ANDAMENTO |
+| M1-REVISAO | Bloco 1 documental publicado: critérios M1-DOC/TXT/OPS e inventário de 17 cenários; A01 e A02 ainda dependem de provas/reensaios | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -61,6 +61,16 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## M1-REVISAO — Bloco 1 de correção documental
+
+- **Autorização:** HUMAN-001 aprovou prosseguir com o primeiro bloco de correções documentais após o parecer `REPROVAR` do Codex.
+- **Entrega 1:** `IA/validacao/M1_CRITERIOS_ACEITE.md` — separa `M1-DOC` (documental), `M1-TXT` (respostas textuais auditáveis) e `M1-OPS` (validação operacional), com critérios verificáveis e aprovação humana específica. Commit `0337b63dc0141faf53827d8e059bdca362679f66`.
+- **Entrega 2:** `IA/validacao/M1_INVENTARIO_EVIDENCIAS.md` — inventário dos 17 cenários, resultados históricos e ausência de conjuntos integrais de evidência primária versionados no Git. Commit `261cb9587f0c92465b50aec076eb5bf27fae085e`.
+- **Verificação:** ambos os arquivos foram publicados e relidos diretamente da `main`, sem alterações no produto ou infraestrutura.
+- **Limitações:** nenhuma resposta original foi inventada, nenhum teste foi reexecutado e nenhuma nova evidência independente foi produzida. As transcrições fora do Git podem existir, mas sua disponibilidade não foi confirmada neste bloco.
+- **Estado dos achados:** A03 recebeu proposta de critérios (não aprovação final); A01 e A02 receberam inventário e plano de correção, mas não foram resolvidos. A04 (controles técnicos) e A05 (script VM) permanecem bloqueados sem decisão separada. A06 e A07 ainda exigem reconciliação.
+- **Próximo passo:** bloco documental 2 — separar estados históricos/vigentes, reconciliar M3/M5, completar manifesto de contexto; depois reavaliar a necessidade de reensaios e de auditoria externa. Nenhum marco foi encerrado.
 
 ## Parecer Codex — auditoria documental externa de M1
 
