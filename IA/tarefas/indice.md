@@ -5,7 +5,7 @@
 
 | Task ID | Objetivo | Estado confirmado | Responsável ativo | Registro | Observação |
 |---|---|---|---|---|---|
-| TKC-0002 | Teste de sincronização incremental de regras e custo de contexto | PENDENTE — parecer mediado recebido, AUT sem decisão | NÃO ASSUMIDO | `IA/tarefas/TKC-0002.md` | Proposta `IA/despachos/ordens/TKC-AUT-0002.md` PENDENTE; `TKC-PAR-0002` ainda não publicado |
+| TKC-0002 | Teste de sincronização incremental de regras e custo de contexto | CONCLUIDA (ensaio documental, revisão distinta por AGT-001) | NENHUM — tentativa TKC-0002-C01 encerrada | `IA/tarefas/TKC-0002.md` | Parecer `IA/despachos/retornos/TKC-PAR-0002.md` e log `IA/despachos/logs/TKC-EXE-0002.md` verificados; entrega `7954695`; sem validação operacional ou medição de tokens |
 | TKC-0001 | Piloto COM-002: parecer independente M1 D2/D5–D8 e consistência COM | PENDENTE — pedido publicado, não recebido | NÃO ASSUMIDO | `IA/tarefas/TKC-0001.md` | Ordem `IA/despachos/ordens/TKC-REQ-0001.md`; encaminhamento humano pendente, sem execução |
 | M1-REVISAO | Revisão documental M1 e auditoria D2/D5–D8 | EM_ANDAMENTO (macro) | NÃO ATRIBUÍDO NESTE ÍNDICE | `IA/PROJETO.md` | Linha informativa: **não constitui reivindicação de posse**; Bloco 3 já publicado, auditoria dirigida pendente |
 | M3-01 | Especificar COM-001 e iniciar índice | CONCLUÍDO (documental) | NENHUM | `IA/regras/comunicacao.md` | Contrato publicado e verificado; bloqueio atômico e ensaios operacionais pendentes |
