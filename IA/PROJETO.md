@@ -67,6 +67,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## M3 — Caixa documental de despachos e logs (COM-002)
+
+- **Demanda humana:** estabelecer local compartilhado para publicar tarefas/ordens e para que Gemini, Codex e outros executores publiquem logs e relatórios, dispensando o transporte manual de mensagens entre sessões que tenham acesso ao Git. Classificação da origem desta solicitação no Git: `MEDIADO` (autorização recebida na conversa de AGT-001).
+- **Entregue:** `IA/despachos/README.md` (protocolo COM-002), `IA/despachos/MODELO_ORDEM.md` e `IA/despachos/MODELO_RETORNO.md`; ligações em `IA/regras/comunicacao.md` (COM-001), `AGENTS.md` e `IA/tarefas/indice.md`. Modelo para diretórios `ordens/`, `logs/`, `retornos/` a serem materializados com mensagens reais autorizadas.
+- **Alcance:** troca **assíncrona por leitura/escrita Git**, com rastreabilidade de `order_id`, `claim_id`, checkpoints, relatórios e revisões. Nenhuma ordem real foi criada ou enviada a Gemini/Codex nesta etapa.
+- **Não implementado:** despachante, observação automática, notificação para AI Studio/Codex, daemon/polling, recebimento confirmado, autenticação da sessão externa, bloqueio técnico concorrente ou geração automática de relatórios. O Git não acorda uma IA parada.
+- **Situação:** especificação documental publicada, integração de ponta a ponta e testes DSP-T01..06 ainda `PENDENTES`. `M3-02` e `M5-01` permanecem pendentes; `M1-REVISAO` segue em andamento com auditoria dirigida e eventual aceite M1-DOC ainda pendentes.
+
 ## M3-01 — Registro documental de comunicação e posse de tarefas (COM-001)
 
 - **Autorização:** HUMAN-001 solicitou criar o protocolo de acompanhamento entre agentes/humanos (decisão recebida na conversa de AGT-001; proveniência `MEDIADO` no Git, sem autenticação da sessão por este registro).
