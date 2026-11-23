@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Solicitar nova revisão independente do Bloco 2 e verificar critérios D1–D9 de M1-DOC; recuperar provas primárias dos ensaios, ou planejar reensaios sem retroatividade
+**Próxima etapa:** M1-REVISAO — Submeter à decisão humana correção documental dirigida de N01–N05 da segunda auditoria Codex; após correção, conferência direcionada D2, D5–D8 e eventual aceite específico M1-DOC
 
 ---
 
@@ -20,7 +20,7 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Blocos 1 e 2 documentais publicados; aceitação M1-DOC/TXT ainda pendente de revisão independente e evidências | EM_ANDAMENTO |
+| M1-REVISAO | Segunda auditoria Codex: M1-DOC/TXT REPROVAR, OPS NÃO VALIDADO; N01–N05 e aceite humano pendentes | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -66,6 +66,15 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Segunda auditoria Codex — resultado e encaminhamento
+
+- **Fonte e escopo:** segunda resposta atribuída ao Codex e repassada por HUMAN-001, sobre `main` no commit `70939c5bd837103ed76964ee7572a972ee43a6f4`. Texto integral preservado em `IA/validacao/M1_SEGUNDA_AUDITORIA_CODEX.md` (commit `03cf8dc8ff63d7626d7e0084f129a05c603c741d`).
+- **Veredito do auditor:** `M1-DOC: REPROVAR`; `M1-TXT: REPROVAR`; `M1-OPS: NÃO VALIDADO`; aceite humano para fechamento `PENDENTE`. O auditor reconheceu D1, D3 e D4 atendidos, D2, D5, D6 e D7 parciais; D8 realizado na sessão mas não preservado no commit examinado, D9 pendente.
+- **Achados novos:** N01 condição ambígua entre DOC e TXT em Segurança §3; N02 proveniência temporal incompleta de relato Meta AI no CTX; N03 resultados históricos não qualificados no quadro vigente; N04 cabeçalho de Segurança ambíguo; N05 referência a datas de conferência posterior sem data no pacote.
+- **Pendências originais:** A01/A02 dependem de evidências primárias ou reensaios; A04 controle técnico de escrita; A05 risco do script VM; A06 decisões mediadas com origem não preservada; A07 fonte temporal incompleta no CTX.
+- **Decisão atual:** apenas registrar a auditoria como evidência. **NÃO** homologar M1-DOC, M1-TXT ou M1-OPS e não promover resultados históricos a provas operacionais. A correção documental dirigida de N01–N05 deve ser registrada com escopo de autorização próprio.
+- **Próximo passo proposto:** corrigir N01–N05 sem apagar os registros antigos e obter conferência dirigida de outro agente; a avaliação de aceite M1-DOC exige decisão específica. Nenhuma alteração de scripts, proteção de branch ou infraestrutura foi autorizada por este parecer.
 
 ## M1-REVISAO — Bloco 2 de reconciliação documental
 
