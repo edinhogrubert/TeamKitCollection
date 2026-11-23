@@ -68,6 +68,16 @@ Modelos canônicos: `IA/despachos/MODELO_ORDEM.md` e `IA/despachos/MODELO_RETORN
 - A implantação de qualquer despachante automático depende antes de aprovação humana específica; não é autorizada por COM-002. Um eventual despachante deverá possuir identidade e permissões técnicas mínimas, autenticar eventos, deduplicar `order_id`, conferir autorização/posse, revalidar `main`, lidar com erros/retries e somente entregar ordens em canal configurado. Exige projeto, teste e autorização próprios; não presumir que AI Studio/Codex expõem API de recepção.
 - Não publicar nenhuma ordem operacional retroativa para justificar trabalho já concluído.
 
+## Critério de endereçamento e disponibilidade
+
+Cada identificador curto deve corresponder a **um arquivo Git publicado na `main`**, resolvido a partir do mapeamento desta página. Um agente sem acesso ao repositório deve declarar `NÃO ACESSÍVEL` e solicitar ao humano outro meio autorizado; jamais inferir conteúdo a partir de um identificador. Quem publica deve fornecer no chat **o identificador curto e, quando útil, o URL completo** para facilitar IAs com navegação restrita.
+
+- `TKC-XXXX` é a identidade da tarefa; `REQ/PAR/AUT/EXE/RET` são tipos de artefato dela. Não criar registros divergentes para um mesmo sufixo.
+- `claim_id` é independente do número da tarefa e identifica cada tentativa; logs e retornos precisam registrá-lo no corpo. Nova tentativa não pode apagar o log anterior: usar revisão/arquivo distinto com vínculo explícito.
+- A nomenclatura legado `<TASK-ID>-<SEQ>` continua legível como histórico, mas novos despachos experimentais usam prioritariamente o formato curto único definido neste documento.
+- **A publicação dos modelos não materializa os diretórios vazios:** `ordens/`, `logs/` e `retornos/` surgirão quando existir um primeiro arquivo real autorizado.
+- Não supor que uma IA gratuita tenha permissões de escrita no GitHub. Se puder apenas ler, publica seu parecer em canal alternativo sob condução humana, com origem `MEDIADO`, sem simular entrega no Git.
+
 ## Testes a executar (não executados)
 
 | ID | Cenário | Aceitação |
