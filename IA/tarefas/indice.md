@@ -5,6 +5,7 @@
 
 | Task ID | Objetivo | Estado confirmado | Responsável ativo | Registro | Observação |
 |---|---|---|---|---|---|
+| TKC-0002 | Teste de sincronização incremental de regras e custo de contexto | PENDENTE — ordem publicada, não recebida | NÃO ASSUMIDO | `IA/tarefas/TKC-0002.md` | Ordem `IA/despachos/ordens/TKC-REQ-0002.md`; ensaio L0/L1 a transportar pelo humano |
 | TKC-0001 | Piloto COM-002: parecer independente M1 D2/D5–D8 e consistência COM | PENDENTE — pedido publicado, não recebido | NÃO ASSUMIDO | `IA/tarefas/TKC-0001.md` | Ordem `IA/despachos/ordens/TKC-REQ-0001.md`; encaminhamento humano pendente, sem execução |
 | M1-REVISAO | Revisão documental M1 e auditoria D2/D5–D8 | EM_ANDAMENTO (macro) | NÃO ATRIBUÍDO NESTE ÍNDICE | `IA/PROJETO.md` | Linha informativa: **não constitui reivindicação de posse**; Bloco 3 já publicado, auditoria dirigida pendente |
 | M3-01 | Especificar COM-001 e iniciar índice | CONCLUÍDO (documental) | NENHUM | `IA/regras/comunicacao.md` | Contrato publicado e verificado; bloqueio atômico e ensaios operacionais pendentes |
