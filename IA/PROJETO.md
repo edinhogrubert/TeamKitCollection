@@ -67,6 +67,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Correção do fluxo de autorização TKC-0002 (proposta pendente)
+
+- **Causa:** AGT-001 sugeriu `TKC-AUT-0002 #TRUE` antes de publicar o documento `TKC-AUT-0002`. A recusa do Gemini por ausência de proposta e conflito com `forbidden_actions` foi adequada. O parecer recebido por canal humano permanece `MEDIADO / A INTEGRAR`.
+- **Correção publicada:** `IA/despachos/ordens/TKC-AUT-0002.md` na `main`, commit `876e49b1a7c7098daa259f6366b15ddcb663ba1b`. Escopo proposto: somente registro mínimo de claim/posse em `TKC-0002.md`, criação de `TKC-PAR-0002.md` e, se exigido, log administrativo `TKC-EXE-0002.md`. Toda outra alteração permanece proibida.
+- **Decisão:** `PENDENTE`. A manifestação humana `#TRUE` anterior à proposta não é aproveitada retroativamente; exige-se nova decisão sobre a proposta publicada, confirmação de autoridade, escopo e revisão.
+- **Continuidade:** após nova decisão válida, o humano encaminha `TKC-AUT-0002 #TRUE` ao Gemini; o Gemini revalida o Git, a posse e suas permissões e então poderá publicar os artefatos expressamente autorizados. AGT-001 audita o resultado antes de atualizar o controle macro ou declarar encerramento.
+- **Limites:** a publicação da proposta não significa execução, aceite M1 nem conclusão M3-02. `TKC-PAR-0002` não foi criado por AGT-001.
+
 ## Piloto TKC-0002 — sincronização de regras (preparado, não executado)
 
 - **Solicitação humana mediada:** seguir com testes da metodologia sem acionamento automático de outras IAs.
