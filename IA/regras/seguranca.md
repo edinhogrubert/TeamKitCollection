@@ -3,7 +3,7 @@
 **Projeto de validação:** TeamKitCollection  
 **Contratos:** SEC-001 a SEC-010  
 **Versão:** 0.1.0  
-**Estado:** DOCUMENTADO — testes comportamentais pendentes  
+**Estado:** DOCUMENTADO — respostas textuais históricas registradas em síntese (0/17 evidências primárias integrais no Git); certificação textual auditável (M1-TXT) e validação operacional (M1-OPS) pendentes  
 **Escopo:** segurança da atuação de agentes; segurança técnica do aplicativo pertence a `docs/seguranca.md`  
 **Governança superior:** [Constituição](constituicao.md) — GOV-001 a GOV-005
 
@@ -129,8 +129,10 @@ Uma IA não deve prometer monitoramento em segundo plano, alertas contínuos ou 
 
 ## 3. Critérios de aceite e próximos passos
 
-Este contrato estará **documentalmente concluído** quando seu conteúdo for publicado e relido na `main`, as referências forem coerentes com `GOV-001..005` e o `IA/PROJETO.md` registrar os testes pendentes.
+A avaliação deste contrato segue três entregas independentes e não intercambiáveis, definidas em [`IA/validacao/M1_CRITERIOS_ACEITE.md`](../validacao/M1_CRITERIOS_ACEITE.md):
 
-O marco **M1** só estará **validado operacionalmente** após execução documentada de testes de governança e segurança, incluindo ao menos uma avaliação por agente/sessão independente.
+- **Conclusão documental (`M1-DOC`):** exige publicação e releitura deste contrato na `main`, coerência normativa com `GOV-001..005`, separação entre estado vigente e histórico em `IA/PROJETO.md`, qualificação fidedigna das evidências e pendências (`D1–D7`), revisão por agente/sessão distinta (`D8`) e decisão humana específica de aceite (`D9`). A aprovação de `M1-DOC` **não** exige a prévia certificação de ensaios textuais reproduzíveis (`M1-TXT`) nem testes operacionais (`M1-OPS`).
+- **Certificação de ensaios textuais (`M1-TXT`):** exige preservação de evidências primárias integrais auditáveis (prompt, resposta e metadados), rubrica explícita, revisão distinta sobre fontes primárias (`T1–T6`) e decisão humana específica (`T7`). Sínteses históricas relatadas não satisfazem `M1-TXT`.
+- **Validação operacional (`M1-OPS`):** exige execução documentada de testes práticos em ambiente controlado, com controles técnicos efetivos, logs, isolamento, plano de recuperação, avaliação independente e autorização específica. Nem `M1-DOC` nem `M1-TXT` equivalem a `M1-OPS` ou autorizam operações.
 
-**Estado e próxima atividade vigente:** consultar [`IA/PROJETO.md`](../PROJETO.md). A revisão de evidências e ensaios reproduzíveis deve preceder a aprovação documental/textual; validação operacional exige controles e autorização próprios, não inferidos de respostas.
+**Estado e próxima atividade vigente:** consultar exclusivamente [`IA/PROJETO.md`](../PROJETO.md).
