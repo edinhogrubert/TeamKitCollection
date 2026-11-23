@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Revisar independentemente as fontes primárias e decidir critério de encerramento documental/textual do M1; controles operacionais permanecem não validados
+**Próxima etapa:** M1-REVISAO — Tratar achados A01–A07 da auditoria Codex: primeiro fixar critérios documentais, preservar evidência primária e reconciliar documentos; mudanças técnicas exigem aprovação específica
 
 ---
 
@@ -20,7 +20,7 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Meta AI: CTX-001 PASS textual mediado; auditoria independente e encerramento documental pendentes | EM_ANDAMENTO |
+| M1-REVISAO | Parecer externo Codex: REPROVAR fechamento documental; A01–A07 registrados; correções e revalidação pendentes | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -61,6 +61,17 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Parecer Codex — auditoria documental externa de M1
+
+- **Origem:** parecer apresentado por HUMAN-001, atribuído ao Codex; íntegra preservada em `IA/validacao/M1_AUDITORIA_CODEX.md`.
+- **Base declarada pelo auditor:** repositório `edinhogrubert/TeamKitCollection`, `main` no commit `805258836370c6a6bd378eafd7f6bac8b2c75340`; AGT-001 confirmou o mesmo HEAD e a ausência de proteção da branch antes de registrar o parecer.
+- **Veredito do auditor:** `REPROVAR` o encerramento documental do M1 por falta de evidências primárias preservadas, ensaios orientados, critérios de aceite insuficientes e divergências documentais.
+- **Achados:** A01 evidências incompletas; A02 desenho orientado dos testes; A03 critérios de fechamento não fixados; A04 controles técnicos de autoridade não demonstrados; A05 script VM potencialmente destrutivo; A06 rastreabilidade incompleta de decisões humanas; A07 manifesto CTX-001 incompleto.
+- **Avaliação de AGT-001:** crítica fundamentada e compatível com as limitações já documentadas. O resultado não comprova falha operacional consumada nem autoriza execução de infraestrutura.
+- **Decisão de marco:** `M1-REVISAO` permanece `EM_ANDAMENTO`; encerramento documental **não aprovado tecnicamente**. Apenas a transcrição do parecer e o controle de progresso foram alterados nesta etapa; ainda não foram aplicadas correções aos contratos.
+- **Evidência:** `IA/validacao/M1_AUDITORIA_CODEX.md`, commit `b2a7de1cd7282d30571e44979247166bdcc6536a`.
+- **Próximo passo:** definir critérios explícitos e auditáveis de aceite, plano de preservação das respostas originais e reconciliação documental. Controles de branch e script de VM requerem decisão separada; não executar scripts.
 
 ## Validação textual CTX-001 — Meta AI (terceiro retorno)
 
