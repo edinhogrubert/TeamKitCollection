@@ -90,6 +90,14 @@ Uma atualização ou entrega deve responder: **quem**, **o quê**, **estado**, *
 
 Mudança de responsável: registrar motivo, estado e artefatos na tarefa anterior, suspender o antigo executor, revogar acessos quando necessário por mecanismo autorizado, atribuir novo executor com decisão específica e produzir nova tentativa. Nunca declarar a revogação técnica concluída apenas porque um documento diz que ocorreu.
 
+## 7.1 Despacho de ordens e registros de saída (COM-002)
+
+O padrão de transporte assíncrono **documental** entre agentes é [`IA/despachos/README.md`](../despachos/README.md). Toda ordem concreta deve trazer `task_id`, `order_id`, destinatário, escopo, decisão e sua proveniência, commit-base e caminhos para log e retorno. O executor publica um log com eventos de recebimento, início e progresso e um retorno distinto de entrega/bloqueio; o revisor consulta o Git diretamente.
+
+**Publicar uma ordem não demonstra que o destinatário a recebeu.** Não existe neste momento um processo que faça polling, acorde sessões externas, envie mensagens às IAs, aguarde resultados ou reconcilie concorrência automaticamente. Sem execução configurada, o humano ainda pode ter de iniciar a sessão receptora uma vez, mas não deve precisar transportar manualmente o conteúdo da tarefa ou o relatório entre sessões que tenham acesso ao mesmo Git.
+
+Um `TRUE` não autoriza outro agente a trabalhar na tarefa enquanto o executor detém posse ativa; falta de posse comprovada ou estado ambíguo exige coordenação. COM-002 não substitui as verificações de COM-001.
+
 ## 8. Testes de aceitação da especificação
 
 | ID | Ensaio esperado | Critério de conformidade |
