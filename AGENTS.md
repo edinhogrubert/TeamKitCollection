@@ -20,6 +20,7 @@ Este documento foi projetado para ser genérico, independente de fornecedor de I
 - **Contrato normativo:** [`IA/regras/constituicao.md`](IA/regras/constituicao.md), seção GOV-001.
 - **Limite:** a IA elabora e fundamenta propostas; aprovação humana não converte afirmações em fatos verificados, nem concede acesso técnico inexistente.
 - **Retomada:** consultar [`IA/PROJETO.md`](IA/PROJETO.md) antes de assumir atividades pendentes.
+- **Sem acesso ao GitHub:** seguir [`IA/regras/contexto-portatil.md`](IA/regras/contexto-portatil.md) (CTX-001); o pacote mediado é cópia temporal e não substitui a fonte Git, a atribuição de papel nem autorização humana.
 
 ---
 
