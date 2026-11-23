@@ -68,6 +68,12 @@ Modelos canônicos: `IA/despachos/MODELO_ORDEM.md` e `IA/despachos/MODELO_RETORN
 - A implantação de qualquer despachante automático depende antes de aprovação humana específica; não é autorizada por COM-002. Um eventual despachante deverá possuir identidade e permissões técnicas mínimas, autenticar eventos, deduplicar `order_id`, conferir autorização/posse, revalidar `main`, lidar com erros/retries e somente entregar ordens em canal configurado. Exige projeto, teste e autorização próprios; não presumir que AI Studio/Codex expõem API de recepção.
 - Não publicar nenhuma ordem operacional retroativa para justificar trabalho já concluído.
 
+## Contexto mínimo e revisão de regras
+
+Ao preparar ordem/parecer, registrar **somente quando relevante** `rules_checked_commit`, os IDs/arquivos normativos afetados e `rules_check_status` do COM-001. O campo é **informação do remetente, não certificado de leitura do destinatário**. O agente receptor consulta `main`, compara mudanças normativas desde sua revisão efetivamente conhecida e lê apenas os diffs/seções necessários; se não souber a revisão, consulta regras essenciais à missão. Um commit diferente por tarefa ou relatório não exige reler contratos intactos.
+
+A ordem pode dizer **“COM-001 alterado desde o seu último checkpoint: releia seção 7.3”**, mas só se isso tiver sido verificado por comparação. Não listar todos os arquivos da metodologia por padrão. Não confiar apenas no número amigável de versão ou no resumo para operações de risco; não transformar falta de contexto em autorização.
+
 ## Critério de endereçamento e disponibilidade
 
 Cada identificador curto deve corresponder a **um arquivo Git publicado na `main`**, resolvido a partir do mapeamento desta página. Um agente sem acesso ao repositório deve declarar `NÃO ACESSÍVEL` e solicitar ao humano outro meio autorizado; jamais inferir conteúdo a partir de um identificador. Quem publica deve fornecer no chat **o identificador curto e, quando útil, o URL completo** para facilitar IAs com navegação restrita.
