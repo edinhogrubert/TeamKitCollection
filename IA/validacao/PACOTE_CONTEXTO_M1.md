@@ -11,9 +11,9 @@
 **Uso permitido:** leitura, análise e proposta; **NÃO autoriza escrita, custos ou operações de infraestrutura**  
 **Advertência:** ponto de captura documental; a publicação deste pacote pode produzir commits posteriores. Não alegar que os hashes abaixo são o HEAD de hoje.
 
-## A. Fontes inspecionadas diretamente pelo AGT-001
+## A. Manifesto de fontes — cinco registros originais e duas conferências posteriores
 
-| Arquivo | SHA de blob verificado na preparação | Observação |
+| Arquivo | SHA de blob verificado na revisão indicada | Observação |
 |---|---|---|
 | `AGENTS.md` | `58ef0036d5847259de34d2eba9783df27e7977c2` | Roteador de entrada, hierarquia e limites |
 | `IA/PROJETO.md` | `924d0c0d85151d8fa96cc3e31fdfc92630d5ec56` | Etapa M1-REVISAO em andamento |
