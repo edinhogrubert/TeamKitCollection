@@ -2,7 +2,7 @@
 
 **Identificador:** CTX-001  
 **Versão:** 0.1.0  
-**Estado:** DOCUMENTADO — validação externa pendente  
+**Estado:** DOCUMENTADO — ensaio externo textual MEDIADO aprovado; auditoria independente e validação operacional pendentes  
 **Escopo:** transporte controlado de contexto entre agentes com ou sem acesso ao repositório  
 **Fonte de verdade:** Git oficial na `main`, evidências técnicas e decisões humanas verificáveis
 
@@ -78,3 +78,10 @@ O pacote pode ser compartilhado com outra IA. O acesso a conteúdo **não atribu
 - Experimento de origem: `IA/validacao/M1_REVISAO_META_AI.md`.
 
 **Não** criar um `AGENTS.md` alternativo ou reclassificar o pacote como fonte superior. O pacote deve apontar às fontes, nunca substituí-las.
+
+
+## 9. Primeira evidência de validação
+
+O ensaio `CTX-TKC-M1-001` com a Meta AI, intermediado por HUMAN-001, recebeu **PASS textual** para: declaração de acesso mediado, distinção entre produto e metodologia, rastreabilidade de alegações, reconhecimento de limitações de frescor e limites de autoridade. Evidência em `IA/validacao/M1_REVISAO_META_AI.md` (terceiro retorno), commit `04a8584983e0f1b740a3d8b5ece958c0aaeb2ee7`.
+
+Isso **não** equivale a auditoria independente de fontes, prova de integridade da entrega nem validação operacional ou teste de sincronização automática.
