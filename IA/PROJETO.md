@@ -67,6 +67,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Sincronização incremental de regras — economia de contexto (documental)
+
+- **Decisão humana mediada:** aplicar sincronização leve e incremental sem criar regra ou arquivo adicional; reduzir consumo de tokens da governança sem relaxar controles críticos.
+- **Publicado na `main`:** instrução de entrada em `AGENTS.md`, seção 7.3 de `IA/regras/comunicacao.md` e referência de escopo em `IA/despachos/README.md`. A revisão conhecida só vale para o que a sessão realmente consultou, identificada por commit/escopo; número amigável não substitui referência Git.
+- **Conduta:** comparar alterações apenas nos caminhos normativos relevantes desde a última revisão confiável; ler diff/seção afetada. Se revisão desconhecida, diff indisponível ou mudança crítica em segurança/autoridade, consultar regras essenciais antes de qualquer L2/L3. Evitar leitura integral por rotina e histórico redundante.
+- **Escopo e limites:** nenhuma automação, serviço de monitoramento, indexador ou mecanismo de memória permanente implementado. Testes com agente antigo, contexto desconhecido, alteração não normativa, mudança crítica e diff indisponível são **PROPOSTOS, NÃO EXECUTADOS**. O primeiro pedido `TKC-REQ-0001` continua publicado, sem parecer `TKC-PAR-0001` confirmado.
+- **Estado macro:** `M1-REVISAO` continua `EM_ANDAMENTO`; `M3-02` e `M5-01` continuam `PENDENTE`. Publicação de protocolo não prova comportamento de outras IAs.
+
 ## Piloto COM-002 — primeiro pedido de parecer publicado (TKC-0001)
 
 - **Instrução humana:** prosseguir nos próximos passos do método; AGT-001 preparou um primeiro exercício L0/L1 com despacho de referência exclusivamente humano (autorização registrada no Git como `MEDIADO`).
