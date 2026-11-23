@@ -23,7 +23,7 @@
 | M1-REVISAO | Bloco 3 documental (N01–N05 e D5/A06) aplicado sobre a segunda auditoria Codex; conferência direcionada (D2, D5–D8) e aceite humano específico M1-DOC (D9) pendentes | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
-| M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
+| M3-01 | Especificar COM-001 e criar índice inicial de tarefas (documentação; sem lock automático) | CONCLUÍDO |
 | M3-02 | Implementar protocolo de tarefas persistidas e handoff | PENDENTE |
 | M4-01 | Criar os contratos em `IA/papeis/` | PENDENTE |
 | M5-01 | Projetar coordenação multiagente: concorrência, dependências e resolução de conflitos | PENDENTE |
@@ -66,6 +66,15 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## M3-01 — Registro documental de comunicação e posse de tarefas (COM-001)
+
+- **Autorização:** HUMAN-001 solicitou criar o protocolo de acompanhamento entre agentes/humanos (decisão recebida na conversa de AGT-001; proveniência `MEDIADO` no Git, sem autenticação da sessão por este registro).
+- **Publicação:** `IA/regras/comunicacao.md` (COM-001), commit `1d746175fa7e7ef73322ae0b59fba11e1ba9efe0`; `IA/tarefas/indice.md` (inventário inicial), commit `2d33af1fb62ea36d14a6dcf74b311a30a15b35d9`. `AGENTS.md` passou a referenciar essas fontes na entrada obrigatória.
+- **Implementado:** contrato escrito com distinção entre autorização e início, estados `ATRIBUIDA`, `AUTORIZADA`, `EM_EXECUCAO`, `EM_REVISAO`, conclusão, bloqueio, pausa e falha; obrigação cooperativa de registrar reivindicação e progresso; prevenção documental de retrabalho e esquema para futuras tarefas reais.
+- **Não implementado:** exclusão mútua atômica, detecção automática de processo vivo, heartbeat programado, token de fencing, lease com expiração segura ou recuperação automática de executor. Regras M3-02/M5-01 seguem `PENDENTE`.
+- **Aceite desta entrega:** arquivos publicados na `main` e relidos após cada commit; verificação de correção normativa e simulação COM-T01..08 por auditor distinto ainda pendentes. A conclusão de M3-01 significa **especificação documental existente**, não implementação/validação operacional de concorrência.
+- **Estado do projeto:** `M1-REVISAO` continua `EM_ANDAMENTO` com conferência Codex D2 e D5–D8 e eventual decisão humana M1-DOC pendentes. Esta especificação não antecipa M3-02 ou M5 e não aprova M1.
 
 ## M1-REVISAO — Bloco 3 de correção documental dirigida (N01–N05 e D5/A06)
 
