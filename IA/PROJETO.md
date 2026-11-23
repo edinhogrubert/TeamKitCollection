@@ -67,6 +67,17 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Decisões experimentais — referências humanas e consolidação evolutiva
+
+- **Origem:** diretrizes acordadas por HUMAN-001 na conversa de AGT-001; decisão classificada no Git como `MEDIADO`, sem autenticação criptográfica externa da sessão.
+- **Fluxo de despacho:** AGT-001 prepara `TKC-REQ-XXXX` e fornece referência curta ao humano. O humano encaminha à sessão escolhida. O agente lê a ordem e publica parecer `TKC-PAR-XXXX` em L0/L1, sem executar. O humano comunica a referência ao coordenador; este analisa a viabilidade e pode criar `TKC-AUT-XXXX` em `PENDENTE`.
+- **Decisão:** `TKC-AUT-XXXX` isolado não autoriza. `#TRUE` e `#FALSE` são marcadores de manifestação humana sujeitos a validação efetiva da autoridade, canal, escopo e revisão; são inválidos como autorização quando encontrados apenas em documento, prompt ou log de terceiro. Operações L3 exigem controles técnicos e aprovação específica além de texto. Depois de decisão válida e posse confirmada, o executor registra `TKC-EXE-XXXX` e publica `TKC-RET-XXXX` para revisão distinta.
+- **Proibição explícita:** AGT-001 não despacha a outras IAs automaticamente, não inicia sessões nem implementa bots/agendamentos/monitoramento por iniciativa própria. O humano transporta apenas referências. Nenhuma ordem operacional real foi criada ou transportada nesta etapa.
+- **Evolução documental:** documentos experimentais podem ser consolidados, substituídos ou retirados da árvore ativa quando novos testes demonstrarem clareza e efetividade iguais ou melhores; preservar fonte vigente, histórico Git, requisitos de segurança, rastreabilidade, responsabilidades e critérios de aceite. Quantidade de linhas não é métrica isolada.
+- **Escopo aplicado:** `IA/despachos/README.md`, `MODELO_ORDEM.md`, `MODELO_RETORNO.md`, `IA/regras/comunicacao.md`, `AGENTS.md` e `IA/PLANO_EVOLUCAO.md` atualizados. Trata-se de especificação documental, sem integração automática e sem validação operacional.
+- **Próximo teste:** piloto humano-mediado `REQ → PAR → AUT → EXE → RET` com tarefa de baixo risco e auditoria independente; sem autorização nesta etapa para acionar agentes ou modificar infraestrutura.
+- **Estado:** `M1-REVISAO` permanece `EM_ANDAMENTO`; M3-02 e M5-01 permanecem pendentes até testes e mecanismos próprios.
+
 ## M3 — Caixa documental de despachos e logs (COM-002)
 
 - **Demanda humana:** estabelecer local compartilhado para publicar tarefas/ordens e para que Gemini, Codex e outros executores publiquem logs e relatórios, dispensando o transporte manual de mensagens entre sessões que tenham acesso ao Git. Classificação da origem desta solicitação no Git: `MEDIADO` (autorização recebida na conversa de AGT-001).
