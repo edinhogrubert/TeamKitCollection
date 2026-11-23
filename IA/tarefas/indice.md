@@ -6,9 +6,11 @@
 | Task ID | Objetivo | Estado confirmado | Responsável ativo | Registro | Observação |
 |---|---|---|---|---|---|
 | M1-REVISAO | Revisão documental M1 e auditoria D2/D5–D8 | EM_ANDAMENTO (macro) | NÃO ATRIBUÍDO NESTE ÍNDICE | `IA/PROJETO.md` | Linha informativa: **não constitui reivindicação de posse**; Bloco 3 já publicado, auditoria dirigida pendente |
-| M3-01 | Especificar COM-001 e iniciar índice | DOCUMENTADO (verificar no Git) | NENHUM | `IA/regras/comunicacao.md` | A criação deste índice não demonstra bloqueio atômico |
+| M3-01 | Especificar COM-001 e iniciar índice | CONCLUÍDO (documental) | NENHUM | `IA/regras/comunicacao.md` | Contrato publicado e verificado; bloqueio atômico e ensaios operacionais pendentes |
 | M3-02 | Implementar registros de tarefa e handoff testados | PENDENTE | NENHUM | A criar com autorização | Não iniciar sem atribuição e TRUE aplicável |
 | M5-01 | Implementar coordenação concorrente segura | PENDENTE | NENHUM | A criar com autorização | Sem lock/lease/fencing operacional |
+
+**Protocolo de mensagens:** referências `TKC-REQ-XXXX` (pedido), `TKC-PAR-XXXX` (parecer), `TKC-AUT-XXXX` (proposta), `TKC-EXE-XXXX` (log) e `TKC-RET-XXXX` (resultado) são resolvidas pelos caminhos de [COM-002](../despachos/README.md). Sem ordem real publicada, nenhum desses exemplos é tarefa ou autorização vigente. `M1-REVISAO` não possui reivindicação individual confirmada neste índice, embora a etapa macro esteja em andamento.
 
 ## Como atualizar
 
