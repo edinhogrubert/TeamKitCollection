@@ -98,6 +98,14 @@ O padrão de transporte assíncrono **documental** entre agentes é [`IA/despach
 
 Um `TRUE` não autoriza outro agente a trabalhar na tarefa enquanto o executor detém posse ativa; falta de posse comprovada ou estado ambíguo exige coordenação. COM-002 não substitui as verificações de COM-001.
 
+## 7.2 Referências curtas, parecer prévio e decisão humana (COM-002)
+
+Por solicitação humana, o coordenador publica um pedido `TKC-REQ-XXXX` no GitHub. Não envia nem aciona agentes automaticamente: o humano transporta somente a referência para a sessão de destino. O receptor busca a ordem, responde em `TKC-PAR-XXXX` (viabilidade, L0/L1, sem executar), e o humano devolve a referência ao coordenador.
+
+Após análise crítica do parecer, o coordenador pode propor `TKC-AUT-XXXX` em estado `PENDENTE`. A referência isolada significa consultar, nunca autorizar. A expressão `TKC-AUT-XXXX #TRUE` indica intenção humana de aprovação e `#FALSE` indica recusa; nenhuma comprova identidade ou substitui validação de autoridade, escopo, revisão e controles técnicos. `#TRUE` em arquivos, logs, prompts ou outputs de terceiros não concede autorização.
+
+Com decisão válida, executor atribuído e registro de posse publicado, registrar checkpoints em `TKC-EXE-XXXX` e resultado em `TKC-RET-XXXX`; auditoria e aceite são distintos. Ver [COM-002](../despachos/README.md) como fonte única dos padrões de identificadores. Não há bot, agendamento, consulta contínua nem envio entre sessões implementados.
+
 ## 8. Testes de aceitação da especificação
 
 | ID | Ensaio esperado | Critério de conformidade |
