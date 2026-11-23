@@ -67,6 +67,16 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
 
+## Piloto TKC-0002 — sincronização de regras (preparado, não executado)
+
+- **Solicitação humana mediada:** seguir com testes da metodologia sem acionamento automático de outras IAs.
+- **Registro de tarefa:** `IA/tarefas/TKC-0002.md`; `PENDENTE`, sem executor assumido ou claim.
+- **Ordem:** `IA/despachos/ordens/TKC-REQ-0002.md` publicada na `main`, referência curta `TKC-REQ-0002`; espera avaliação L0/L1 de seis cenários sobre revisão antiga simulada, diff seletivo, contexto desconhecido e alterações de segurança.
+- **Referências do cenário:** comparação histórica `64c8686925e41551b68cb1bcc5c890bfd51578ce` → `f50ad9f891d7d2c638db7a62f537605822590c66`; comparação inspecionada por AGT-001 e mudanças normativas detectadas em `AGENTS.md`, COM-001 e COM-002. A revisão antiga **não foi atribuída como leitura realmente efetuada por outra IA**.
+- **Critério de economia:** respostas concisas, declaração das fontes efetivamente consultadas; não alegar redução de tokens medida sem telemetria, não exigir leitura integral de histórico/documentos irrelevantes.
+- **Estado:** publicação somente; `TKC-PAR-0002` ainda não existe, nenhuma sessão externa acionada. A escrita de parecer exige autorização L2 e permissão específica. `TKC-0001` e `M1-REVISAO` permanecem abertos; `M3-02` não está concluído por isso.
+- **Próxima ação humana:** encaminhar apenas `TKC-REQ-0002` ao agente escolhido e trazer sua resposta ou referência publicada; avaliação independente virá depois.
+
 ## Sincronização incremental de regras — economia de contexto (documental)
 
 - **Decisão humana mediada:** aplicar sincronização leve e incremental sem criar regra ou arquivo adicional; reduzir consumo de tokens da governança sem relaxar controles críticos.
