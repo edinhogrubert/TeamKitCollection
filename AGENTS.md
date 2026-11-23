@@ -255,6 +255,8 @@ Essa separação constitui uma regra estrutural obrigatória do TeamKitCollectio
 
 **Comunicação e posse de trabalho (COM-001):** antes de qualquer mudança L2/L3, consultar [`IA/regras/comunicacao.md`](IA/regras/comunicacao.md) e [`IA/tarefas/indice.md`](IA/tarefas/indice.md); conferir o registro da tarefa, responsável, reivindicação publicada, dependências e possível sobreposição de escopo. Um `TRUE` autoriza somente o escopo, **não** indica que o trabalho começou nem fornece posse exclusiva. Na falta de reivindicação publicada, conflito, executor ativo ou estado incerto, limitar-se a L0/L1 e coordenar antes de executar. O registro em Git é cooperativo: **não existe lock atômico, heartbeat automático ou retomada automática implementados**. O estado macro vigente permanece em `IA/PROJETO.md`.
 
+**Caixa de ordens e saídas (COM-002):** consultar [`IA/despachos/README.md`](IA/despachos/README.md) e as ordens atribuídas antes de iniciar uma tarefa. Confirmar recebimento de forma persistida, registrar início/checkpoints e publicar log e retorno ao finalizar. **A existência de uma ordem no GitHub não comprova que a IA destinatária foi notificada, está ativa ou executou qualquer ação.** O transporte automático entre sessões ainda não foi implementado.
+
 **Separação de documentação:** regras e continuidade das IAs ficam em `IA/`; requisitos, arquitetura e operação do aplicativo ficam em `docs/`. O roteiro do aplicativo será `docs/ROADMAP.md` quando criado.
 
 
