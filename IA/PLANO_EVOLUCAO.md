@@ -2,7 +2,7 @@
 
 **Projeto de validação:** TeamKitCollection  
 **Versão:** 0.1.0  
-**Estado:** PLANEJADO  
+**Estado:** PLANO DE MARCOS (não representa execução)  
 **Controle operacional:** [PROJETO.md](PROJETO.md)
 
 ## Finalidade
@@ -22,9 +22,9 @@ O método deve poder ser reutilizado sem carregar regras de negócio do TeamKitC
 | M0 | Fundação documental e organização | Estrutura, README, AGENTS, plano e controle verificados no Git |
 | M1 | Constituição e segurança | Autorização, responsabilidade, limites e interrupções especificados e testados |
 | M2 | Confiabilidade e anti-alucinação | Agentes distinguem evidências, hipóteses e contradições em cenários de teste |
-| M3 | Comunicação, tarefas e handoff | Uma IA retoma tarefa iniciada por outra com base no estado persistido |
+| M3 | Comunicação, tarefas e handoff | Contratos de comunicação e persistência de tarefas permitem retomada entre IAs com evidências |
 | M4 | Papéis profissionais | Contratos independentes de fornecedores de IA, com entradas e saídas claras |
-| M5 | Coordenação multiagente | Conflitos de alterações e dependências tratados sem sobrescrita silenciosa |
+| M5 | Coordenação multiagente | Execuções concorrentes, dependências, filas e conflitos de alterações tratados sem sobrescrita silenciosa |
 | M6 | Verificação automatizada | Ferramentas detectam contratos inválidos e evidências ausentes |
 | M7 | Operação e suporte | Incidente real ou simulado rastreado de relato até resolução e validação |
 | M8 | Portabilidade | Método aplicado a outro projeto, sem regras específicas do aplicativo |
@@ -40,7 +40,10 @@ O método deve poder ser reutilizado sem carregar regras de negócio do TeamKitC
 7. Regras do produto pertencem a `docs/`, não aos contratos universais da metodologia.
 8. Toda mudança do método deve considerar compatibilidade, risco, custo de contexto e possibilidade de reversão.
 
-## Próximo marco
-Concluir M0 com o alinhamento do `AGENTS.md` e depois iniciar **M1: `IA/regras/constituicao.md`**.
+## Estado vigente e próxima etapa
+
+Este documento descreve **ordem e escopo de marcos**, não o andamento atual. A **única fonte de estado e próxima etapa vigente** é [`IA/PROJETO.md`](PROJETO.md). O texto anterior de próximo marco (concluir M0 e iniciar M1) foi substituído por esta referência, sem alterar a existência de etapas já executadas.
+
+**Alocação harmonizada:** M3 abrange contratos de comunicação, protocolo de tarefas e handoff; M5 fica reservado à coordenação multiagente concorrente, resolução de dependências e conflitos de alterações. Transferir uma tarefa isolada entre sessões não equivale a coordenar múltiplas execuções simultâneas.
 
 > Este arquivo é planejamento metodológico. Não é o roadmap técnico da aplicação, que ficará em `docs/ROADMAP.md`.
