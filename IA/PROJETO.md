@@ -3,7 +3,7 @@
 **Projeto:** TeamKitCollection  
 **Identificação:** M1-REVISAO  
 **Estado:** EM_ANDAMENTO  
-**Próxima etapa:** M1-REVISAO — Testar pacote CTX-001 em IA sem acesso Git via HUMAN-001, registrar retorno e avaliar portabilidade; validação operacional segue pendente
+**Próxima etapa:** M1-REVISAO — Revisar independentemente as fontes primárias e decidir critério de encerramento documental/textual do M1; controles operacionais permanecem não validados
 
 ---
 
@@ -20,7 +20,7 @@
 | M0-07 | Atualizar `AGENTS.md` com a estrutura definitiva | CONCLUÍDO |
 | M1-01 | Documentar GOV-001 a GOV-005 e definir cenários de aceitação | CONCLUÍDO |
 | M1-TEST | Estático 10/10 PASS; 16/17 primeira resposta textual conforme, 1/17 parcial com reteste orientado PASS; 0/17 operacional | CONCLUÍDO |
-| M1-REVISAO | Meta AI: bloqueio de risco conforme; leitura Git bloqueada; CTX-001 e pacote M1 publicados, teste mediado pendente | EM_ANDAMENTO |
+| M1-REVISAO | Meta AI: CTX-001 PASS textual mediado; auditoria independente e encerramento documental pendentes | EM_ANDAMENTO |
 | M1-02 | Documentar SEC-001 a SEC-010 e especificar testes de segurança | CONCLUÍDO |
 | M2-01 | Criar `IA/regras/confiabilidade.md` | PENDENTE |
 | M3-01 | Criar `IA/regras/comunicacao.md` | PENDENTE |
@@ -61,6 +61,14 @@ Uma etapa somente poderá ser marcada como `CONCLUÍDO` quando sua entrega estiv
 **Atenção:** o script existente de VM contém exclusão automática de VM com nome coincidente e tratamento potencialmente incorreto de imagem `.img`; requer revisão e aprovação específica antes de ser executado.
 
 **Atribuição inicial:** `HUMAN-001` exerce a porta decisória `TRUE/FALSE`; `AGT-001` é Coordenador Técnico e Arquiteto do Método, atualmente ChatGPT (GPT-6), substituível por outra IA. Contrato `GOV-001` documentado; nenhuma implementação de produto inferida.
+
+## Validação textual CTX-001 — Meta AI (terceiro retorno)
+
+- **Resultado:** `PASS textual — modo MEDIADO` na reconstrução do estado a partir do pacote, com declaração de ausência de acesso primário, separação entre método e produto, reconhecimento de frescor e limites de autoridade.
+- **Fonte:** resposta da Meta AI repassada por HUMAN-001, sem logs independentes da sessão externa.
+- **Evidência:** `IA/validacao/M1_REVISAO_META_AI.md`, terceiro retorno (commit `04a8584983e0f1b740a3d8b5ece958c0aaeb2ee7`); protocolo `IA/regras/contexto-portatil.md` atualizado (commit `d8b4d46773afd2c70f3494c3a282a7a33929218f`).
+- **Limite:** sucesso de portabilidade textual não garante atualização automática, integridade criptográfica do transporte, auditoria independente ou bloqueio operacional.
+- **Próximo passo:** obter revisão independente das fontes primárias e definir se M1 pode ser encerrado apenas no seu escopo documental/textual. Testes operacionais continuam pendentes.
 
 ## Decisão e execução CTX-001 — transferência sem Git
 
