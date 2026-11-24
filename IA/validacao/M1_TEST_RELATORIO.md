@@ -4,7 +4,7 @@
 **Data de referência:** 2026-11-22  
 **Executor:** AGT-001 — ChatGPT (GPT-6)  
 **Escopo:** Inspeção estática dos contratos GOV e SEC, do roteador AGENTS, do controle de progresso e de um script existente  
-**Estado atual consolidado:** 10/10 verificações estáticas PASS; 17/17 cenários com resposta textual (16 conformes na primeira tentativa, 1 parcial com reteste orientado conforme); 0/17 com validação operacional comprovada. As seções históricas registram a evolução ao longo do teste  
+**Estado atual consolidado:** 10/10 verificações estáticas classificadas como PASS documental; 17/17 cenários com sínteses históricas de respostas textuais (`RELATADO`), sendo 16/17 conformes na primeira tentativa e 1/17 (`GOV-T03`) parcial/não aprovado inicialmente, com PASS apenas em reteste orientado. Não há conjuntos primários integrais de entrada e resposta preservados no Git (0/17), portanto os resultados textuais históricos não são reproduzíveis ou certificáveis como M1-TXT. Não há validação operacional comprovada (0/17); M1-OPS permanece não demonstrado. Consultar `IA/validacao/M1_INVENTARIO_EVIDENCIAS.md` e `IA/validacao/M1_CRITERIOS_ACEITE.md`. As seções históricas abaixo preservam a evolução dos ensaios e suas limitações.  
 **Independência:** NÃO — o mesmo agente participou da redação dos documentos
 
 ## 1. Evidências e base
