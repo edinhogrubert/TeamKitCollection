@@ -48,6 +48,27 @@ Os códigos apontam a artefatos com o mesmo número, mas **não são autorizaç�
 
 Modelos canônicos: `IA/despachos/MODELO_ORDEM.md` e `IA/despachos/MODELO_RETORNO.md`. Modelos não constituem ordens reais; nenhum agente deve executá-los.
 
+
+## COM-002.2 — Contrato de devolução em dois canais (correção por uso real)
+
+**Objetivo:** transportar o trabalho sem exigir que HUMAN-001 reescreva, resuma ou interprete relatórios. O destinatário define o modo **conforme capacidade efetiva da sessão**, e informa o status no fim de sua resposta ao humano. A escolha não altera o escopo, as permissões ou a autoria do trabalho.
+
+| Capacidade da IA | Entrega pelo agente | Frase de encerramento humano | Tratamento por AGT-001 |
+|---|---|---|---|
+| Acesso Git de escrita verificado e autorizado | Publica no caminho de retorno, com reivindicação e evidências COM-001 | `TKC-PAR-XXXX PUBLICADA NO GIT — commit: <SHA>` | Consulta o Git diretamente, verifica conteúdo, commits e proveniência; não pede colagem |
+| Sem escrita Git | Fornece o parecer/código completo na conversa, identificado por tarefa e artefato | `TKC-PAR-XXXX PRONTA — SEM ESCRITA GIT. LEVE ESTA RESPOSTA A AGT-001` | Recebe integralmente o conteúdo trazido por HUMAN-001 e, quando autorizado, publica no repositório como `MEDIADO` |
+| Impedimento ou falha | Explica limites e efeitos, sem afirmar publicação ou conclusão | `TKC-PAR-XXXX BLOQUEADA — motivo: ...` | Registra bloqueio e próximo passo; não inventa conteúdo |
+
+Para código, substituir o marcador PAR por `TKC-RET-XXXX` ou outro artefato autorizado e declarar exatamente os arquivos/caminhos produzidos; **receber um bloco de código pelo humano não autoriza implantá-lo**. Identificadores são referências de transporte, não provas de execução.
+
+**Instrução padrão de saída de toda IA:** sua resposta deve conter o trabalho realizado e, **na última linha**, um dos encerramentos acima, com a referência correta. Não chamar de `CONCLUIDA` uma tarefa ainda dependente de verificação ou aceite: `PRONTA`/`PUBLICADA` indicam entrega ou disponibilidade, não aprovação. Se a IA afirma ter publicado, AGT-001 procura no Git antes de reconhecer a entrega.
+
+**Responsabilidade de AGT-001 no canal mediado:** preservar o conteúdo e indicar `autor_original`, `publicador`, `referência`, `proveniência=MEDIADO`, fontes efetivamente verificadas, limitações do acesso e commit de publicação. Publicar o material não transforma afirmações da IA em testes `VERIFICADOS`. Registro em Git exige autorização de escrita, validação de escopo, reivindicação anterior e confirmação remota; não presumir permissão geral para arquivos de produto.
+
+**Linguagem humana abreviada:** "IA respondeu, leia no Git" aciona consulta Git; "IA respondeu, trouxe o texto" indica retorno mediado; "IA não conseguiu" aciona tratamento de impedimento. Se os dois primeiros não fornecerem artefato recuperável, declarar `NÃO LOCALIZADO` e solicitar só a referência ou o material faltante, sem exigir repetição de algo já publicado.
+
+**Condição de interoperabilidade:** toda ordem futura informa o caminho de retorno e as duas opções de transporte; a IA escolhe com base em capacidade real, não em presunção sobre o fornecedor. O humano continua escolhendo se e quando entrega a referência; não há notificação, acionamento ou publicação automáticos.
+
 ## Ciclo de comunicação
 
 1. Sob solicitação humana, o coordenador ou humano autorizado cria/atualiza o registro da tarefa e publica uma ordem com `task_id`, `order_id`, `recipient`, `authorization`, `scope`, `base_commit`, critérios de aceite e local da saída.

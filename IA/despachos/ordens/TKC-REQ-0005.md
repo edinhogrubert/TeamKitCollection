@@ -1,6 +1,6 @@
 # TKC-REQ-0005 — Pedido de parecer de viabilidade L0/L1
 
-**ATENÇÃO:** pedido de análise, **NÃO** autorização para implementar, editar código, provisionar recursos ou alterar infraestrutura. **Correção C02:** a devolução esperada é um arquivo Git, não texto a ser colado pelo humano. Publicação da ordem não prova recebimento.
+**ATENÇÃO:** pedido de análise, **NÃO** autorização para implementar, editar código, provisionar recursos ou alterar infraestrutura. **Correção C03:** retorno por Git direto, quando possível, ou por transporte humano de resposta completa a AGT-001 para publicação mediada; publicação não prova recebimento.
 
 | Campo | Valor |
 |---|---|
@@ -22,7 +22,7 @@
 | `feasibility_report_ref` | **Destino obrigatório de retorno:** `IA/despachos/retornos/TKC-PAR-0005.md`; não existia na `main` na conferência pré-C02; Gemini deverá publicar se tiver acesso e autorização verificados |
 | `required_checks` | Verificar capacidade de acesso, restrição de custo e riscos; diferenciar proposta de tecnologia e comportamento efetivamente demonstrado |
 | `log_path` | `IA/despachos/logs/TKC-EXE-0005.md` — somente após autorização específica futura, não criado |
-| `return_path` | `IA/despachos/retornos/TKC-PAR-0005.md` — único destino esperado do parecer; envio humano somente da referência, não do relatório |
+| `return_path` | `IA/despachos/retornos/TKC-PAR-0005.md` — destino persistente em ambos os modos: Gemini publica diretamente quando habilitado, senão HUMAN-001 traz o parecer e AGT-001 publica como `MEDIADO` mediante autorização apropriada |
 
 ## Entrada: o que deve ser analisado
 
@@ -57,7 +57,7 @@ Quando houver limite de navegação, priorizar a própria ordem e o registro; in
 
 - Ler as fontes realmente acessíveis, identificar `task_id`, compromisso de **não executar** e estado da ordem `PUBLICADO`.
 - Produzir parecer objetivo com premissas, alternativas, viabilidade, riscos, plano de ensaio e limitações.
-- **Retorno esperado:** `TKC-PAR-0005` **publicado no Git**. Gemini deve verificar acesso real, autorização de escrita apenas nos arquivos de comunicação desta tarefa e ausência de conflito. Publicar reivindicação própria nova no registro da tarefa e índice **antes** do parecer, confirmar no remoto e depois publicar o retorno e encerrar posse conforme COM-001. Se não houver escrita Git, avisar `SEM_ESCRITA_GIT`, sem transferir relatório completo ao humano como fallback padrão.
+- **Retorno esperado em um de dois canais:** se Gemini puder escrever no Git, seguir COM-001 e publicar `TKC-PAR-0005` com commit; se não puder, apresentar o parecer completo na própria conversa, junto com o rodapé `TKC-PAR-0005 PRONTA — SEM ESCRITA GIT. LEVE ESTA RESPOSTA A AGT-001`. HUMAN-001 transporta esse conteúdo uma única vez e AGT-001 o publica no Git identificado como `MEDIADO`, mediante permissão adequada. Resposta pronta não equivale a publicação ou aceite.
 - Não assumir que publicar esta REQ gera `RECEBIDO`, claim de execução, `TRUE` operacional, testes, revisão ou aprovação.
 - Nenhuma sessão externa está sendo acionada automaticamente.
 
@@ -83,3 +83,15 @@ Quando houver limite de navegação, priorizar a própria ordem e o registro; in
 Essa retificação não autoriza código, Docker, rede, servidores, mudanças de regras nem nova análise técnica. Não existe entrega automática entre sessões.
 
 **Histórico:** correção de comunicação C02 por AGT-001, com autorização humana mediada; reivindicação C02 publicada no commit `e25c1a011a3e287ffb2788314ee62aad77907f11`. O commit da retificação será identificável pelo Git após a publicação.
+
+## Retificação C03 — dois modos de retorno, acordo atual
+
+Esta seção **substitui apenas a exigência de retorno exclusivamente Git e a proibição de colagem da C02**. Preserva o restante do pedido L0/L1 e as regras de segurança/autorização existentes.
+
+**Modo A — IA com escrita Git autorizada:** publicar o parecer no destino `IA/despachos/retornos/TKC-PAR-0005.md`, observando reivindicação prévia e conferência remota de COM-001, e terminar a resposta ao humano com a linha `TKC-PAR-0005 PUBLICADA NO GIT — commit: <SHA>`. O humano só comunica a referência a AGT-001; AGT-001 consulta o arquivo. A existência de link ou claim não prova que o parecer esteja correto.
+
+**Modo B — IA sem escrita Git:** fornecer **a resposta completa no próprio chat**, acompanhada ao final pela linha exata `TKC-PAR-0005 PRONTA — SEM ESCRITA GIT. LEVE ESTA RESPOSTA A AGT-001`. HUMAN-001 traz a resposta para AGT-001; AGT-001 publica no mesmo destino persistente, registrando `autor_original=Gemini`, `publicador=AGT-001`, `proveniência=MEDIADO`, `acesso_Git_do_autor=SEM_ESCRITA` e o compromisso de não interpretar o relato como teste verificado. Publicação por AGT-001 exige reivindicação e autoridade aplicáveis no próprio momento. **Não enviar chaves/tokens ao humano ou ao chat.**
+
+**Modo C — falha/impedimento:** terminar com `TKC-PAR-0005 BLOQUEADA — motivo: ...` e dados suficientes para AGT-001 identificar a dependência real, sem declaração falsa de entrega.
+
+**Semantica para HUMAN-001 e AGT-001:** "Gemini publicou a TKC-PAR-0005" significa **buscar no Git**; "trouxe a resposta do Gemini" significa **receber material mediado e publicar com proveniência adequada**. Se nada foi publicado ou transmitido, não há parecer disponível. Nenhum desses modos autoriza código ou infraestrutura.
