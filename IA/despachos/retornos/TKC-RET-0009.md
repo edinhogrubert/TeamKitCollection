@@ -7,9 +7,9 @@
 - **tipo:** `EXECUCAO L2` (alteração estática de scripts de infraestrutura e registros de comunicação; **zero execução Docker**)
 - **claim_id:** `TKC-0009-C04` (confirmada no remoto em `bb277a7103eae8a589343c11110a6220edee18a0` antes da edição dos scripts)
 - **agent_id / papel / ferramenta:** `AGT-003` — Engenheiro DevOps/SRE | Google AI Studio (`gemini-4-argon`)
-- **origem da ordem / evidência da autorização:** `IA/despachos/ordens/TKC-AUT-0009.md` (`8ea6ad46489738e83558492d9174642d0ff2fa7b`) + instrução humana `TKC-AUT-0009 #TRUE` (`MEDIADO`)
+- **origem da ordem / evidência da autorização:** `IA/despachos/ordens/TKC-AUT-0009.md` (`8ea6ad47729b2d6d703a5c9fcc1b70c3a33fb6ca`) + instrução humana `TKC-AUT-0009 #TRUE` (`MEDIADO`)
 - **repositório / branch:** `edinhogrubert/TeamKitCollection` | `main`
-- **base_commit:** `8ea6ad46489738e83558492d9174642d0ff2fa7b`
+- **base_commit:** `8ea6ad47729b2d6d703a5c9fcc1b70c3a33fb6ca`
 - **claim_commit:** `bb277a7103eae8a589343c11110a6220edee18a0`
 - **backend_lab_commit (pinado em `BACKEND_REV`):** `8d0cfa789f055f139c8f6efc06fe59f7ca71be8d`
 - **estado de saída:** `ENTREGUE` (aguardando revisão independente por `AGT-001` e aceite/execução na VM por `HUMAN-001`)
