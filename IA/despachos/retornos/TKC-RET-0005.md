@@ -16,3 +16,7 @@
 
 ## Pendências e critérios
 Revisar código por outra sessão; fixar componentes e realizar testes em ambiente autorizado; conectar backend à rede Docker do PostgreSQL sem recriar o banco; observar 200, 503 e recuperação; integrar teste e status no menu somente após autorização para editar `scripts/infra/teamkit-lab.sh`. M3-02 não concluído.
+
+## C07 — Atualização Fase B
+
+Orquestrador de laboratório backend-lab.sh e menu ampliado entregues; código original imutável em 959745e5513e313e477ef9cdd734111af2b9768f. Pendente diagnóstico, build e testes reais pela VM. Revisão independente e fixação de versões exigidas antes de produção.

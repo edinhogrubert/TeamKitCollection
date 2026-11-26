@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 # TeamKitCollection — Console do laboratório Ubuntu 24.04 (TKC-0008).
-# Um único ponto de entrada. Uso: bash teamkit-lab.sh [menu|status|docker-check|docker-install|pg-check|pg-start|persist]
+# Um único ponto de entrada. Uso: bash teamkit-lab.sh [menu|status|docker-check|docker-install|pg-check|pg-start|persist|backend-check|backend-up|backend-fault]
 # Não realiza reset, remoção de volumes/containers, alteração do firewall ou edição do aplicativo.
 set -Eeuo pipefail
 
 # Instalações existentes versionadas neste commit; não baixar versões móveis.
 SCRIPTS_REV="e26def6a4a2da84e57c88a4e384874e38c4cebc5"
 BASE_URL="https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/${SCRIPTS_REV}/scripts/infra"
+BACKEND_REV="e40bd9261f21b4e611e028f89d069530fdf3ae7a"
 PG_NAME="tkc-postgres16"
 PG_VOLUME="tkc-postgres16-data"
 PG_DB="teamkitcollection"
@@ -23,11 +24,13 @@ fetch_script() {
   command -v curl >/dev/null 2>&1 || die 'curl é necessário para baixar instaladores versionados.'
   if [[ -z "$TMP_DIR" ]]; then TMP_DIR="$(mktemp -d)"; chmod 700 "$TMP_DIR"; fi
   local name="$1"
-  case "$name" in install-docker-ubuntu.sh|postgres16-lab.sh) ;; *) die 'Nome de script não permitido.' ;; esac
+  case "$name" in install-docker-ubuntu.sh|postgres16-lab.sh|backend-lab.sh) ;; *) die 'Nome de script não permitido.' ;; esac
+  local script_ref="$SCRIPTS_REV"
+  if [[ "$name" == backend-lab.sh ]]; then script_ref="$BACKEND_REV"; fi
   curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-    "${BASE_URL}/${name}" -o "${TMP_DIR}/${name}"
+    "https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/${script_ref}/scripts/infra/${name}" -o "${TMP_DIR}/${name}"
   bash -n "${TMP_DIR}/${name}" || die "Sintaxe inválida: $name"
-  info "Instalador revisionado: ${name} @ ${SCRIPTS_REV:0:12}"
+  info "Instalador revisionado: ${name} @ ${script_ref:0:12}"
 }
 
 status() {
@@ -121,6 +124,9 @@ action() {
       run_existing postgres16-lab.sh --start
       ;;
     persist) persist ;;
+    backend-check) run_existing backend-lab.sh check ;;
+    backend-up) run_existing backend-lab.sh up ;;
+    backend-fault) run_existing backend-lab.sh fault ;;
     *) die "Opção desconhecida: $1" ;;
   esac
 }
@@ -135,6 +141,9 @@ menu() {
     echo '4) Diagnosticar PostgreSQL (sem alterar)'
     echo '5) Iniciar PostgreSQL 16 (se não existir)'
     echo '6) Testar persistência (INSERT + RESTART + SELECT)'
+    echo '7) Diagnosticar API e PostgreSQL'
+    echo '8) Preparar rede e iniciar backend /health'
+    echo '9) Testar HTTP 503 e recuperação 200'
     echo '0) Sair'
     printf 'Escolha: '
     local choice
@@ -147,7 +156,10 @@ menu() {
       4) action pg-check ;;
       5) action pg-start ;;
       6) action persist ;;
-      *) info 'Selecione uma opção de 0 a 6.' ;;
+      7) action backend-check ;;
+      8) action backend-up ;;
+      9) action backend-fault ;;
+      *) info 'Selecione uma opção de 0 a 9.' ;;
     esac
   done
   ok 'Menu encerrado.'

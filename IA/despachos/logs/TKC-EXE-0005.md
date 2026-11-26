@@ -9,3 +9,7 @@
 - Riscos: dependências não fixadas; app sem testes operacionais; exigir aprovação específica para Fase B em VM Container, incluindo conexão do banco existente à rede Docker.
 - `horas_estimadas`: 2,50h para fases A+B (estimativa histórica do parecer). `horas_reais_construcao`: NÃO MEDIDO; `horas_reais_metodo`: NÃO MEDIDO; `intervencoes_humanas`: 1 declaração C06; `retrabalho`: NÃO MEDIDO; `custo_financeiro_observado`: R$ 0 em serviços adicionais (nenhuma implantação efetuada por agente).
 - Encerramento: C06 `ENTREGUE`, TKC-0005 `EM_REVISAO`; revisão independente e autorização Fase B pendentes.
+
+## C07 — Fase B
+
+Autorização HUMAN-001: #TRUE ESTÁ autorizado a seguir, restrita à VM Container e Fase B, MEDIADO. Reivindicação confirmada 2c4976278aec39e923ae27be05d5fc0197a6cf67. Script backend-lab.sh publicado e40bd9261f21b4e611e028f89d069530fdf3ae7a; menu único ampliado para 7, 8 e 9. Nenhum comando Docker/API executado por AGT-001 na VM. Testes HTTP 200/503/200 permanecem NÃO_EXECUTADOS até retorno do operador. Segredos locais não foram acessados.
