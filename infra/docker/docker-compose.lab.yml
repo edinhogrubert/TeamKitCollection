@@ -1,0 +1,27 @@
+# FASE A — somente configuração. NÃO executar antes da autorização distinta da Fase B.
+# Reutiliza o container tkc-postgres16, que precisa aderir à rede externa tkc-lab-net
+# na Fase B. Este Compose NÃO cria PostgreSQL, volumes de dados nem publica 5432.
+services:
+  backend:
+    build:
+      context: ../..
+      dockerfile: infra/docker/Dockerfile.backend
+    image: teamkitcollection/backend:lab
+    restart: unless-stopped
+    env_file:
+      - ${TKC_PG_ENV_FILE:?Defina caminho absoluto para o postgres16.env local da VM}
+    environment:
+      POSTGRES_HOST: tkc-postgres16
+      POSTGRES_PORT: "5432"
+    ports:
+      - "127.0.0.1:8000:8000"
+    networks:
+      - tkc-lab-net
+    mem_limit: 512m
+    cpus: 1.0
+    security_opt:
+      - no-new-privileges:true
+networks:
+  tkc-lab-net:
+    external: true
+    name: tkc-lab-net
