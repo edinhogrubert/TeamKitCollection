@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# TeamKitCollection — Console do laboratório Ubuntu 24.04 (TKC-0008).
+# TeamKitCollection — Console do laboratório Ubuntu 24.04 (TKC-0008 / TKC-0009).
 # Um único ponto de entrada. Uso: bash teamkit-lab.sh [menu|status|docker-check|docker-install|pg-check|pg-start|persist|backend-check|backend-up|backend-fault]
 # Não realiza reset, remoção de volumes/containers, alteração do firewall ou edição do aplicativo.
 set -Eeuo pipefail
@@ -7,7 +7,7 @@ set -Eeuo pipefail
 # Instalações existentes versionadas neste commit; não baixar versões móveis.
 SCRIPTS_REV="e26def6a4a2da84e57c88a4e384874e38c4cebc5"
 BASE_URL="https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/${SCRIPTS_REV}/scripts/infra"
-BACKEND_REV="e40bd9261f21b4e611e028f89d069530fdf3ae7a"
+BACKEND_REV="8d0cfa789f055f139c8f6efc06fe59f7ca71be8d"
 PG_NAME="tkc-postgres16"
 PG_VOLUME="tkc-postgres16-data"
 PG_DB="teamkitcollection"
@@ -131,6 +131,17 @@ action() {
   esac
 }
 
+run_menu_action() {
+  local act="$1" rc=0
+  if ( action "$act" ); then
+    return 0
+  else
+    rc=$?
+    printf '[ATENÇÃO] Ação "%s" finalizou com código %s. O menu permanece ativo para diagnóstico.\n' "$act" "$rc" >&2
+    return 0
+  fi
+}
+
 menu() {
   while true; do
     echo
@@ -150,15 +161,15 @@ menu() {
     read -r choice || break
     case "$choice" in
       0) break ;;
-      1) action status ;;
-      2) action docker-check ;;
-      3) action docker-install ;;
-      4) action pg-check ;;
-      5) action pg-start ;;
-      6) action persist ;;
-      7) action backend-check ;;
-      8) action backend-up ;;
-      9) action backend-fault ;;
+      1) run_menu_action status ;;
+      2) run_menu_action docker-check ;;
+      3) run_menu_action docker-install ;;
+      4) run_menu_action pg-check ;;
+      5) run_menu_action pg-start ;;
+      6) run_menu_action persist ;;
+      7) run_menu_action backend-check ;;
+      8) run_menu_action backend-up ;;
+      9) run_menu_action backend-fault ;;
       *) info 'Selecione uma opção de 0 a 9.' ;;
     esac
   done
@@ -167,7 +178,7 @@ menu() {
 
 main() {
   local choice="${1:-menu}"
-  if [[ $# -gt 1 ]]; then die 'Uso: bash teamkit-lab.sh [menu|status|docker-check|docker-install|pg-check|pg-start|persist]'; fi
+  if [[ $# -gt 1 ]]; then die 'Uso: bash teamkit-lab.sh [menu|status|docker-check|docker-install|pg-check|pg-start|persist|backend-check|backend-up|backend-fault]'; fi
   if [[ "$choice" == menu ]]; then menu; else action "$choice"; fi
 }
 main "$@"
