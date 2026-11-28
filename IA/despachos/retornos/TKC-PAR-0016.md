@@ -195,6 +195,36 @@ tmp=$(mktemp) && curl --fail --silent --show-error --location --proto '=https' -
 
 ---
 
+# C12 — Revisão final pontual AGT-002 do CAP R05
+
+**base:** `f1fe15b655f200f2a60037f3b0f89f493b37e323`
+
+**entrega revisada:** C11 (`f1fe15b`), script `5820845` (blob `97bd77a`), ordem `aaab6a0`
+
+**revisor:** `AGT-002` (Codex; modelo/versão não informados pela interface)
+**escopo:** somente os cinco pontos solicitados; nenhuma execução na VM/Docker e nenhum script alterado.
+
+## Resultado
+
+`REVISÃO COM RESSALVAS BLOQUEANTES` — a preparação não deve receber nova decisão humana `#TRUE` para execução na VM até as duas lacunas abaixo serem corrigidas.
+
+### Pontos confirmados
+
+- Sanitização ampla do ambiente e caminho `sudo_env` com `env -i`, além de socket Docker local e configuração temporária.
+- Limite operacional de `60s` com `timeout`, sinal `TERM` e `kill-after=10s`.
+- Encerramento explícito, remoção forçada e verificação de ausência do contêiner temporário nomeado.
+- Preservação do retorno de `docker run` durante as verificações e limpeza posteriores do script.
+- Reconciliação administrativa de C11 em tarefa, índice e ordem.
+
+### Ressalvas bloqueantes
+
+1. O fallback `sudo_direto` ainda usa `sudo -- "$DOCKER"` sem colocar o Docker sob `/usr/bin/env -i` depois do `sudo`. A ordem declara sanitização nesse caminho, mas o script permanece menos restritivo.
+2. O comando documental de execução termina com `; rm -f "$tmp"`. Sem salvar e devolver o código anterior, a limpeza pode substituir o retorno de `curl`, hash, `bash -n` ou do próprio script. O procedimento deve preservar explicitamente esse retorno após remover o arquivo temporário.
+
+**Conclusão:** C11 atende timeout, limpeza/ausência e retorno interno do contêiner, mas não atende integralmente sanitização no fallback nem preservação do retorno no comando `curl`. `M3-02` permanece `PENDENTE`; custo efetivo permanece `NÃO MEDIDO`.
+
+---
+
 # C10 — Revisão independente CAP R05
 
 **base revisada:** `4ef2cfe` → `44c498c`  
