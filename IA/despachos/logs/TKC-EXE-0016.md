@@ -7,3 +7,6 @@
 
 - CLAIM_CONFIRMADO: fd99749986d8cdd100597cc47cf70bd2ca7cf492 relido na main antes da alteração substantiva; blob original confirmado.
 - PATCH: import pytest, parametrização Exception/OSError, mensagem sintética e asserções 503/JSON/sanitização preservadas, mock chamado exatamente uma vez por caso. Sucesso e recuperação preservados integralmente. Inspeção estática, quatro casos esperados; testes NÃO_EXECUTADOS. Commit do patch identificável pelo histórico deste checkpoint; será registrado no retorno após confirmação remota.
+
+- PATCH_CONFIRMADO: 7b2330a574987492d233a37a1a1cbeb6a4b38c2f, blob 4718b2a7a35e29024ed095bea1ef76451974d729, conteúdo relido e conferido; diff claim..patch somente teste (5 adições/2 remoções), tarefa e log. Inspeção estática, sem testes.
+- ENTREGA: TKC-RET-0016 publicado, C15 ENTREGUE, posse encerrada, tarefa EM_REVISAO; próxima etapa AGT-001 coordena AUT própria para script e validação humana. Nenhuma execução externa; métricas NÃO MEDIDO.
