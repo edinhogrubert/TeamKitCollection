@@ -2,7 +2,7 @@
 
 **Projeto de validação:** TeamKitCollection  
 **Identificador:** COM-001  
-**Versão:** 0.2.0  
+**Versão:** 0.3.0  
 **Estado:** ESPECIFICADO — registro documental disponível; bloqueio atômico, heartbeats automáticos e recuperação automática NÃO IMPLEMENTADOS  
 **Marco:** M3 (comunicação, tarefas e handoff); dependências e controle técnico de concorrência em M5  
 **Autoridade:** `AGENTS.md`, `IA/regras/constituicao.md` (GOV-001..005) e `IA/regras/seguranca.md` (SEC-001..010)  
@@ -70,6 +70,16 @@ As datas não comprovadas recebem `RELATADO`. Não registrar segredos, tokens, e
 8. Publicar entrega, hashes, verificação e estado `EM_REVISAO`; somente marcar `CONCLUIDA` quando critérios e aprovações aplicáveis estiverem comprovados.
 
 **Sem confirmação de reivindicação publicada, o agente só pode analisar/propor — não pode assumir posse exclusiva.**
+
+### 5.1 — Gates operacionais por tentativa
+
+- Coordenador confere antes do despacho: ID único por trabalho (sem reutilizar IDs históricos), executor, revisor distinto quando exigido, caminhos exatos de produto e documentação, versão e base Git, decisão humana, risco e critérios de aceite. A capacidade deve corresponder à função e sessão: leitura por SHA e arquivo remoto; escrita por publicação remota verificável, mediante autorização específica para ensaio isolado, ou evidência recente equivalente aplicável à sessão; testes por comando e evidência reproduzível quando exigidos. Não presumir escrita, execução ou acesso a partir do modelo. Ensaio descartável não ocorre na main; criação de branch ou recurso exige autorização própria.
+- Sem escrita confirmada, limitar a L0/L1; sem capacidade de teste, não atribuir execução que exija testes. Sem possibilidade de publicar e confirmar a reivindicação, não alterar artefatos substantivos. Se capacidade, posse ou escopo se tornar incerto durante a execução, suspender, preservar artefatos e informar BLOQUEADA com referência e motivo curto. Não substituir publicação por execução local nem assumir liberação automática.
+- Antes de entregar, conferir diff base/HEAD e caminhos autorizados (inclusive renomes/exclusões), preservar eventos históricos e registrar correções como novos eventos; campos correntes de estado e índice podem ser atualizados legitimamente. Revisão distinta consulta fontes primárias e confere escopo, integridade e evidência antes do aceite quando exigida. Sem CI, usar comparação Git direta por sessão independente; isso não constitui bloqueio técnico.
+- Handoff autorizado deve registrar decisão e proveniência, trabalho local/remoto, posse, impedimentos, próxima ação e referência de corte. Se impossível publicar, retornar impedimento curto; não alegar entrega remota. Registrar esforço de construção e método, intervenções humanas, retrabalho e custo efetivo quando medidos; usar NÃO MEDIDO se ausentes. Não confundir restrição R$ 0,00 com custo comprovado.
+- Não alterar permissões, CI, proteção de branch, credenciais ou infraestrutura por esta regra; exigir decisão própria proporcional ao risco. Controle cooperativo permanece sem exclusão técnica.
+
+**Alteração TKC-0015-C03:** autoria e registro AGT-001 III (ChatGPT / GPT-6.2, AUTODECLARADO), autorização HUMAN-001 MEDIADO, base d5cfbad, claim 5f21ee1. Revisão independente da implantação pendente. Não homologa M3-02.
 
 ## 6. Concorrência e recuperação de posse
 
