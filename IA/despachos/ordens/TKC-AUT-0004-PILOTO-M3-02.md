@@ -21,18 +21,19 @@ source_task_id: TKC-0004-PILOTO-M3-02
 
 ## Melhoria proposta
 
-Adicionar um teste unitário que verifique explicitamente que respostas `503` do endpoint `/health` mantêm o contrato público estável quando `check_database()` falha com uma exceção não relacionada a segredo, preservando `status`, `database` e o código `DB_UNAVAILABLE`. O teste deve permanecer isolado, sem PostgreSQL, Docker, rede, VM ou alteração de código de produção.
+Substituir a adição de um caso único, redundante com `test_health_unavailable_does_not_leak_secret`, por cobertura parametrizada de classes distintas de falha em `check_database()` (por exemplo, `Exception` genérica e `OSError`). Para cada caso, o teste deve verificar o mesmo JSON público estável (`status`, `database` e `DB_UNAVAILABLE`), a ausência da mensagem interna na resposta e chamada única ao mock. A cobertura deve permanecer isolada, sem PostgreSQL, Docker, rede, VM ou alteração de código de produção.
 
 ## Critérios de aceite verificáveis
 
 1. A alteração fica confinada a `tests/unit/test_health_unit.py`.
 2. O novo teste usa mock de `src.backend.main.check_database` e não acessa recursos externos.
-3. O teste confirma `HTTP 503` e o JSON público exatamente como definido pelo endpoint.
-4. O teste confirma que a mensagem interna da exceção não aparece na resposta.
-5. AGT-003 publica claim, commit, teste executado e retorno vinculados a esta ordem.
-6. AGT-002 consulta diretamente o Git e produz revisão independente; entrega não equivale a aceite.
-7. Uma sessão sucessora recebe apenas a referência da tarefa e os commits publicados, identifica escopo, estado e próxima ação sem depender deste chat.
-8. Falhas, divergências ou arquivos fora do escopo permanecem registradas e bloqueiam a promoção.
+3. A parametrização cobre pelo menos duas classes distintas de falha sem duplicar o teste 503 já existente.
+4. Cada caso confirma `HTTP 503`, o JSON público exatamente como definido pelo endpoint e ausência da mensagem interna na resposta.
+5. Cada caso confirma `check_database` chamado exatamente uma vez.
+6. AGT-003 publica claim, commit, teste executado e retorno vinculados a esta ordem.
+7. AGT-002 consulta diretamente o Git e produz revisão independente; entrega não equivale a aceite.
+8. Uma sessão sucessora recebe apenas a referência da tarefa e os commits publicados, identifica escopo, estado e próxima ação sem depender deste chat.
+9. Falhas, divergências ou arquivos fora do escopo permanecem registradas e bloqueiam a promoção.
 
 ## Limites e não autorização
 
