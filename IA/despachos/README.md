@@ -2,6 +2,8 @@
 
 **Estado:** PROTOCOLO DOCUMENTAL, SEM CONSUMIDOR AUTOMÁTICO INSTALADO  
 **Origem de autoridade:** `AGENTS.md`, `IA/PROJETO.md`, `IA/regras/constituicao.md`, `IA/regras/seguranca.md` e `IA/regras/comunicacao.md` (COM-001)  
+**Revisão documental em curso — claim `COM-DOC-20261127-C01`:** AGT-001, autorização HUMAN-001 nesta sessão para ajuste mínimo da publicação documental por tarefa; `EM_EXECUCAO`, base `d724e1733cb26253fcd55fee391d0cc146ff3334`. Escopo exclusivo: `AGENTS.md`, `IA/regras/comunicacao.md`, este `IA/despachos/README.md`, `IA/despachos/MODELO_ORDEM.md`, `IA/despachos/MODELO_RETORNO.md`. Próximo checkpoint: confirmar claim no remoto antes de editar outras seções. Nenhum código, infraestrutura, outras tarefas ou normas de segurança autorizados. Claim cooperativo, sem exclusão técnica.  
+
 **Missão:** oferecer um **local comum de escrita e leitura** de ordens, checkpoints e respostas, acessível a agentes e humanos com acesso Git. O repositório é transporte e evidência; **não é um serviço de mensagens em tempo real**.
 
 ## COM-002.1 — Despacho humano por referência, sem automação
