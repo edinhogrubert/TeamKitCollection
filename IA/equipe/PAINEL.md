@@ -1,6 +1,6 @@
 # PAINEL — TeamKitCollection (piloto L0/L1, não normativo)
 
-**Conferido em:** 2026-11-27, `main` `df2f480326c704da92e01fb4ff368dcd2241eab6` (base das fontes desta fotografia; consultar HEAD atual em cada nova leitura).  
+**Conferido em:** 2026-11-27, `main` `355be18e5c9cbd1bdbd44011ee536c0ae45b4ea6` (base da reconciliação; publicação do parecer neste mesmo avanço; revalidar HEAD atual a cada consulta).  
 **Tipo:** fotografia documental, **não** monitoramento automático ou presença em tempo real.  
 **Fonte primária:** `IA/tarefas/indice.md`, registros `IA/tarefas/TKC-XXXX.md`, despachos e commits. Se painel e registro divergirem, conferir evidência remota e sinalizar conflito; não escolher silenciosamente.  
 **Piloto:** `TKC-0014`; adoção de regras definitivas pendente de revisão e decisão humana.
@@ -9,7 +9,7 @@
 
 | Frente | Tarefa | Estado do trabalho / estado da informação | Falta para a etapa atual | Ação seguinte — responsável e critério de conclusão |
 |---|---|---|---|---|
-| AGT-001 — liderança | `TKC-0013` | Despacho publicado `VERIFICADO`; parecer de arquitetura não entregue no Git | Consolidar interfaces, riscos, dependências e portas de decisão | **AGT-001:** ler `TKC-REQ-0013`, `TKC-PAR-0012` e fontes da API/scripts; entregar síntese L0/L1 `TKC-PAR-0013` com mapa de bloqueadores; revisão posterior por outro agente. Nenhum deploy. |
+| AGT-001 — liderança | `TKC-0013` | Parecer arquitetural L0/L1 publicado `VERIFICADO`; C02 encerrada, revisão independente pendente | Integrar `TKC-PAR-0010` e `TKC-PAR-0011` quando disponíveis; obter revisão distinta de `TKC-PAR-0013` | **HUMAN-001:** designar revisor distinto para `TKC-PAR-0013`; **AGT-001:** examinar pareceres 0010/0011 e propor decisões separadas. Concluído quando houver revisão de arquitetura e bloqueadores fundamentados, sem deploy. |
 | AGT-002 — QA/Security | `TKC-0012` | Parecer v2 e reconciliação `VERIFICADO`; `APROVADO_COM_RESSALVAS` documental | Evidência operacional da matriz TST-01..10 na VM; depende de autorização e resolução de riscos | **AGT-002:** quando receber evidências primárias da Fase B, inspecionar cada teste e classificar resultado; concluído quando parecer operacional distinguir aprovado/falhou/não executado; não executar VM por conta própria. |
 | AGT-003 — DevOps/SRE | `TKC-0010` (ligada a `0009`) | Pedido de análise publicado `VERIFICADO`; parecer dito pronto em conversa `MEDIADO`, **não confirmado como arquivo Git** | Obter relatório integral com diagnóstico reproduzível do risco de `set -e` / `if`; avaliar necessidade de patch L2 | **AGT-003:** devolver `TKC-PAR-0010` completo com teste sintético, impacto e correção sugerida via COM-002.2 ou publicação autorizada; **AGT-001** revisa antes de propor L2. Sem novo patch/VM neste passo. |
 | AGT-004 — Backend/API | `TKC-0011` | Despacho publicado `VERIFICADO`; recebimento e parecer **não confirmados** | Avaliar FastAPI `/health`, conexão PG, timeouts, segredos, testes e dependências | **HUMAN-001:** transportar `TKC-REQ-0011` à sessão AGT-004 se ainda não recebido; **AGT-004:** entregar `TKC-PAR-0011` L0/L1. Concluído quando AGT-001 localizar e revisar o parecer integral. |
@@ -28,7 +28,7 @@ Todo próximo passo publicado ou comunicado deve indicar: **(1) tarefa**, **(2) 
 
 **Entrada do novo líder:** HUMAN-001 nomeia substituto; ele lê `AGENTS.md`, `IA/PROJETO.md`, este painel, `IA/tarefas/indice.md` e somente as tarefas pertinentes; revalida HEAD/diffs e autorizações. **Este painel não transfere o cargo, a posse ou permissões por si só.**
 
-**Decisões pendentes:** (a) receber/revisar `TKC-PAR-0010`; (b) obter `TKC-PAR-0011`; (c) elaborar `TKC-PAR-0013`; (d) decidir se a governança do piloto `TKC-0014` será adotada após teste; (e) somente depois planejar teste Fase B com HUMAN-001. Não assumir autorização Docker.
+**Decisões pendentes:** (a) receber/revisar `TKC-PAR-0010`; (b) obter `TKC-PAR-0011`; (c) obter revisão independente do `TKC-PAR-0013` publicado; (d) decidir se a governança do piloto `TKC-0014` será adotada após teste; (e) somente depois planejar teste Fase B com HUMAN-001. Não assumir autorização Docker.
 
 **Risco prioritário:** `scripts/infra/teamkit-lab.sh` usa função de menu em contexto `if ( action ... )`; Bash pode suprimir `errexit` dentro da função. Não executar rotinas mutáveis de menu na VM até diagnóstico e correção/aceite pertinentes. Preservar PostgreSQL `tkc-postgres16` e volume nomeado `tkc-postgres16-data`.
 
