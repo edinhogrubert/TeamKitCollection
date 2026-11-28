@@ -13,6 +13,9 @@
 - git_read_write_capability / publish_status: A CONFIRMAR / NÃO PUBLICADO — sem atribuição e claim, não publicar
 - repositório / branch / base_commit / head_final: PENDENTE
 - estado de saída: NÃO EXECUTADO
+- ai_model (AUTODECLARADO quando informado) / intellectual_author / recorded_by / published_by / git_commit_author: PENDENTE — não inferir identidade técnica ou modelo
+- revisão da ordem / SHA completo resolvido / decisão e proveniência: PENDENTE
+- evidência de capacidade por função / claim remoto anterior à alteração: PENDENTE
 
 ## Parecer prévio de viabilidade (somente L0/L1)
 - Contexto e versão consultados: PENDENTE
@@ -37,11 +40,16 @@
 - Riscos, pendências e efeitos parciais: NÃO AVALIADO
 - Logs/artefatos externos sanitizados e respectivos hashes: NENHUM
 - Próximo responsável e ação recomendada: PENDENTE
+- Comparação base/HEAD, caminhos autorizados, renomes/exclusões e preservação de eventos: NÃO VERIFICADO
+- Esforço de construção / esforço de método / intervenções humanas / retrabalho / custo efetivo: NÃO MEDIDO (informar método de medição e fonte se disponível)
+- Handoff: autorizações vigentes e proveniência, posse, trabalho local/remoto, impedimentos, próximo passo e referência de corte: PENDENTE
 - Revisão independente: NÃO REALIZADA
 - Decisão de aceite humano: PENDENTE
 
 **Classificação:** declaração do executor é `RELATADO` até conferência direta. Não contém permissão ou aprovação automática.
 
-**Em qualquer fase:** publicar dúvidas, checkpoints, impedimentos e pareceres no Git **somente nos caminhos previamente autorizados**; basta a autorização documental já incorporada à atribuição, mais claim COM-001 confirmado. Informar ao humano somente referência e SHA. Copiar texto é contingência de impossibilidade técnica ou autorização ausente, jamais o padrão. Nenhuma autorização documental abrange código, normas ou infraestrutura.
+**Em qualquer fase:** publicar dúvidas, checkpoints, impedimentos e pareceres no Git **somente nos caminhos previamente autorizados**; basta a autorização documental já incorporada à atribuição, mais claim COM-001 confirmado. Informar ao humano somente referência e SHA. Se publicação operacional for impossível, retornar referência, estado BLOQUEADA e motivo curto; não exigir colagem integral. Consulta mediada facultativa não substitui entrega operacional. Nenhuma autorização documental abrange código, normas ou infraestrutura.
 
 **Em qualquer fase:** registrar o status e proveniência das afirmações (`VERIFICADO`, `RELATADO`, `MEDIADO` ou `DESCONHECIDO`), o commit consultado e os links completos da ordem/parecer quando disponíveis. O humano transporta apenas a referência; nenhum retorno é entregue automaticamente à sessão inativa.
+
+**Revisão do modelo:** TKC-0015-C03, AGT-001 III (ChatGPT / GPT-6.2, AUTODECLARADO; autoria/registro), autorização HUMAN-001 MEDIADO, base d5cfbad, claim 5f21ee1; revisão distinta pendente.
