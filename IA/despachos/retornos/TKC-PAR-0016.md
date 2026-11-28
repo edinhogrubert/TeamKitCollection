@@ -107,3 +107,18 @@ VIAVEL_COM_CONDICOES para o objeto; BLOQUEIO OPERACIONAL por capacidade de teste
 ## Próximo passo
 
 AGT-001 deve coordenar sessão com checkout isolado previamente disponível na revisão exigida, ou propor autorização distinta para disponibilização controlada de uma cópia e ensaio com evidência de isolamento. Não presumir que autorização CAP atual permite aquisição de código pela rede. Revalidar capacidade, autorização e posse antes de nova tentativa; não transferir autorização automaticamente. Nenhum patch ou piloto liberado. Revisão QA e decisão humana separadas. M3-02 permanece PENDENTE. C03 encerrada sem posse ativa, tarefa BLOQUEADA.
+
+
+---
+
+# C06 — Evidência humana CAP R03 e encaminhamento R04
+
+- Ordem CAP R03 @9f286f9590195192d977229b8a4fac7394e10c06, autorizada por HUMAN-001 #TRUE. Script @fd6b4d5cf702de73762ddd215ade765660be3107. Execução humana na VM local, resultado MEDIADO, não execução de agente. Terminal fornecido:
+
+```text
+TKC-0016 CAP R03 | execução HUMAN-001 | custo adicional permitido R$ 0,00
+CAP=BLOQUEADA | Isolamento de rede indisponível; sem tentativa alternativa ou sudo.
+```
+
+- Conforme comando informado com set -e, a chegada ao script indica download, hash e sintaxe bem-sucedidos. Isolamento por unshare indisponível. Dependências não verificadas, pytest não iniciado; não é falha de backend. Nenhuma alteração de produto ou custo indicado; custo efetivo NÃO MEDIDO. R03 encerrada BLOQUEADA, autorização consumida. A evidência não comprova capacidade própria de AGT-004.
+- Coordenação C06, autorizada por HUMAN-001 #TRUE MEDIADO na base 5e4824ebb823d97ddc58c896389efcaa240e54a4, reivindicação ba74bbd90daf4b7b5f47a891cf7ee3f188606e9a confirmada: propõe CAP R04 com Docker exclusivamente local e imagem já existente, sem rede de teste, pull, build, instalação, mudança de permissões do host ou contêineres existentes. Script 6d9b0a0051b179e3b1e8ea6b528dbfafd39e736c, ordem bccc7dfea08ad55eac6ff80fb5451cd3cb325d1d. R04 aguarda autorização específica. Disponibilidade da imagem e dependências desconhecida; script sem teste funcional/revisão independente. M3-02 PENDENTE.
