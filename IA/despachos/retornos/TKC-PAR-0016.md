@@ -137,3 +137,58 @@ CAP=BLOQUEADA | Acesso Docker local indisponível; sem pedir senha ou alterar pe
 
 - Conforme sequência com set -e relatada, download, hash e sintaxe passaram antes do início. Acesso Docker local não confirmado; causa exata DESCONHECIDA. Imagem, dependências e pytest não verificados. Nenhuma falha de backend demonstrada; nenhum produto alterado ou custo indicado, custo efetivo NÃO MEDIDO. R04 encerrada BLOQUEADA, autorização consumida. Não atribuir capacidade de teste a AGT-004.
 - C07 autorizado por HUMAN-001 #TRUE MEDIADO, base e3d217789e2adf56289eefcd8d3425e1c40b2365; claim 9d599767d393fd7dda7effa7f81532f0c492bb3a confirmado. Coordenação registra impedimento e publica REQ de avaliação DevOps `b70ab251c5b77ed9b67d7680e2033c932d9a5d2c`, condicionada à atribuição humana. AGT-003 propõe solução ambiental e scripts; AGT-002 revisão distinta; AGT-004 backend; HUMAN-001 VM via curl versionado. Não iniciar R05 pela coordenação, não executar nem criar scripts nesta REQ. M3-02 PENDENTE.
+
+
+---
+
+# C08 — Parecer DevOps/SRE (TKC-REQ-0016-DEVOPS)
+
+- **task_id:** `TKC-0016` (`parent_milestone: M3-02`)
+- **order_ref:** `TKC-REQ-0016-DEVOPS` (`b70ab251c5b77ed9b67d7680e2033c932d9a5d2c`), decisão `HUMAN-001 #TRUE` (`MEDIADO`)
+- **base_commit:** `f47fd8c53dc1aedc6ca1a201d4e476b66d2e50bc`
+- **claim_id:** `TKC-0016-C08` (`8c7a9db4b2e27d8d3c0c55ca2a2a52712fd433f4`, confirmado no remoto antes deste parecer)
+- **autoria intelectual / registro / publicação:** `AGT-003` — DevOps/SRE (`gemini-4-hydrogen`, AI Studio); publicação direta no GitHub, identidade técnica conforme commit
+- **revisão normativa conferida:** `AGENTS.md` v0.1.2, `COM-001` v0.3.0, `COM-002`, `IA/PROJETO.md`, `IA/tarefas/indice.md` @ `f47fd8c`
+- **veredito:** `VIAVEL_COM_CONDICOES` (solução sem custo adicional e reaproveitando infraestrutura já existente na VM, sujeita a criação/revisão em etapa autorizada posterior)
+
+## 1. Causa observada versus hipóteses
+- **Observado (VERIFICADO nos artefatos Git e relatos registrados):**
+  1. Em `TKC-RET-0010-OP7`/`OP8`/`OP9`, `HUMAN-001` relatou Docker Engine `29.10.1` operacional na VM Ubuntu 24.04 e imagem local `teamkitcollection/backend:lab` construída via `infra/docker/Dockerfile.backend` (que já instala `fastapi`, `uvicorn`, `psycopg[binary]`, `httpx`, `pytest` de `src/backend/requirements.txt` e define `USER 10001:10001`).
+  2. `CAP R03` (`scripts/qa/tkc-0016-cap.sh` @ `fd6b4d5`) bloqueou em `unshare` (`Isolamento de rede indisponível; sem tentativa alternativa ou sudo`).
+  3. `CAP R04` (`scripts/qa/tkc-0016-cap-r04.sh` @ `6d9b0a0`) bloqueou antes da inspeção da imagem com `CAP=BLOQUEADA | Acesso Docker local indisponível; sem pedir senha ou alterar permissões`: o script testa primeiro acesso direto ao socket `/var/run/docker.sock` sem `sudo` e em seguida `sudo -n -- /usr/bin/env ... docker ... info`. Nos scripts do laboratório (`scripts/infra/teamkit-lab.sh`, `postgres16-lab.sh`, `backend-lab.sh`), `HUMAN-001` utiliza `sudo -v` interativo antes de `sudo docker`. Assim, o bloqueio observado decorre da tentativa estritamente não interativa (`sudo -n`) em sessão sem acesso direto ao socket e sem ticket `sudo` ativo/permitido, **não** comprovando ausência de Docker nem falha do backend.
+- **Hipóteses (INFERIDO, não testado na VM nesta REQ):**
+  - **H1:** O usuário `HUMAN-001` na VM não integra o grupo `docker` e executou o comando de R04 sem cache `sudo -v` prévio (coerente com a mensagem de `teamkit-lab.sh`: *"Sem acesso não interativo ao daemon Docker"*).
+  - **H2:** A política `sudoers` da VM exige senha interativa ou restringe `sudo -n /usr/bin/env ...` (`secure_path`/regra específica).
+  - **H3:** A imagem `teamkitcollection/backend:lab` construída em OP8 permanece disponível localmente na VM (a confirmar apenas durante a execução autorizada de R05, com parada imediata caso ausente).
+
+## 2. Viabilidade das alternativas (custo adicional R$ 0,00)
+| Alternativa | Viabilidade | Avaliação DevOps |
+|---|---|---|
+| **A — Container efêmero na imagem local `teamkitcollection/backend:lab` com `sudo -v` interativo controlado (`CAP R05`)** | **VIÁVEL (RECOMENDADA)** | Reutiliza Docker Engine e `teamkitcollection/backend:lab` existentes; mantém `--rm --pull=never --network none --read-only --cap-drop ALL --user 10001:10001 --tmpfs /tmp`; substitui `sudo -n` frágil por `sudo -v` explícito (padrão já aprovado de `teamkit-lab.sh`), sem alterar grupo `docker`, `sudoers`, host, PostgreSQL ou `tkc_lab-backend-1`. |
+| **B — Execução direta no host VM via `unshare` (`CAP R03`)** | **INVIÁVEL** | Ubuntu 24.04 restringe namespaces de usuário sem privilégio por padrão e o host não deve receber instalações Python fora de container. |
+| **C — `docker exec` no container `tkc_lab-backend-1` em execução** | **DESCARTADA** | Mistura estado, ambiente e `postgres16.env` do serviço em execução; não assegura checkout imutável limpo de `706cda0`. |
+
+## 3. Solução recomendada e justificativa
+Adotar a **Alternativa A** por meio de um novo script versionado (**`scripts/qa/tkc-0016-cap-r05.sh`**), derivado mínimo de `tkc-0016-cap-r04.sh`, preservando todas as travas de segurança de R04 (socket Unix local `/var/run/docker.sock`, checkout público somente leitura fixado em `REV=706cda089731263ee4f0b5e48e2bfe06047f57ef` e `TEST_BLOB=a165e47889ddcc99c026a2562914336f9077738a`, `--pull=never`, `--network none`, `--read-only`, `--cap-drop ALL`, `--user 10001:10001`, rejeição de arquivos de configuração pytest extras e saída sanitizada sem logs brutos).
+
+**Ajuste único no acesso Docker:** exigir usuário normal (`EUID != 0`), testar acesso direto ao `/var/run/docker.sock`; caso indisponível, solicitar autenticação interativa `sudo -v` (como já praticado em `teamkit-lab.sh`/`postgres16-lab.sh`) e invocar `sudo -- /usr/bin/env -i PATH=/usr/bin:/bin HOME="$work/home" "$DOCKER" --config "$work/docker" --host unix:///var/run/docker.sock` (mantendo fallback `sudo docker` se `sudoers` bloquear `/usr/bin/env`), sem alterar permissões do host, sem gravar credenciais e sem criar nova série de ensaios exploratórios. Se a imagem `teamkitcollection/backend:lab` estiver ausente, abortar imediatamente com `CAP=BLOQUEADA` sem `pull` nem `build`.
+
+## 4. Caminhos exatos previstos para etapa posterior autorizada
+- **Produto/QA (somente etapa futura autorizada):** `scripts/qa/tkc-0016-cap-r05.sh`
+- **Documentação (etapa futura de preparação da AUT):** `IA/despachos/ordens/TKC-AUT-0016-CAP-R05.md`, `IA/tarefas/TKC-0016.md`, `IA/tarefas/indice.md` (linha própria)
+- **Intocados:** `scripts/infra/*`, `scripts/qa/tkc-0016-cap.sh`, `scripts/qa/tkc-0016-cap-r04.sh`, `src/`, `tests/`, `infra/` e incidente `TKC-0004-C03`.
+
+## 5. Pré-requisitos, riscos e critérios de parada
+- **Pré-requisitos:** autorização específica para criação/revisão do script R05 e ordem `TKC-AUT-0016-CAP-R05`; revisão independente de `AGT-002` antes da execução humana; na VM Ubuntu 24.04 existente, Docker Engine ativo em `/var/run/docker.sock`, imagem `teamkitcollection/backend:lab` presente, usuário normal com `sudo` e leitura pública HTTPS ao GitHub para `706cda0`.
+- **Riscos:** ausência da imagem `teamkitcollection/backend:lab` após OP9 (mitigada por `--pull=never` e parada imediata); restrição `sudoers` a `/usr/bin/env` (mitigada por checagem explícita); interrupção anormal (mitigada por `--rm` e `trap` restrito a `mktemp -d`, sem remover recursos preexistentes).
+- **Critérios de parada:** qualquer dúvida de custo; execução como `root`; ausência de `/var/run/docker.sock`; falha de `sudo -v` ou `docker info`; imagem ausente ou com volumes declarados; divergência de `REV`, `TEST_BLOB` ou configuração pytest inesperada; falha de `pytest` ou diretório sujo ao final.
+
+## 6. Comando `curl` versionado previsto (modelo — NÃO executar antes de publicação, revisão AGT-002 e AUT #TRUE)
+```bash
+tmp=$(mktemp) && curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 "https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/<COMMIT_SHA>/scripts/qa/tkc-0016-cap-r05.sh" -o "$tmp" && [[ -s "$tmp" ]] && [[ "$(git hash-object "$tmp")" == "<BLOB_SHA>" ]] && bash -n "$tmp" && bash "$tmp" --custo-zero-local-confirmado; rm -f "$tmp"
+```
+*(Nota: `<COMMIT_SHA>` e `<BLOB_SHA>` serão fixados somente após implementação autorizada e revisão `AGT-002`, não usando `main` móvel.)*
+
+## 7. Evidência de teste e confirmação de custo zero
+- **Testes executados nesta REQ:** **ZERO** (`NÃO_EXECUTADO`). Nenhum script foi criado, nenhum comando foi executado na VM/Docker e nenhuma capacidade própria de `pytest` foi alegada para esta sessão.
+- **Custo financeiro:** **R$ 0,00** adicionais confirmados como restrição e ausência de provisionamento nesta REQ; custo efetivo de operação futura `NÃO MEDIDO` até execução. `M3-02` permanece `PENDENTE`.
