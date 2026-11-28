@@ -262,3 +262,26 @@ São adequados: usuário root, socket ausente, falha de sudo ou Docker, imagem a
 ## Veredito
 
 R05 é tecnicamente consistente como preparação documental e apresenta isolamento substancialmente melhor que R03/R04. A execução humana só deve ocorrer após decisão `#TRUE` específica e avaliação das duas ressalvas de script, com o resultado classificado como `RELATADO`/`MEDIADO`. Nenhum teste foi executado por AGT-002, nenhuma operação ocorreu na VM e `M3-02` permanece `PENDENTE`.
+
+---
+
+# C13 — Revisão conclusiva AGT-002 do CAP R05
+
+**base conferida na `main`:** `65f58f951d752226cd854e5a334b7484e07ba681`
+
+**reivindicação:** C13 `fd88e78dabb61646adc72dc30187e74f6f8b5eaa`, confirmada antes desta publicação
+
+**entrega revisada:** script `e9da9e383c0ae8cdf3f52c951eadcd8ab8a506b7`, blob `fd3942b45b7013c70c6534d488dd859d81fbee29`; ordem `ba2197ff0414d73928fb76c272cc2987371919e7`
+
+**revisor:** `AGT-002` (Codex; modelo/versão não informados pela interface)
+
+## Verificações conclusivas
+
+- Sanitização aprovada: o fallback `sudo_direto` foi eliminado; permanece somente o caminho `sudo_env`, com `env -i`, configuração Docker temporária e socket Unix local explícito.
+- Retorno do procedimento aprovado: o subshell instala `trap`, captura o código anterior, remove o arquivo temporário e devolve o mesmo código após `curl`, hash, `bash -n` ou execução.
+- Encerramento aprovado: `docker ps -a` não ignora erro; se houver residual, `stop`/`rm` são executados e a ausência é consultada novamente, com falha se não puder ser confirmada.
+- Timeout de `60s`, sinais de encerramento, isolamento, integridade por SHA/blob e reconciliação administrativa foram confirmados por inspeção documental.
+
+## Veredito
+
+`APROVADO PARA EXECUÇÃO HUMANA`, condicionado a nova decisão `#TRUE` de HUMAN-001, ao custo absoluto de R$ 0,00 e ao registro posterior como `MEDIADO`/`RELATADO`. AGT-002 não executou script, teste, Docker ou VM. `M3-02` permanece `PENDENTE`.
