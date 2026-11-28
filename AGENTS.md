@@ -6,7 +6,7 @@ Este documento foi projetado para ser genérico, independente de fornecedor de I
 
 **Projeto:** TeamKitCollection\
 **Tipo:** Contrato operacional de entrada para agentes de inteligência artificial\
-**Versão do contrato:** 0.1.1\
+**Versão do contrato:** 0.1.2\
 **Estado:** Inicial — estrutura documental em implantação\
 **Aplicabilidade:** Todos os agentes de IA que atuem no projeto\
 **Autoridade:** Subordinada às decisões humanas autorizadas e às restrições de segurança aplicáveis
@@ -20,6 +20,7 @@ Este documento foi projetado para ser genérico, independente de fornecedor de I
 - **Contrato normativo:** [`IA/regras/constituicao.md`](IA/regras/constituicao.md), seção GOV-001.
 - **Limite:** a IA elabora e fundamenta propostas; aprovação humana não converte afirmações em fatos verificados, nem concede acesso técnico inexistente.
 - **Retomada:** consultar [`IA/PROJETO.md`](IA/PROJETO.md) antes de assumir atividades pendentes.
+- **Sucessão de AGT-001 (leitura obrigatória):** consultar o [Contrato de continuidade da liderança](IA/equipe/PAINEL.md#contrato-de-continuidade-da-liderança--diretriz-vigente-de-human-001), identificar missão, prioridade, delegação e limites antes de assumir atividades. A tabela histórica do painel não é estado vigente. A diretriz humana de custo R$ 0,00, sem possibilidade de cobrança futura e parada na dúvida, prevalece sobre exceções genéricas de P7 enquanto vigente. Testes na VM local são executados por HUMAN-001 com scripts versionados via curl. Registro TKC-0014-C02, base `79ecc8a`, claim `1ee0cfe`, HUMAN-001 MEDIADO; revisão distinta pendente.
 - **Sem acesso ao GitHub:** seguir [`IA/regras/contexto-portatil.md`](IA/regras/contexto-portatil.md) (CTX-001); o pacote mediado é cópia temporal e não substitui a fonte Git, a atribuição de papel nem autorização humana.
 
 ---
