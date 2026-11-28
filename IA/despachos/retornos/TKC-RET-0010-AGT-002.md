@@ -1,9 +1,12 @@
 ---
 agent_id: AGT-002
 ai_model: Grok 4.5
+intellectual_author: Grok 4.5
 role: auditoria
 published_by: HUMAN-001
-commit_sha: ebd6a66
+source_commit_sha: ebd6a66
+record_commit_sha: 19ffa35
+base_commit: 2c31ed1
 ---
 
 # TKC-RET-0010-AGT-002 — Parecer curto de auditoria somente leitura
