@@ -285,3 +285,35 @@ R05 é tecnicamente consistente como preparação documental e apresenta isolame
 ## Veredito
 
 `APROVADO PARA EXECUÇÃO HUMANA`, condicionado a nova decisão `#TRUE` de HUMAN-001, ao custo absoluto de R$ 0,00 e ao registro posterior como `MEDIADO`/`RELATADO`. AGT-002 não executou script, teste, Docker ou VM. `M3-02` permanece `PENDENTE`.
+
+
+---
+
+# C14 — Evidência humana CAP R05: linha de base aprovada
+
+- Ordem `TKC-AUT-0016-CAP-R05 @ba2197ff0414d73928fb76c272cc2987371919e7 #TRUE`, revisão AGT-002 `c4eb464573f871a0df6ffa1ddf4695d94a7b1cfe`, script `e9da9e383c0ae8cdf3f52c951eadcd8ab8a506b7`, blob `fd3942b45b7013c70c6534d488dd859d81fbee29`. HUMAN-001 executou na VM local e forneceu saída terminal nesta sessão. Proveniência MEDIADO; execução RELATADO pelo operador, não reprodução independente. A cadeia de download/hash/bash -n chegou ao script; não publicar senha nem logs brutos.
+
+```text
+TKC-0016 CAP R05 | execução HUMAN-001 | custo adicional permitido R$ 0,00
+DOCKER_ACESSO=sudo_env
+IMAGEM_LOCAL=sha256:1e7eb57d8a847a285130497ea59c6eb5ed21b9cebd79c82449160722f226a72a
+REVISAO=706cda089731263ee4f0b5e48e2bfe06047f57ef
+BLOB_TESTE=a165e47889ddcc99c026a2562914336f9077738a
+ESTADO_ANTES=LIMPO
+COMANDO=python -m pytest -q -p no:cacheprovider --color=no --tb=no tests/unit/test_health_unit.py
+DOCKER_RUN_RC=0
+PYTHON=3.12.16
+pytest=9.2.0
+fastapi=0.165.0
+httpx=0.29.0
+psycopg=3.3.9
+DEPENDENCIAS=CONFIRMADAS
+PYTEST_INICIADO=SIM
+3 passed, 1 warning in 0.37s
+PYTEST_RC=0
+ESTADO_DEPOIS=LIMPO
+CAP=ENTREGUE | 3 testes aprovados | evidência HUMANA, MEDIADO
+```
+
+- Veredito coordenação: CAP R05 ENTREGUE, autorização humana consumida; linha de base 3/3 na revisão indicada, retorno zero, aviso sem conteúdo disponível. O acesso por sudo_env é observado no relato; causa exata de R04 não demonstrada de forma independente. Não houve indicação de pull/build, instalação ou novo provisionamento; custo efetivo NÃO MEDIDO. O Ctrl+C mostrado após retorno ao prompt não altera o resultado terminal já emitido. Não atribuir capacidade autônoma pytest a AGT-004 ou AGT-003; capacidade operacional humana suficiente para separar implementação, revisão e teste na VM. Sem novo diagnóstico ambiental.
+- C14 autorizado por HUMAN-001 #TRUE MEDIADO, base c4eb464, claim 487771c52a5dfbfb644932b5370a0d566692f22d. AGT-001 III prepara AUT do patch; AGT-004 altera somente o teste autorizado após decisão própria; AGT-003 prepara validação versionada do novo commit em etapa autorizada posterior, reaproveitando R05; AGT-002 revisa; HUMAN-001 executa na VM. M3-02 PENDENTE, sem aprovação de patch nesta etapa.
