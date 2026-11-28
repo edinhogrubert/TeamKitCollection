@@ -24,11 +24,40 @@ fail() {
   exit "$code"
 }
 
-cleanup() {
-  local exit_rc=$?
-  if [[ "${container_started:-0}" -eq 1 && ${#d[@]} -gt 0 ]]; then
+verify_container_absent() {
+  local remaining=""
+  if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
+    printf 'VAL=BLOQUEADA | Falha ao consultar ausência do contêiner temporário no daemon Docker.\n'
+    return 1
+  fi
+  if [[ -n "$remaining" ]]; then
     "${d[@]}" stop -t 5 "$CNAME" >/dev/null 2>&1 || true
     "${d[@]}" rm -f "$CNAME" >/dev/null 2>&1 || true
+    if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
+      printf 'VAL=BLOQUEADA | Falha ao reconsultar ausência do contêiner temporário no daemon Docker.\n'
+      return 1
+    fi
+    if [[ -n "$remaining" ]]; then
+      printf 'VAL=BLOQUEADA | Contêiner temporário não foi encerrado/removido com segurança.\n'
+      return 1
+    fi
+  fi
+  return 0
+}
+
+cleanup() {
+  local exit_rc=$?
+  trap '' INT TERM
+  if [[ "${container_started:-0}" -eq 1 && ${#d[@]} -gt 0 ]]; then
+    if [[ -n "${work:-}" && -d "${work:-}" ]]; then
+      if ! verify_container_absent; then
+        [[ "$exit_rc" -ne 0 ]] || exit_rc=1
+      fi
+    else
+      printf 'VAL=BLOQUEADA | Diretório temporário indisponível para confirmar ausência do contêiner no daemon Docker.\n'
+      [[ "$exit_rc" -ne 0 ]] || exit_rc=1
+    fi
+    container_started=0
   fi
   if [[ -n "${work:-}" && -d "${work:-}" ]]; then
     rm -rf -- "$work" >/dev/null 2>&1 || true
@@ -106,16 +135,9 @@ set -e
 printf 'DOCKER_RUN_RC=%s\n' "$rc"
 
 # Garantir encerramento, remoção e confirmação de ausência do contêiner temporário sem ignorar erros de consulta.
-if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
-  fail 'Falha ao consultar ausência do contêiner temporário no daemon Docker.' "$(( rc != 0 ? rc : 1 ))"
-fi
-if [[ -n "$remaining" ]]; then
-  "${d[@]}" stop -t 5 "$CNAME" >/dev/null 2>&1 || true
-  "${d[@]}" rm -f "$CNAME" >/dev/null 2>&1 || true
-  if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
-    fail 'Falha ao reconsultar ausência do contêiner temporário no daemon Docker.' "$(( rc != 0 ? rc : 1 ))"
-  fi
-  [[ -z "$remaining" ]] || fail 'Contêiner temporário não foi encerrado/removido com segurança.' "$(( rc != 0 ? rc : 1 ))"
+if ! verify_container_absent; then
+  container_started=0
+  exit "$(( rc != 0 ? rc : 1 ))"
 fi
 container_started=0
 
