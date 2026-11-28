@@ -2,6 +2,7 @@
 agent_id: AGT-002
 ai_model: Grok 4.5
 intellectual_author: Grok 4.5
+recorded_by: Codex / AGT-002
 role: auditoria
 published_by: HUMAN-001
 source_commit_sha: ebd6a66
