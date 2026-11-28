@@ -63,13 +63,8 @@ else
   [[ -n "$SUDO" && "$SUDO" == /* ]] || fail 'Acesso Docker local indisponível.'
   "$SUDO" -v || fail 'Autenticação sudo para acesso Docker local falhou.'
   d=(env -i PATH=/usr/bin:/bin HOME="$work/home" LC_ALL=C "$SUDO" -- /usr/bin/env -i PATH=/usr/bin:/bin HOME="$work/home" LC_ALL=C "$DOCKER" --config "$work/docker" --host unix:///var/run/docker.sock)
-  if "${d[@]}" info --format '{{.ServerVersion}}' >"$work/daemon" 2>&1; then
-    printf 'DOCKER_ACESSO=sudo_env\n'
-  else
-    d=(env -i PATH=/usr/bin:/bin HOME="$work/home" LC_ALL=C "$SUDO" -- "$DOCKER" --config "$work/docker" --host unix:///var/run/docker.sock)
-    "${d[@]}" info --format '{{.ServerVersion}}' >"$work/daemon" 2>&1 || fail 'Acesso Docker local indisponível após autenticação sudo; sem alterar permissões.'
-    printf 'DOCKER_ACESSO=sudo_direto\n'
-  fi
+  "${d[@]}" info --format '{{.ServerVersion}}' >"$work/daemon" 2>&1 || fail 'Acesso Docker local sanitizado indisponível após autenticação sudo; sem fallback não sanitizado e sem alterar permissões.'
+  printf 'DOCKER_ACESSO=sudo_env\n'
 fi
 image_id=$("${d[@]}" image inspect --format '{{.Id}}' "$IMAGE" 2>"$work/inspect.log") || fail 'Imagem local teamkitcollection/backend:lab ausente; pull/build proibidos.'
 [[ "$image_id" =~ ^sha256:[0-9a-f]{64}$ ]] || fail 'ID da imagem não confirmado.'
@@ -110,11 +105,18 @@ rc=$?
 set -e
 printf 'DOCKER_RUN_RC=%s\n' "$rc"
 
-# Garantir encerramento e remoção do contêiner temporário (inclusive em timeout ou falha).
-"${d[@]}" stop -t 5 "$CNAME" >/dev/null 2>&1 || true
-"${d[@]}" rm -f "$CNAME" >/dev/null 2>&1 || true
-remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>/dev/null || true)
-[[ -z "$remaining" ]] || fail 'Contêiner temporário não foi encerrado/removido com segurança.' "$(( rc != 0 ? rc : 1 ))"
+# Garantir encerramento, remoção e confirmação de ausência do contêiner temporário sem ignorar erros de consulta.
+if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
+  fail 'Falha ao consultar ausência do contêiner temporário no daemon Docker.' "$(( rc != 0 ? rc : 1 ))"
+fi
+if [[ -n "$remaining" ]]; then
+  "${d[@]}" stop -t 5 "$CNAME" >/dev/null 2>&1 || true
+  "${d[@]}" rm -f "$CNAME" >/dev/null 2>&1 || true
+  if ! remaining=$("${d[@]}" ps -a --filter "name=^/${CNAME}$" --format '{{.ID}}' 2>"$work/ps.log"); then
+    fail 'Falha ao reconsultar ausência do contêiner temporário no daemon Docker.' "$(( rc != 0 ? rc : 1 ))"
+  fi
+  [[ -z "$remaining" ]] || fail 'Contêiner temporário não foi encerrado/removido com segurança.' "$(( rc != 0 ? rc : 1 ))"
+fi
 container_started=0
 
 # Saída limitada a versões, marcadores e contagens; nunca divulgar logs brutos.
