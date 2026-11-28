@@ -8,6 +8,10 @@
 
 ## COM-002.1 — Despacho humano por referência, sem automação
 
+**Gate de despacho versionado (TKC-0015-C03):** antes de oferecer referência ao humano, conferir os campos obrigatórios do MODELO_ORDEM, os caminhos exatos e a capacidade aplicável ao destinatário conforme COM-001 §5.1. Para novas decisões de escrita, usar `TKC-AUT-NNNN @SHA #TRUE` (ou `TKC-REQ-NNNN @SHA #TRUE` para publicação documental expressa); SHA curto somente se resolvido inequivocamente ao SHA completo da revisão publicada. Registrar revisão, SHA resolvido, proveniência, destinatário e escopo; não antecipar hash do próprio commit. Mudança material exige nova validação; não invalidar retroativamente autorizações anteriores. Referência não autentica identidade nem confirma recebimento. Na impossibilidade de publicação operacional, informar apenas referência, BLOQUEADA e motivo curto; não exigir transporte integral do trabalho pelo humano. A contingência mediada permanece para consulta facultativa e evidência histórica, não como substituto de entrega operacional. AGT-ACI permanece consultivo, sem revisão independente de Git quando não o acessa.
+
+**Registro da alteração:** AGT-001 III, ChatGPT / GPT-6.2 (AUTODECLARADO), autoria e registro AGT-001 III; autorização HUMAN-001 MEDIADO; base d5cfbad; claim 5f21ee1; revisão distinta pendente.
+
 **Regra de operação acordada para o experimento:** AGT-001 pode **redigir e publicar** ordens e pedidos de parecer no GitHub mediante missão humana, e informar ao humano apenas uma referência curta. **AGT-001 não deve invocar outro agente, automatizar despacho, configurar bot, agendamento, monitoramento ou execução por iniciativa própria.** Somente a pessoa transporta a referência entre sessões, escolhendo se/quando entregá-la. Uma eventual automação futura exigirá outra decisão humana e não faz parte do fluxo vigente.
 
 Use os seguintes identificadores estáveis e únicos por tarefa, **sem reutilizar números** (o sufixo `0054` abaixo é exemplo, não reserva de ID):
