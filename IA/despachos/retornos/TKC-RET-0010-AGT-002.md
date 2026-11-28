@@ -1,6 +1,6 @@
 ---
 agent_id: AGT-002
-ai_model: GPT-5 (Codex)
+ai_model: Grok 4.5
 role: auditoria
 published_by: HUMAN-001
 commit_sha: ebd6a66
