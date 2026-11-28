@@ -122,3 +122,18 @@ CAP=BLOQUEADA | Isolamento de rede indisponível; sem tentativa alternativa ou s
 
 - Conforme comando informado com set -e, a chegada ao script indica download, hash e sintaxe bem-sucedidos. Isolamento por unshare indisponível. Dependências não verificadas, pytest não iniciado; não é falha de backend. Nenhuma alteração de produto ou custo indicado; custo efetivo NÃO MEDIDO. R03 encerrada BLOQUEADA, autorização consumida. A evidência não comprova capacidade própria de AGT-004.
 - Coordenação C06, autorizada por HUMAN-001 #TRUE MEDIADO na base 5e4824ebb823d97ddc58c896389efcaa240e54a4, reivindicação ba74bbd90daf4b7b5f47a891cf7ee3f188606e9a confirmada: propõe CAP R04 com Docker exclusivamente local e imagem já existente, sem rede de teste, pull, build, instalação, mudança de permissões do host ou contêineres existentes. Script 6d9b0a0051b179e3b1e8ea6b528dbfafd39e736c, ordem bccc7dfea08ad55eac6ff80fb5451cd3cb325d1d. R04 aguarda autorização específica. Disponibilidade da imagem e dependências desconhecida; script sem teste funcional/revisão independente. M3-02 PENDENTE.
+
+
+---
+
+# C07 — Evidência humana CAP R04 e delegação a AGT-003
+
+- Ordem CAP R04 @bccc7dfea08ad55eac6ff80fb5451cd3cb325d1d autorizada por HUMAN-001 #TRUE. Script @6d9b0a0051b179e3b1e8ea6b528dbfafd39e736c. Execução humana na VM local, evidência MEDIADO:
+
+```text
+TKC-0016 CAP R04 | execução HUMAN-001 | custo adicional permitido R$ 0,00
+CAP=BLOQUEADA | Acesso Docker local indisponível; sem pedir senha ou alterar permissões.
+```
+
+- Conforme sequência com set -e relatada, download, hash e sintaxe passaram antes do início. Acesso Docker local não confirmado; causa exata DESCONHECIDA. Imagem, dependências e pytest não verificados. Nenhuma falha de backend demonstrada; nenhum produto alterado ou custo indicado, custo efetivo NÃO MEDIDO. R04 encerrada BLOQUEADA, autorização consumida. Não atribuir capacidade de teste a AGT-004.
+- C07 autorizado por HUMAN-001 #TRUE MEDIADO, base e3d217789e2adf56289eefcd8d3425e1c40b2365; claim 9d599767d393fd7dda7effa7f81532f0c492bb3a confirmado. Coordenação registra impedimento e publica REQ de avaliação DevOps `b70ab251c5b77ed9b67d7680e2033c932d9a5d2c`, condicionada à atribuição humana. AGT-003 propõe solução ambiental e scripts; AGT-002 revisão distinta; AGT-004 backend; HUMAN-001 VM via curl versionado. Não iniciar R05 pela coordenação, não executar nem criar scripts nesta REQ. M3-02 PENDENTE.
