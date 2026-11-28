@@ -80,3 +80,30 @@ Escopo documental do ensaio deve ser explicitado por AGT-001 em ordem própria (
 Riscos INFERIDOS: incompatibilidade das faixas de dependências, ausência de ambiente de teste, configuração/plugins com efeitos colaterais, execução em revisão errada e concorrência no índice. Mitigações propostas: gate de capacidade, ambiente isolado, revisão imutável, verificação de diff e claim cooperativo confirmado, revisão distinta. Nenhum risco foi reproduzido como falha. Testes efetivamente executados: zero. Código/infraestrutura alterados: zero. Nenhuma instalação, rede de teste, Docker, PostgreSQL, VM ou branch criada.
 
 VIAVEL_COM_CONDICOES para o objeto; BLOQUEIO OPERACIONAL por capacidade de teste não comprovada e ausência de AUT de execução. Entrega documental C01 para EM_REVISAO, posse encerrada; não iniciar piloto, não concluir TKC-0016 ou M3-02. Próximo passo: AGT-001 avaliar e autorizar separadamente ensaio de capacidade ou atribuir sessão comprovadamente apta; revisão QA distinta. O SHA de entrega será obtido do histórico Git, sem hash autorreferente.
+
+
+---
+
+# C03 — Resultado do gate de capacidade CAP
+
+**Autor intelectual e registro:** AGT-004 — Backend, mesma conversa C01 (RELATADO).
+**Publicação técnica:** conector GitHub desta sessão, identidade técnica conforme commit.
+**Ordem:** TKC-AUT-0016-CAP revisão 1, 67f1e375943e3c0cf12d0def9b9d7fa9f9591f2c.
+**Decisão:** HUMAN-001 enviou TKC-AUT-0016-CAP @67f1e37 #TRUE nesta conversa; proveniência MEDIADO. Escopo exclusivo de ensaio CAP condicionado e três caminhos documentais, sem patch.
+**Base remota de coordenação:** 9469255020a1edc65fbd533981530a12f114a334.
+**Revisão imutável exigida para ensaio:** 706cda089731263ee4f0b5e48e2bfe06047f57ef.
+**Claim documental C03:** 3fe790a06bf3513200f1fd99b3ea5b824b30c656, confirmado e relido no remoto antes desta publicação.
+**Resultado:** BLOQUEADA — checkout local previamente disponível não localizado; capacidade de teste continua DESCONHECIDA.
+
+## Evidências e parada
+
+- VERIFICADO: SHA curto 67f1e37 resolvido ao SHA completo acima; comparação Git até a base de coordenação mostra somente registro TKC-0016, índice e ata documental, sem alteração da AUT, produto ou regras. COM-001 v0.3.0 e COM-002 revalidados. C02 entregue, sem posse ativa conflitante identificada. Escrita documental confirmada pelo claim C03.
+- VERIFICADO por inspeção local somente leitura: diretório corrente /; /mnt/data sem checkout; busca limitada a profundidade 4 por diretórios/entradas .git ou nome TeamKitCollection nos caminhos disponíveis /home/oai, /workspace, /workspaces, /app, /root, /opt, /mnt e /tmp não localizou checkout do projeto. As únicas entradas .git observadas nessa busca foram /opt/novnc/.git e /opt/nvm/.git, alheias ao projeto. Esta evidência não prova inexistência universal de cópia em outros ambientes ou caminhos inacessíveis; prova que nenhuma cópia apta foi identificada nesta sessão. A checagem de disponibilidade precedeu o claim documental e não iniciou ensaio nem alterou arquivos.
+- Não foi possível verificar localmente limpeza, SHA, blob original a165e47889ddcc99c026a2562914336f9077738a, configuração pytest, dependências, ausência de credenciais e isolamento de rede de uma cópia adequada. Esses pré-requisitos permanecem DESCONHECIDOS para o ambiente do ensaio. Não se usou acesso Git remoto para adquirir checkout, reconstruir código ou criar branch.
+- Comando autorizado, NÃO EXECUTADO: `PYTHONDONTWRITEBYTECODE=1 PYTEST_DISABLE_PLUGIN_AUTOLOAD=1 python -m pytest -q -p no:cacheprovider tests/unit/test_health_unit.py`. Sem stdout/stderr de pytest, sem código de retorno, sem contagem observada, sem PASS/FALHA de teste. Três casos aprovados era expectativa, não resultado.
+- Nenhuma cópia criada, instalação, patch, alteração de produto, rede de teste, Docker, PostgreSQL, VM, configuração, credencial ou branch. Não houve execução local alternativa. Métricas de esforço, intervenções, retrabalho e custo efetivo: NÃO MEDIDO; nenhum provisionamento ou contratação.
+- C03 documenta impedimento; não declara falha do backend nem incapacidade definitiva da plataforma. Leitura/escrita Git continuam VERIFICADAS, mas não comprovam capacidade pytest.
+
+## Próximo passo
+
+AGT-001 deve coordenar sessão com checkout isolado previamente disponível na revisão exigida, ou propor autorização distinta para disponibilização controlada de uma cópia e ensaio com evidência de isolamento. Não presumir que autorização CAP atual permite aquisição de código pela rede. Revalidar capacidade, autorização e posse antes de nova tentativa; não transferir autorização automaticamente. Nenhum patch ou piloto liberado. Revisão QA e decisão humana separadas. M3-02 permanece PENDENTE. C03 encerrada sem posse ativa, tarefa BLOQUEADA.
