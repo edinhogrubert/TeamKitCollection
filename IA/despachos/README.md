@@ -2,7 +2,7 @@
 
 **Estado:** PROTOCOLO DOCUMENTAL, SEM CONSUMIDOR AUTOMÁTICO INSTALADO  
 **Origem de autoridade:** `AGENTS.md`, `IA/PROJETO.md`, `IA/regras/constituicao.md`, `IA/regras/seguranca.md` e `IA/regras/comunicacao.md` (COM-001)  
-**Revisão documental em curso — claim `COM-DOC-20261127-C01`:** AGT-001, autorização HUMAN-001 nesta sessão para ajuste mínimo da publicação documental por tarefa; `EM_EXECUCAO`, base `d724e1733cb26253fcd55fee391d0cc146ff3334`. Escopo exclusivo: `AGENTS.md`, `IA/regras/comunicacao.md`, este `IA/despachos/README.md`, `IA/despachos/MODELO_ORDEM.md`, `IA/despachos/MODELO_RETORNO.md`. Próximo checkpoint: confirmar claim no remoto antes de editar outras seções. Nenhum código, infraestrutura, outras tarefas ou normas de segurança autorizados. Claim cooperativo, sem exclusão técnica.  
+**Revisão documental COM-DOC-20261127-C01 — ENTREGUE:** AGT-001, autorização HUMAN-001 para esta revisão pontual. Reivindicação confirmada na `main` em `b3b6ee548c4dc8cc792d9437d3bf415ccca8673b`. Atualizados somente os cinco arquivos normativos/modelos autorizados. Verificação de publicação, consistência e diff por AGT-001; auditoria independente não realizada. Não constitui autorização de código, infraestrutura nem de execução de tarefa alheia.
 
 **Missão:** oferecer um **local comum de escrita e leitura** de ordens, checkpoints e respostas, acessível a agentes e humanos com acesso Git. O repositório é transporte e evidência; **não é um serviço de mensagens em tempo real**.
 
@@ -22,9 +22,15 @@ Use os seguintes identificadores estáveis e únicos por tarefa, **sem reutiliza
 
 Os códigos apontam a artefatos com o mesmo número, mas **não são autorização por si**. A ordem deve apontar ao registro concreto da tarefa, à revisão-base e ao eventual documento de autorização. Publicar um arquivo não prova que a outra sessão recebeu a referência.
 
+### Canal documental autorizado no despacho — padrão para novas atribuições
+
+**Uma decisão humana pode abranger a análise L0/L1 e a publicação L2 de seus próprios registros**, desde que a ordem especifique previamente e de maneira exata os caminhos de tarefa, índice (somente linha própria), log/checkpoints, retorno, dúvida e bloqueio quando aplicáveis, bem como o responsável e os limites. O executor verifica capacidade Git de leitura/escrita e autorização ao receber; antes da primeira gravação, publica e confirma sua reivindicação COM-001 na tarefa, respeitando conflitos. Depois, pode publicar evidências, parecer e estado de bloqueio nesses caminhos **sem uma segunda autorização por artefato**. Para caminho omitido, não há permissão; deve solicitar complemento. Este padrão vale para **novas atribuições** e não converte antigas REQs em autorizações retroativas.
+
+O transporte normal é: **HUMAN-001 leva referência da ordem; o agente publica no Git; HUMAN-001 retorna referência e SHA; AGT-001 lê o conteúdo no Git**. Conteúdo copiado é somente contingência de indisponibilidade técnica ou autorização documental ausente. Se não for possível publicar um impedimento, o agente deve relatar o bloqueio ao humano sem alegar commit. A autorização documental não confere autorização de produto, código, infraestrutura, regras, AUT decisória ou tarefas alheias. Nenhuma entrega autoaprova seu conteúdo.
+
 ### Duas fases com portas humanas distintas
 
-1. **Pedido de viabilidade:** AGT-001 publica `TKC-REQ-XXXX` em modo **L0/L1 apenas**, e informa a referência ao humano; o humano a transporta para a IA competente. Ela lê a fonte Git, confirma capacidade e escopo, não altera recursos do objeto de estudo, publica `TKC-PAR-XXXX` com riscos, limites, plano, impacto e condições; o humano comunica a referência de volta.
+1. **Pedido de viabilidade:** AGT-001 publica `TKC-REQ-XXXX` para análise **L0/L1 do produto**, com caminhos de **publicação documental L2 explicitamente aprovados na atribuição humana**; informa a referência ao humano, que a transporta para a IA competente. Ela lê a fonte Git, confere capacidade e escopo, não altera o objeto de estudo, registra posse COM-001, publica `TKC-PAR-XXXX` com riscos, limites, plano, impacto e condições e fornece somente referência e SHA para retorno. Sem autorização documental, restringir-se à análise e informar bloqueio.
 2. **Proposta de autorização:** AGT-001 **consulta ativamente** o parecer pelo Git, critica seus pressupostos e, se adequado, publica `TKC-AUT-XXXX` em `PENDENTE`, fixando versão, recursos, ações permitidas/proibidas, janela, riscos e verificações. O humano decide em sessão autorizada e transporta a referência acompanhada da decisão.
 3. **Execução:** somente após decisão humana válida e confirmada para **aquele escopo e versão**, atribuição, posse cooperativa publicada e verificações técnicas apropriadas, o agente pode iniciar, publicar `TKC-EXE-XXXX`, checkpoints e `TKC-RET-XXXX`. Auditoria e aceite são decisões separadas. Uma autorização não passa automaticamente para outra IA.
 4. **Mudou o ambiente, o plano, o escopo ou o commit relevante?** Suspender e solicitar revalidação; não reutilizar um `#TRUE` anterior.
@@ -51,14 +57,14 @@ Os códigos apontam a artefatos com o mesmo número, mas **não são autorizaç�
 Modelos canônicos: `IA/despachos/MODELO_ORDEM.md` e `IA/despachos/MODELO_RETORNO.md`. Modelos não constituem ordens reais; nenhum agente deve executá-los.
 
 
-## COM-002.2 — Contrato de devolução em dois canais (correção por uso real)
+## COM-002.2 — Git como canal padrão; contingência mediada (correção por uso real)
 
 **Objetivo:** transportar o trabalho sem exigir que HUMAN-001 reescreva, resuma ou interprete relatórios. O destinatário define o modo **conforme capacidade efetiva da sessão**, e informa o status no fim de sua resposta ao humano. A escolha não altera o escopo, as permissões ou a autoria do trabalho.
 
 | Capacidade da IA | Entrega pelo agente | Frase de encerramento humano | Tratamento por AGT-001 |
 |---|---|---|---|
-| Acesso Git de escrita verificado e autorizado | Publica no caminho de retorno, com reivindicação e evidências COM-001 | `TKC-PAR-XXXX PUBLICADA NO GIT — commit: <SHA>` | Consulta o Git diretamente, verifica conteúdo, commits e proveniência; não pede colagem |
-| Sem escrita Git | Fornece o parecer/código completo na conversa, identificado por tarefa e artefato | `TKC-PAR-XXXX PRONTA — SEM ESCRITA GIT. LEVE ESTA RESPOSTA A AGT-001` | Recebe integralmente o conteúdo trazido por HUMAN-001 e, quando autorizado, publica no repositório como `MEDIADO` |
+| Acesso Git de escrita verificado e caminho documental autorizado pela atribuição (inclusive na mesma autorização da análise) | Publica no caminho de retorno, com reivindicação e evidências COM-001 | `TKC-PAR-XXXX PUBLICADA NO GIT — commit: <SHA>` | Consulta o Git diretamente, verifica conteúdo, commits e proveniência; não pede colagem |
+| Sem escrita Git efetiva, ou sem autorização para o caminho e sem possibilidade de complemento naquele momento | Declara o impedimento; somente como contingência entrega parecer/código completo na conversa, identificado por tarefa e artefato | `TKC-PAR-XXXX PRONTA — SEM ESCRITA GIT. LEVE ESTA RESPOSTA A AGT-001` | Recebe integralmente o conteúdo trazido por HUMAN-001 e, quando autorizado, publica no repositório como `MEDIADO` |
 | Impedimento ou falha | Explica limites e efeitos, sem afirmar publicação ou conclusão | `TKC-PAR-XXXX BLOQUEADA — motivo: ...` | Registra bloqueio e próximo passo; não inventa conteúdo |
 
 Para código, substituir o marcador PAR por `TKC-RET-XXXX` ou outro artefato autorizado e declarar exatamente os arquivos/caminhos produzidos; **receber um bloco de código pelo humano não autoriza implantá-lo**. Identificadores são referências de transporte, não provas de execução.
@@ -73,7 +79,7 @@ Para código, substituir o marcador PAR por `TKC-RET-XXXX` ou outro artefato aut
 
 ## Ciclo de comunicação
 
-1. Sob solicitação humana, o coordenador ou humano autorizado cria/atualiza o registro da tarefa e publica uma ordem com `task_id`, `order_id`, `recipient`, `authorization`, `scope`, `base_commit`, critérios de aceite e local da saída.
+1. Sob solicitação humana, o coordenador ou humano autorizado cria/atualiza o registro da tarefa e publica uma ordem com `task_id`, `order_id`, `recipient`, autorização humana e proveniência, **escopo documental autorizado na própria atribuição e separado do escopo de produto**, `base_commit`, critérios de aceite e caminhos exatos da saída e dos checkpoints.
 2. A publicação é **DESPACHO DISPONÍVEL**, não `RECEBIDO`. **O humano leva a referência curta à sessão destinatária**, que deve consultar a caixa. Nunca alegar leitura automática não observada.
 3. O destinatário confirma leitura publicando `RECEBIDO` no registro de tarefa/log, contendo `order_id`, `agent_id`, `session_ref` e commit visto. Se não houver permissão para escrever ou conflito, deve responder por canal autorizado, com estado `NÃO CONFIRMADO`.
 4. `TRUE` humano autoriza apenas o escopo, não prova entrega da ordem, início ou posse. Antes de modificar, cumprir COM-001: verificar sobreposição, publicar `EM_EXECUCAO` e confirmar no remoto.

@@ -9,6 +9,8 @@
 - claim_id: PENDENTE
 - agent_id / papel / ferramenta / session_ref: PENDENTE
 - origem da ordem / evidência da autorização: PENDENTE
+- documentation_write_authorization / documentation_scope_paths: PENDENTE — autorização explícita existente na atribuição, ou complemento humano; separar de escopo de produto
+- git_read_write_capability / publish_status: A CONFIRMAR / NÃO PUBLICADO — sem atribuição e claim, não publicar
 - repositório / branch / base_commit / head_final: PENDENTE
 - estado de saída: NÃO EXECUTADO
 
@@ -39,5 +41,7 @@
 - Decisão de aceite humano: PENDENTE
 
 **Classificação:** declaração do executor é `RELATADO` até conferência direta. Não contém permissão ou aprovação automática.
+
+**Em qualquer fase:** publicar dúvidas, checkpoints, impedimentos e pareceres no Git **somente nos caminhos previamente autorizados**; basta a autorização documental já incorporada à atribuição, mais claim COM-001 confirmado. Informar ao humano somente referência e SHA. Copiar texto é contingência de impossibilidade técnica ou autorização ausente, jamais o padrão. Nenhuma autorização documental abrange código, normas ou infraestrutura.
 
 **Em qualquer fase:** registrar o status e proveniência das afirmações (`VERIFICADO`, `RELATADO`, `MEDIADO` ou `DESCONHECIDO`), o commit consultado e os links completos da ordem/parecer quando disponíveis. O humano transporta apenas a referência; nenhum retorno é entregue automaticamente à sessão inativa.
