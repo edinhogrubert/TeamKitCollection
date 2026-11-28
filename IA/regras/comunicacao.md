@@ -2,7 +2,7 @@
 
 **Projeto de validação:** TeamKitCollection  
 **Identificador:** COM-001  
-**Versão:** 0.1.0  
+**Versão:** 0.2.0  
 **Estado:** ESPECIFICADO — registro documental disponível; bloqueio atômico, heartbeats automáticos e recuperação automática NÃO IMPLEMENTADOS  
 **Marco:** M3 (comunicação, tarefas e handoff); dependências e controle técnico de concorrência em M5  
 **Autoridade:** `AGENTS.md`, `IA/regras/constituicao.md` (GOV-001..005) e `IA/regras/seguranca.md` (SEC-001..010)  
@@ -124,7 +124,36 @@ Com decisão válida, executor atribuído e registro de posse publicado, registr
 
 **Teste documental proposto (não executado):** agente com revisão antiga e regra alterada; revisão antiga com commit novo apenas no produto; revisão desconhecida; mudança de segurança; diffs indisponíveis; contradição entre resumo e regra. Avaliar leituras efetivas e decisão segura, não somente a presença de um campo de versão.
 
-## 8. Testes de aceitação da especificação
+## 8. Autoria, registro e publicação
+
+Todo artefato produzido com participação de IA deve distinguir, quando conhecidos, autoria intelectual, registro documental, publicação e identidade técnica do Git. O bloco recomendado é:
+
+```yaml
+agent_id: <identificador do agente>
+ai_model: <modelo e versão, se declarados>
+intellectual_author: <IA ou humano que produziu o conteúdo>
+recorded_by: <agente ou humano que transcreveu/gravou>
+role: <papel funcional>
+published_by: <humano que autorizou/publicou>
+git_commit_author: <identidade técnica exibida pelo Git>
+source_commit_sha: <commit objeto da análise ou alteração>
+record_commit_sha: <commit que contém o registro, quando aplicável>
+```
+
+Regras obrigatórias:
+
+1. `intellectual_author` não deve ser inferido do autor técnico do Git.
+2. `recorded_by` identifica quem efetuou a gravação documental, sem receber autoria intelectual por isso.
+3. `published_by` identifica a autorização/publicação humana; não implica autoria do conteúdo.
+4. `git_commit_author` é evidência de identidade técnica do commit, não prova de modelo de IA.
+5. Modelo, autoria ou publicador não comprovados devem ser marcados como `DESCONHECIDO` ou `DECLARADO_POR_HUMAN-001`, nunca presumidos.
+6. Correções posteriores acrescentam novo registro; não reescrevem o histórico Git nem alteram retroativamente o estado de M3-02.
+
+Na aplicação desta regra, as atribuições de Grok 4.5 para conteúdos anteriores são consideradas declaração de `HUMAN-001`; Codex/AGT-002 é identificado como registrador quando tiver efetuado a gravação documental, e `HUMAN-001` como publicador quando tiver autorizado/publicado. Atribuições sem confirmação devem permanecer declaradas como não comprovadas.
+
+**Registro da incorporação:** proposta `COM-001-PROP-AUTORIA.md` (`6cf041f`); mudança executada por Codex/AGT-002, sob autorização `COM-001-PROP-AUTORIA #TRUE` de `HUMAN-001`; publicação por `HUMAN-001`.
+
+## 9. Testes de aceitação da especificação
 
 | ID | Ensaio esperado | Critério de conformidade |
 |---|---|---|
@@ -139,7 +168,7 @@ Com decisão válida, executor atribuído e registro de posse publicado, registr
 
 **Estado dos testes:** ESPECIFICADOS, NÃO EXECUTADOS. Não existe validação operacional de concorrência.
 
-## 9. Implantação incremental
+## 10. Implantação incremental
 
 - **Agora (M3-01):** contrato escrito, índice de tarefas e roteamento na entrada; registro cooperativo manual, sem garantias técnicas automáticas.
 - **Próximo (M3-02):** criar casos reais de tarefas, checkpoints e handoff com validação de ponta a ponta; documentar entradas, saídas e conflitos reais.
