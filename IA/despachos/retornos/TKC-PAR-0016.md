@@ -192,3 +192,43 @@ tmp=$(mktemp) && curl --fail --silent --show-error --location --proto '=https' -
 ## 7. Evidência de teste e confirmação de custo zero
 - **Testes executados nesta REQ:** **ZERO** (`NÃO_EXECUTADO`). Nenhum script foi criado, nenhum comando foi executado na VM/Docker e nenhuma capacidade própria de `pytest` foi alegada para esta sessão.
 - **Custo financeiro:** **R$ 0,00** adicionais confirmados como restrição e ausência de provisionamento nesta REQ; custo efetivo de operação futura `NÃO MEDIDO` até execução. `M3-02` permanece `PENDENTE`.
+
+---
+
+# C10 — Revisão independente CAP R05
+
+**base revisada:** `4ef2cfe` → `44c498c`  
+**script:** `scripts/qa/tkc-0016-cap-r05.sh` @ `65fde21`; blob `8851447e3735731683b1110179c69c539a1b9cb8`  
+**entrega AGT-003:** `44c498c`  
+**claim AGT-002:** `TKC-0016-C10`, confirmado em `212ce28`  
+**decisão:** `APROVAR COM RESSALVAS` para preparação; não autoriza execução na VM.
+
+## Integridade
+
+- A ordem fixa `REV` e `TEST_BLOB`, e o procedimento baixa o script por SHA, verifica blob e executa `bash -n` antes de chamar o script.
+- O script cria checkout temporário detached, confirma `HEAD`, valida o blob do teste, rejeita configurações pytest extras e verifica estado Git limpo antes e depois.
+- A imagem é identificada por ID `sha256`, volumes declarados são rejeitados, `--pull=never` impede download e não há build.
+- A integridade do ambiente não foi executada na VM por AGT-002; os itens acima são inspeção do código e da ordem.
+
+## Segurança, isolamento e autenticação sudo
+
+- O script rejeita `root`, aceita somente `/var/run/docker.sock`, usa usuário normal e executa `sudo -v` interativo apenas quando o acesso direto falha.
+- O contêiner usa `--network none`, `--read-only`, `--cap-drop ALL`, `no-new-privileges`, UID/GID não privilegiado, limites de PIDs, memória e CPU, sem portas, sem volumes declarados e com montagem do checkout somente leitura.
+- O ambiente Docker direto usa `env -i`, HOME e configuração temporários, host Unix explícito e credenciais/configurações do usuário ignoradas. A aquisição Git também limpa configuração global, hooks, credenciais, LFS e submódulos.
+- A saída do contêiner é armazenada temporariamente e filtrada por padrões permitidos; logs brutos, `daemon` e diretório de trabalho são removidos no `EXIT`.
+- O socket Docker é uma fronteira de alto privilégio do host. Mesmo com o processo do contêiner desprivilegiado, a segurança depende da confiança no daemon e na imagem local; essa dependência deve permanecer explícita para HUMAN-001.
+
+## Ressalvas obrigatórias antes da execução
+
+1. O fallback da linha 35 usa `sudo -- "$DOCKER"` sem repetir `env -i` e sem limpar explicitamente variáveis `DOCKER_*`. Embora `--config` e `--host` sejam fixados, o fallback tem isolamento de ambiente inferior ao caminho `sudo_env`. Deve ser corrigido ou aceito por decisão humana específica antes da VM.
+2. O `docker run` não tem limite de duração. Uma execução bloqueada pode permanecer ativa até intervenção humana. Definir um limite operacional externo e uma ação de interrupção documentada, ou alterar o script sob nova autorização, antes de tratar o ensaio como seguro por completo.
+3. `sudo -v` pode atualizar o cache de credenciais do usuário dentro da política local. Isso é compatível com a ordem somente se HUMAN-001 confirmar que a autenticação é esperada, local e sem alteração de `sudoers`, grupo `docker` ou permissões.
+4. “R$ 0,00” é uma condição declarada por HUMAN-001 e não pode ser verificada por leitura do script. Qualquer dúvida sobre cobrança interrompe o ensaio antes do download, conforme a ordem.
+
+## Critérios de parada confirmados
+
+São adequados: usuário root, socket ausente, falha de sudo ou Docker, imagem ausente/com volumes, divergência de SHA ou blob, configuração pytest extra, estado Git sujo, falha do pytest, retorno diferente de zero, três testes não confirmados e qualquer dúvida de custo ou isolamento. O limite de duração é a lacuna adicional apontada acima.
+
+## Veredito
+
+R05 é tecnicamente consistente como preparação documental e apresenta isolamento substancialmente melhor que R03/R04. A execução humana só deve ocorrer após decisão `#TRUE` específica e avaliação das duas ressalvas de script, com o resultado classificado como `RELATADO`/`MEDIADO`. Nenhum teste foi executado por AGT-002, nenhuma operação ocorreu na VM e `M3-02` permanece `PENDENTE`.
