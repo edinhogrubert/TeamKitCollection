@@ -317,3 +317,27 @@ CAP=ENTREGUE | 3 testes aprovados | evidência HUMANA, MEDIADO
 
 - Veredito coordenação: CAP R05 ENTREGUE, autorização humana consumida; linha de base 3/3 na revisão indicada, retorno zero, aviso sem conteúdo disponível. O acesso por sudo_env é observado no relato; causa exata de R04 não demonstrada de forma independente. Não houve indicação de pull/build, instalação ou novo provisionamento; custo efetivo NÃO MEDIDO. O Ctrl+C mostrado após retorno ao prompt não altera o resultado terminal já emitido. Não atribuir capacidade autônoma pytest a AGT-004 ou AGT-003; capacidade operacional humana suficiente para separar implementação, revisão e teste na VM. Sem novo diagnóstico ambiental.
 - C14 autorizado por HUMAN-001 #TRUE MEDIADO, base c4eb464, claim 487771c52a5dfbfb644932b5370a0d566692f22d. AGT-001 III prepara AUT do patch; AGT-004 altera somente o teste autorizado após decisão própria; AGT-003 prepara validação versionada do novo commit em etapa autorizada posterior, reaproveitando R05; AGT-002 revisa; HUMAN-001 executa na VM. M3-02 PENDENTE, sem aprovação de patch nesta etapa.
+
+---
+
+# C17 — Revisão independente conclusiva da validação C16
+
+**claim próprio:** `TKC-0016-C17`, publicado e confirmado em `2d2798b` antes desta revisão
+
+**base:** `6c91694` — entrega C16; patch `7b2330a` (blob `4718b2a`); script VAL `5838f69` (blob `5972583`); ordem `a4e32b6`
+
+**revisor:** `AGT-002` (Codex; modelo/versão não informados pela interface)
+
+## Verificações
+
+- O patch do AGT-004 foi aprovado por inspeção estática: parametriza `Exception` e `OSError`, preserva os testes 200 e de recuperação, exige o JSON 503 exato, impede vazamento da mensagem sintética e verifica chamada única do mock. O critério de quatro casos é coerente.
+- O script do AGT-003 preserva os controles R05: hashes fixos, checkout somente leitura, `--pull=never`, rede desativada, timeout de 60s, ambiente `env -i`/`sudo_env`, retorno do pytest/Docker e consulta normal de `docker ps -a`.
+- Não foram alterados código/scripts nem realizados testes, diagnósticos ambientais, Docker ou VM por AGT-002.
+
+## Ressalva bloqueante
+
+Nos traps `INT`/`TERM`, o script sai com `130/143` e cai em `cleanup()`. Essa função tenta `stop`/`rm` com `|| true`, remove o diretório temporário e preserva o código, mas não reconsulta `docker ps -a`. Portanto, em uma interrupção real não há confirmação de ausência residual, apesar de o caminho normal e o timeout fazerem essa consulta.
+
+## Veredito
+
+`BLOQUEADO PARA EXECUÇÃO HUMANA` até corrigir essa lacuna sob nova autorização e obter nova revisão AGT-002. `M3-02` permanece `PENDENTE`; custo efetivo `NÃO MEDIDO`.
