@@ -5,7 +5,8 @@
 - **order_id:** (sem ordem formal prévia dedicada; opção de menu 7)
 - **return_id:** `TKC-RET-0010-OP7`
 - **tipo:** `RETORNO OPERACIONAL OP7` (Registrado como **`RELATADO`** por `HUMAN-001`; **zero execução independente na VM por qualquer agente de IA**)
-- **claim_id:** (a preencher por HUMAN-001 ou AGT-001 se houver reivindicação documental)
+- **claim_id:** `TKC-0010-OP7` (registro documental mediado; sem posse ativa)
+- **contexto temporal:** saída operacional de HUMAN-001 anterior a `2c31ed1`; registro formal publicado em conjunto com a validação documental de TKC-0010; parecer AGT-002 em `2b1fa8a`.
 - **agent_id / papel / ferramenta:** registro mediado por AGT-002 (auditoria) a partir de saída fornecida por HUMAN-001
 - **repositório / branch:** `edinhogrubert/TeamKitCollection` | `main`
 - **estado de saída:** `ENTREGUE` (documental) — aguarda revisão de `AGT-001`
