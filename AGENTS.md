@@ -6,7 +6,7 @@ Este documento foi projetado para ser genérico, independente de fornecedor de I
 
 **Projeto:** TeamKitCollection\
 **Tipo:** Contrato operacional de entrada para agentes de inteligência artificial\
-**Versão do contrato:** 0.1.0\
+**Versão do contrato:** 0.1.1\
 **Estado:** Inicial — estrutura documental em implantação\
 **Aplicabilidade:** Todos os agentes de IA que atuem no projeto\
 **Autoridade:** Subordinada às decisões humanas autorizadas e às restrições de segurança aplicáveis
@@ -250,6 +250,10 @@ Essa separação constitui uma regra estrutural obrigatória do TeamKitCollectio
 ---
 
 ## 5. Protocolo obrigatório de entrada
+
+**Gate operacional mínimo (COM-001 §5 e COM-002):** antes de despachar ou iniciar escrita, conferir ID único do trabalho, tentativa, papel, capacidade comprovada conforme função, autorização humana vinculada à revisão da ordem, caminhos exatos, riscos, dependências e ausência de conflito. Confirmar a reivindicação no remoto antes de alterar artefatos substantivos. Se a capacidade ou posse falhar, parar; informar somente referência, estado e impedimento curto. Nenhuma autorização é herdada de outra sessão. Na entrega, comparar escopo e preservar eventos históricos; revisão independente por sessão distinta com fontes primárias antes do aceite quando exigida. O humano transporta referências, não relatórios operacionais integrais.
+
+**Registro da alteração:** TKC-0015-C03, AGT-001 III (ChatGPT / GPT-6.2, AUTODECLARADO; autoria e registro AGT-001 III), autorização HUMAN-001 MEDIADO, base `d5cfbad`, claim `5f21ee1`. Revisão distinta pendente; sem CI, configuração ou controle atômico implantados.
 
 **Primeira consulta de andamento:** após este arquivo, ler `IA/PROJETO.md` para identificar o estado confirmado e a próxima etapa; consultar `IA/PLANO_EVOLUCAO.md` somente quando a missão exigir visão dos marcos do método. Em seguida, localizar a tarefa específica quando existir. A ausência de um documento listado como planejado não é prova de sua implementação.
 
@@ -710,5 +714,5 @@ O TeamKitCollection deverá preservar seu conhecimento, suas decisões e seu est
 
 ---
 
-**Fim do contrato inicial — AGENTS.md v0.1.0**
+**Fim do contrato inicial — AGENTS.md v0.1.1**
 
