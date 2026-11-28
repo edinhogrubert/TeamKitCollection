@@ -1,11 +1,11 @@
-# PAINEL — TeamKitCollection (piloto L0/L1, não normativo)
+# PAINEL — TeamKitCollection (fotografia histórica e handoff de liderança)
 
 **Conferido em:** 2026-11-27, `main` `355be18e5c9cbd1bdbd44011ee536c0ae45b4ea6` (base da reconciliação; publicação do parecer neste mesmo avanço; revalidar HEAD atual a cada consulta).  
-**Tipo:** fotografia documental, **não** monitoramento automático ou presença em tempo real.  
+**Tipo:** fotografia documental histórica **DESATUALIZADA**; não é fonte de estado atual, monitoramento automático ou presença em tempo real. O contrato de continuidade no handoff abaixo é diretriz humana vigente; as demais propostas do piloto não foram adotadas automaticamente.  
 **Fonte primária:** `IA/tarefas/indice.md`, registros `IA/tarefas/TKC-XXXX.md`, despachos e commits. Se painel e registro divergirem, conferir evidência remota e sinalizar conflito; não escolher silenciosamente.  
 **Piloto:** `TKC-0014`; adoção de regras definitivas pendente de revisão e decisão humana.
 
-## Estado por frente e próxima ação verificável
+## Estado por frente e próxima ação verificável — HISTÓRICO (não usar para despachar)
 
 | Frente | Tarefa | Estado do trabalho / estado da informação | Falta para a etapa atual | Ação seguinte — responsável e critério de conclusão |
 |---|---|---|---|---|
@@ -28,10 +28,24 @@ Todo próximo passo publicado ou comunicado deve indicar: **(1) tarefa**, **(2) 
 
 **Entrada do novo líder:** HUMAN-001 nomeia substituto; ele lê `AGENTS.md`, `IA/PROJETO.md`, este painel, `IA/tarefas/indice.md` e somente as tarefas pertinentes; revalida HEAD/diffs e autorizações. **Este painel não transfere o cargo, a posse ou permissões por si só.**
 
-**Decisões pendentes:** (a) receber/revisar `TKC-PAR-0010`; (b) obter `TKC-PAR-0011`; (c) obter revisão independente do `TKC-PAR-0013` publicado; (d) decidir se a governança do piloto `TKC-0014` será adotada após teste; (e) somente depois planejar teste Fase B com HUMAN-001. Não assumir autorização Docker.
+### Contrato de continuidade da liderança — diretriz vigente de HUMAN-001
 
-**Risco prioritário:** `scripts/infra/teamkit-lab.sh` usa função de menu em contexto `if ( action ... )`; Bash pode suprimir `errexit` dentro da função. Não executar rotinas mutáveis de menu na VM até diagnóstico e correção/aceite pertinentes. Preservar PostgreSQL `tkc-postgres16` e volume nomeado `tkc-postgres16-data`.
+- **Missão e prioridade:** construir e evoluir o aplicativo TeamKitCollection. O método serve ao produto; preservar segurança e reduzir burocracia. Não transformar piloto ou impedimento em fim do projeto.
+- **Papel e autoridade:** AGT-001 coordena, distribui, decide tecnicamente, avalia resultados e responde pela direção; HUMAN-001 tem autoridade final. Consultores aconselham, não comandam; revisores não substituem a decisão técnica da liderança nem as autorizações humanas.
+- **Delegação:** AGT-003 DevOps/SRE prepara ambiente e scripts operacionais; AGT-004 Backend desenvolve backend e testes unitários; AGT-002 QA/Security revisa independentemente; AGT-005 Frontend/UX quando designado. HUMAN-001 executa testes na VM local existente, por scripts GitHub versionados via curl, com revisão fixa e verificação de integridade. O líder não assume atividade especializada por mera conveniência; exceção exige necessidade fundamentada, capacidade e autorização, sem autoaprovação.
+- **Restrição superior:** R$ 0,00, nada pago nem com possibilidade de cobrança futura; em dúvida, parar antes de operar. Esta determinação prevalece sobre permissões operacionais anteriores, inclusive exceções de gasto previstas genericamente em P7 enquanto a determinação estiver vigente. Sem provisionamento faturável.
+- **Continuidade estratégica:** preservar decisões anteriores salvo revisão fundamentada e autorizada quando necessária. Veredito de 28/11/2026: simplificação proporcional, controles essenciais preservados, retorno ao produto; sem novo ciclo de governança. Ata de referência: [9469255](https://github.com/edinhogrubert/TeamKitCollection/commit/9469255020a1edc65fbd533981530a12f114a334). Conferir estado macro em PROJETO.md e operacional no índice/tarefas; não herdar autorização ou posse.
 
-**Teste de substituição proposto:** revisor sem histórico responde, a partir de fontes Git, “quem faz o quê?”, “o que falta?”, “qual a primeira ação e seu gate?”, “o que não pode ser executado?”. Em cenário de ensaio isolado, introduzir registro propositalmente inconsistente (`ENTREGUE` sem artefato) e verificar se aponta discrepância, sem adulterar estado real. Não declarar teste executado antes de obter registro independente.
+**Autocontrole antes de assumir atividade:** responder internamente (1) pertence à minha função? (2) qual especialista deveria executar? (3) contribui para a prioridade atual? (4) esforço proporcional ao resultado? Se impedimentos se repetirem, interromper a repetição, reavaliar responsável, estratégia e alternativas; preservar segurança e não criar novo rito por reflexo. Não exigir formulário ou relatório adicional para esta checagem.
 
-**Rotina mínima de manutenção:** agente executor atualiza tarefa e evidências no checkpoint; AGT-001 reconcilia **somente linhas alteradas do painel** na entrega/revisão; não repetir o histórico. Se atualização não ocorrer, declarar painel desatualizado e consultar fontes antes de responder. Objetivo futuro: geração automática de resumo a partir das tarefas, sem criar segunda verdade.
+**Entrada em sucessão:** identificar missão, papel, equipe, limites superiores, decisão estratégica vigente e próximo passo real a partir das fontes primárias, sem usar a tabela histórica como estado atual. Aprendizado em TKC-0014 C02: AGT-001 III centralizou scripts e sucessivas tentativas CAP da TKC-0016; a correção é delegar e reavaliar a proporcionalidade. A eficácia do contrato ainda precisa ser observada; nenhuma garantia de que uma troca de modelo evitará desvios.
+
+**Decisões pendentes na fotografia histórica (não vigentes por este registro):** (a) receber/revisar `TKC-PAR-0010`; (b) obter `TKC-PAR-0011`; (c) obter revisão independente do `TKC-PAR-0013` publicado; (d) decidir se a governança do piloto `TKC-0014` será adotada após teste; (e) somente depois planejar teste Fase B com HUMAN-001. Não assumir autorização Docker.
+
+**Risco registrado na fotografia histórica (revalidar no Git):** `scripts/infra/teamkit-lab.sh` usa função de menu em contexto `if ( action ... )`; Bash pode suprimir `errexit` dentro da função. Não executar rotinas mutáveis de menu na VM até diagnóstico e correção/aceite pertinentes. Preservar PostgreSQL `tkc-postgres16` e volume nomeado `tkc-postgres16-data`.
+
+**Teste de substituição proposto:** revisor sem histórico responde, a partir de fontes Git, “qual a missão e prioridade?”, “quem faz o quê?”, “o que falta?”, “qual a primeira ação e seu gate?”, “o que não pode ser executado?”, “o que fazer diante de impedimentos repetidos?”. Em cenário de ensaio isolado, introduzir registro propositalmente inconsistente (`ENTREGUE` sem artefato) e verificar se aponta discrepância, sem adulterar estado real. Não declarar teste executado antes de obter registro independente.
+
+**Rotina mínima de manutenção:** atualizar tarefas e evidências nos registros próprios; manter a tabela acima como fotografia histórica, sem reconciliar estados em duplicidade. Consultar o índice, tarefas e PROJETO.md para estado vigente. Atualizar o contrato de continuidade somente quando houver decisão estratégica autorizada. Eventual resumo automático depende de decisão própria.
+
+**Atualização do handoff:** TKC-0014-C02, AGT-001 III (autoria e registro, modelo AUTODECLARADO), decisão HUMAN-001 MEDIADO, base `79ecc8a`, claim `1ee0cfe`; revisão independente e teste de sucessão pendentes.
