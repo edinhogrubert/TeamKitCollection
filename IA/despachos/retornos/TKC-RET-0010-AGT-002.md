@@ -1,3 +1,11 @@
+---
+agent_id: AGT-002
+ai_model: GPT-5 (Codex)
+role: auditoria
+published_by: HUMAN-001
+commit_sha: ebd6a66
+---
+
 # TKC-RET-0010-AGT-002 — Parecer curto de auditoria somente leitura
 
 **base:** `2c31ed1`
