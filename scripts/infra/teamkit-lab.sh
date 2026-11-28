@@ -27,8 +27,12 @@ fetch_script() {
   case "$name" in install-docker-ubuntu.sh|postgres16-lab.sh|backend-lab.sh) ;; *) die 'Nome de script não permitido.' ;; esac
   local script_ref="$SCRIPTS_REV"
   if [[ "$name" == backend-lab.sh ]]; then script_ref="$BACKEND_REV"; fi
+  rm -f -- "${TMP_DIR}/${name}"
   curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
-    "https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/${script_ref}/scripts/infra/${name}" -o "${TMP_DIR}/${name}"
+    "https://raw.githubusercontent.com/edinhogrubert/TeamKitCollection/${script_ref}/scripts/infra/${name}" -o "${TMP_DIR}/${name}" \
+    || die "Falha ao baixar instalador: ${name} @ ${script_ref:0:12}"
+  [[ -s "${TMP_DIR}/${name}" ]] || die "Arquivo baixado vazio ou ausente: $name"
+  chmod 700 "${TMP_DIR}/${name}"
   bash -n "${TMP_DIR}/${name}" || die "Sintaxe inválida: $name"
   info "Instalador revisionado: ${name} @ ${script_ref:0:12}"
 }
@@ -133,13 +137,17 @@ action() {
 
 run_menu_action() {
   local act="$1" rc=0
-  if ( action "$act" ); then
-    return 0
-  else
-    rc=$?
+  set +e
+  (
+    set -Eeuo pipefail
+    action "$act"
+  )
+  rc=$?
+  set -e
+  if (( rc != 0 )); then
     printf '[ATENÇÃO] Ação "%s" finalizou com código %s. O menu permanece ativo para diagnóstico.\n' "$act" "$rc" >&2
-    return 0
   fi
+  return 0
 }
 
 menu() {
