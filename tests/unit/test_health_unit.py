@@ -1,6 +1,7 @@
 """Unidade: não consulta PostgreSQL, Docker ou rede externa."""
 from unittest.mock import patch
 
+import pytest
 from fastapi.testclient import TestClient
 
 from src.backend.main import app
@@ -16,15 +17,17 @@ def test_health_ok():
     mock_check.assert_called_once()
 
 
-def test_health_unavailable_does_not_leak_secret():
+@pytest.mark.parametrize("error_type", [Exception, OSError])
+def test_health_unavailable_does_not_leak_secret(error_type):
     secret = "tkc-secret-value-never-echo"
-    with patch("src.backend.main.check_database", side_effect=Exception(secret)):
+    with patch("src.backend.main.check_database", side_effect=error_type(secret)) as mock_check:
         response = client.get("/health")
     assert response.status_code == 503
     assert response.json() == {
         "status": "unhealthy", "database": "down", "error": "DB_UNAVAILABLE"
     }
     assert secret not in response.text
+    mock_check.assert_called_once()
 
 
 def test_health_recovery_without_restart():
